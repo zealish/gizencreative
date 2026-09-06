@@ -34,7 +34,7 @@ function ToolbarButton({
       onClick={onClick}
       className={`grid size-8 cursor-pointer place-items-center rounded-lg text-xs font-bold transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
         active
-          ? "bg-foreground text-background"
+          ? "bg-primary text-white"
           : "text-muted hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10"
       }`}
     >

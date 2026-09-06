@@ -164,7 +164,7 @@ export function PricingPlans() {
                   className={`mt-7 rounded-full px-5 py-3 text-center text-xs font-bold uppercase tracking-wide transition-opacity hover:opacity-85 ${
                     plan.featured
                       ? "bg-accent text-white dark:text-background"
-                      : "bg-foreground text-background"
+                      : "bg-primary text-white"
                   }`}
                 >
                   {t("planCta")}
@@ -186,7 +186,7 @@ export function PricingPlans() {
             </div>
             <a
               href="/#kontak"
-              className="shrink-0 rounded-full bg-foreground px-6 py-3 text-xs font-bold uppercase tracking-wide text-background transition-opacity hover:opacity-85"
+              className="shrink-0 rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-85"
             >
               {t("bundle.cta")}
             </a>

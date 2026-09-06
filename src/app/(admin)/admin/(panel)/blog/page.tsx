@@ -46,7 +46,7 @@ export default async function AdminBlogPage() {
         />
         <Link
           href="/admin/blog/new"
-          className="rounded-full bg-foreground px-6 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-85"
+          className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
         >
           {t("newPost")}
         </Link>

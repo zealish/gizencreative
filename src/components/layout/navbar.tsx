@@ -155,7 +155,7 @@ function MobileMenu() {
           <Link
             href="/#kontak"
             onClick={() => setOpen(false)}
-            className="mt-2 block rounded-xl bg-foreground px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-background"
+            className="mt-2 block rounded-xl bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-white"
           >
             {t("cta")}
           </Link>
@@ -202,7 +202,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
           <ThemeToggle />
           <Link
             href="/#kontak"
-            className="hidden rounded-full bg-foreground px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-background shadow-md transition-opacity hover:opacity-85 md:inline-block"
+            className="hidden rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-opacity hover:opacity-85 md:inline-block"
           >
             {t("cta")}
           </Link>

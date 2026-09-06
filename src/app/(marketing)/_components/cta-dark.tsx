@@ -1,18 +1,35 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 import { ScrollScale } from "@/components/scroll-scale";
 import { WaLink } from "@/components/wa-link";
 
-export function CtaDark() {
+export function CtaDark({ image }: { image?: string | null }) {
   const t = useTranslations("ctaDark");
 
   return (
     <section id="kontak" className="px-4 py-14 sm:py-20">
-      <ScrollScale className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-foreground px-5 py-16 text-center text-background dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground sm:rounded-[2.5rem] sm:px-6 sm:py-24">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,165,107,0.4),transparent_60%)]"
-        />
+      <ScrollScale className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-primary px-5 py-16 text-center text-white dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground sm:rounded-[2.5rem] sm:px-6 sm:py-24">
+        {image ? (
+          <>
+            <Image
+              src={image}
+              alt=""
+              fill
+              unoptimized
+              className="object-cover"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-black/60"
+            />
+          </>
+        ) : (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,135,221,0.4),transparent_60%)]"
+          />
+        )}
         <div className="relative">
           <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
             {t("titleLine1")}

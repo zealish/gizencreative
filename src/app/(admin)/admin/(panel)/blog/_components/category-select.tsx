@@ -365,7 +365,7 @@ function CreateCategoryModal({
             effectiveSlug.length < 2
           }
           onClick={handleSubmit}
-          className="w-full rounded-full bg-foreground px-6 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-85 disabled:opacity-50"
+          className="w-full rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85 disabled:opacity-50"
         >
           {isPending ? t("creating") : t("createButton")}
         </button>

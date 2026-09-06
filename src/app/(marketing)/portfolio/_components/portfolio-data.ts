@@ -15,7 +15,7 @@ export const portfolioItems: PortfolioItem[] = [
     key: "arunika",
     category: "website",
     badge: "new",
-    gradient: "from-emerald-200 via-teal-100 to-sky-200",
+    gradient: "from-blue-200 via-sky-100 to-cyan-200",
   },
   {
     key: "kopiSemesta",
@@ -31,7 +31,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     key: "sehatDaily",
     category: "seo",
-    gradient: "from-lime-200 via-emerald-100 to-teal-200",
+    gradient: "from-sky-200 via-blue-100 to-indigo-200",
   },
   {
     key: "batikNusantara",
@@ -42,6 +42,6 @@ export const portfolioItems: PortfolioItem[] = [
     key: "travelindo",
     category: "social",
     badge: "new",
-    gradient: "from-sky-200 via-cyan-100 to-emerald-200",
+    gradient: "from-cyan-200 via-sky-100 to-blue-200",
   },
 ];

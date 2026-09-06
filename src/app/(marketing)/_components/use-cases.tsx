@@ -16,7 +16,7 @@ const useCases: { id: UseCaseId; background: string; href: string }[] = [
   {
     id: "socialMedia",
     background:
-      "radial-gradient(circle at 30% 30%, #10a56b 0%, #0a5c3d 55%, #073e2a 100%)",
+      "radial-gradient(circle at 30% 30%, #1087dd 0%, #0b5d99 55%, #073d66 100%)",
     href: "/services/social-media-management",
   },
   {

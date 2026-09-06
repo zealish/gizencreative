@@ -52,11 +52,11 @@ export default async function GeneralSettingsPage() {
               name="logo"
               accept="image/png,image/jpeg,image/svg+xml,image/webp"
               required
-              className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-2.5 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-foreground file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-background dark:border-white/20 dark:bg-white/5"
+              className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-2.5 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-white dark:border-white/20 dark:bg-white/5"
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-foreground px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
+              className="shrink-0 rounded-full bg-primary px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85"
             >
               {logo ? t("logoReplace") : t("logoUpload")}
             </button>
@@ -132,7 +132,7 @@ export default async function GeneralSettingsPage() {
           </div>
           <button
             type="submit"
-            className="rounded-full bg-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
+            className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
           >
             {t("save")}
           </button>

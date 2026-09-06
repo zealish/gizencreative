@@ -1558,7 +1558,7 @@
         "analytics": "Analitik",
         "smtp": "SMTP",
         "storage": "Penyimpanan",
-        "useCases": "Use Case"
+        "pages": "Halaman"
       },
       "general": {
         "title": "Umum",
@@ -1656,18 +1656,36 @@
         },
         "save": "Simpan Perubahan"
       },
-      "useCases": {
-        "title": "Use Case",
-        "description": "Gambar latar untuk setiap section use case di beranda.",
-        "sections": {
-          "website": "Website",
-          "socialMedia": "Social Media",
-          "seo": "SEO"
-        },
-        "hint": "Opsional. Kosongkan untuk menggunakan latar gradien bawaan.",
+      "pages": {
+        "title": "Halaman",
+        "description": "Kelola pengaturan konten untuk setiap halaman di situs.",
         "browse": "Telusuri",
         "clear": "Hapus",
-        "save": "Simpan Perubahan"
+        "useCases": {
+          "title": "Use Case",
+          "description": "Gambar latar untuk setiap section use case di beranda.",
+          "sections": {
+            "website": "Website",
+            "socialMedia": "Social Media",
+            "seo": "SEO"
+          },
+          "hint": "Opsional. Kosongkan untuk menggunakan latar gradien bawaan.",
+          "save": "Simpan Perubahan"
+        },
+        "bento": {
+          "title": "Bento",
+          "description": "Gambar latar untuk kartu highlight di section bento beranda.",
+          "customLabel": "Kartu Highlight",
+          "hint": "Opsional. Kosongkan untuk menggunakan latar gradien bawaan.",
+          "save": "Simpan Perubahan"
+        },
+        "ctaDark": {
+          "title": "CTA",
+          "description": "Gambar latar untuk section call-to-action di bagian bawah beranda.",
+          "imageLabel": "Gambar Latar",
+          "hint": "Opsional. Kosongkan untuk menggunakan latar gradien bawaan.",
+          "save": "Simpan Perubahan"
+        }
       }
     }
   }

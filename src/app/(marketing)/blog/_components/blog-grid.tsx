@@ -79,7 +79,7 @@ export function BlogGrid({
                 onClick={() => setFilter(option.slug)}
                 className={`rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-colors ${
                   filter === option.slug
-                    ? "bg-foreground text-background shadow-lg"
+                    ? "bg-primary text-white shadow-lg"
                     : "border border-black/10 bg-white text-muted hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
                 }`}
               >

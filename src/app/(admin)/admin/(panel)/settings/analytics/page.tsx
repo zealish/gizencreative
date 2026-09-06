@@ -88,7 +88,7 @@ export default async function AnalyticsSettingsPage() {
           <p className="text-xs text-muted">{t("analyticsFallbackHint")}</p>
           <button
             type="submit"
-            className="rounded-full bg-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
+            className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85"
           >
             {t("save")}
           </button>
@@ -128,11 +128,11 @@ export default async function AnalyticsSettingsPage() {
             name="credentials"
             accept="application/json,.json"
             required
-            className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-3 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-foreground file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-background dark:border-white/20 dark:bg-white/5"
+            className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-3 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-white dark:border-white/20 dark:bg-white/5"
           />
           <button
             type="submit"
-            className="rounded-full bg-foreground px-7 py-3 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
+            className="rounded-full bg-primary px-7 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85"
           >
             {gaCreds ? t("gaCredsReplace") : t("gaCredsUpload")}
           </button>

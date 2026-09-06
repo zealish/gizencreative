@@ -127,7 +127,7 @@ export function StorageForm({
 
       <button
         type="submit"
-        className="rounded-full bg-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
+        className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85"
       >
         {t("save")}
       </button>

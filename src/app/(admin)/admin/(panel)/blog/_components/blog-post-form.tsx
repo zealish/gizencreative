@@ -199,7 +199,7 @@ export async function BlogPostForm({
       </label>
       <button
         type="submit"
-        className="rounded-full bg-foreground px-6 py-2.5 text-sm font-semibold text-background transition-opacity hover:opacity-85"
+        className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
       >
         {post ? t("saveButton") : t("createButton")}
       </button>

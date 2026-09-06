@@ -59,7 +59,7 @@ function ServiceVisual({ service }: { service: Service }) {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-white/5 dark:shadow-black/40">
       <div className="flex items-center justify-between">
-        <span className="rounded-md bg-foreground px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-background">
+        <span className="rounded-md bg-primary px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
           {t(`items.${service.id}.eyebrow`)}
         </span>
         <span className="rounded-md bg-accent-soft px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-accent">

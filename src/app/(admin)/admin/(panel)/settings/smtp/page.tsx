@@ -92,7 +92,7 @@ export default async function SmtpSettingsPage() {
           <button
             type="submit"
             disabled
-            className="rounded-full bg-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
+            className="rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
           >
             {t("save")}
           </button>

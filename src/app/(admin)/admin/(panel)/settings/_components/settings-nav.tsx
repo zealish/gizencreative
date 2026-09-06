@@ -10,7 +10,7 @@ const navItems = [
   { key: "analytics", href: "/admin/settings/analytics" },
   { key: "smtp", href: "/admin/settings/smtp" },
   { key: "storage", href: "/admin/settings/storage" },
-  { key: "useCases", href: "/admin/settings/use-cases" },
+  { key: "pages", href: "/admin/settings/pages" },
 ] as const;
 
 export function SettingsNav() {
@@ -27,7 +27,7 @@ export function SettingsNav() {
             href={item.href}
             className={`rounded-xl px-3 py-2.5 text-sm font-semibold whitespace-nowrap transition-colors ${
               active
-                ? "bg-foreground text-background"
+                ? "bg-primary text-white"
                 : "text-muted hover:bg-black/5 hover:text-foreground dark:hover:bg-white/5"
             }`}
           >

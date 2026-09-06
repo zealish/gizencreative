@@ -1,6 +1,7 @@
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-export function Bento() {
+export function Bento({ customImage }: { customImage?: string | null }) {
   const t = useTranslations("bento");
 
   return (
@@ -11,12 +12,28 @@ export function Bento() {
         </h2>
         <div className="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-3">
           {/* Big dark card */}
-          <div className="relative flex min-h-64 flex-col justify-end overflow-hidden rounded-3xl bg-foreground p-6 text-background shadow-[0_1px_2px_rgba(22,24,26,0.06),0_16px_40px_-12px_rgba(22,24,26,0.25)] dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground dark:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.5)] sm:min-h-72 sm:p-8 lg:col-span-2">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(16,165,107,0.35),transparent_55%)]"
-            />
-            <span className="relative w-fit rounded-full bg-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+          <div className="relative flex min-h-64 flex-col justify-end overflow-hidden rounded-3xl bg-primary p-6 text-white shadow-[0_1px_2px_rgba(22,24,26,0.06),0_16px_40px_-12px_rgba(22,24,26,0.25)] dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground dark:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.5)] sm:min-h-72 sm:p-8 lg:col-span-2">
+            {customImage ? (
+              <>
+                <Image
+                  src={customImage}
+                  alt=""
+                  fill
+                  unoptimized
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"
+                />
+              </>
+            ) : (
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(16,135,221,0.35),transparent_55%)]"
+              />
+            )}
+            <span className="relative w-fit rounded-full bg-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-300">
               {t("custom.badge")}
             </span>
             <h3 className="relative mt-4 text-2xl font-bold">
@@ -80,7 +97,7 @@ export function Bento() {
                   {t("lead.placeholder")}
                 </span>
                 <span
-                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-foreground text-background"
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary text-white"
                   aria-hidden="true"
                 >
                   →

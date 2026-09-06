@@ -11,12 +11,12 @@ export type BlogCategoryRecord = typeof blogCategory.$inferSelect;
 export type BlogCommentRecord = typeof blogComment.$inferSelect;
 
 const gradients = [
-  "from-emerald-200 via-teal-100 to-sky-200",
+  "from-blue-200 via-sky-100 to-cyan-200",
   "from-amber-200 via-orange-100 to-rose-200",
-  "from-lime-200 via-emerald-100 to-teal-200",
+  "from-sky-200 via-blue-100 to-indigo-200",
   "from-indigo-200 via-purple-100 to-fuchsia-200",
   "from-rose-200 via-pink-100 to-amber-100",
-  "from-sky-200 via-cyan-100 to-emerald-200",
+  "from-cyan-200 via-sky-100 to-blue-200",
 ] as const;
 
 function gradientForSlug(slug: string): string {

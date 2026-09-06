@@ -53,7 +53,7 @@ export function UserMenu({ name, email }: { name: string; email: string }) {
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
-        className="grid size-9 cursor-pointer place-items-center rounded-full bg-foreground text-xs font-bold text-background transition-opacity hover:opacity-80"
+        className="grid size-9 cursor-pointer place-items-center rounded-full bg-primary text-xs font-bold text-white transition-opacity hover:opacity-80"
       >
         {initials}
       </button>

@@ -3,17 +3,19 @@
 :root {
   --background: #f6f5f2;
   --foreground: #16181a;
-  --accent: #0b7a4f;
-  --accent-soft: #e3f4ec;
+  --accent: #1087dd;
+  --accent-soft: #e3f0fb;
   --muted: #6b7076;
+  --primary: #1087dd;
 }
 
 .dark {
   --background: #101214;
   --foreground: #f3f4f5;
-  --accent: #14c07f;
-  --accent-soft: #12332a;
+  --accent: #3ba1ea;
+  --accent-soft: #122a3a;
   --muted: #9aa0a6;
+  --primary: #1087dd;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -39,6 +41,7 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-muted: var(--muted);
+  --color-primary: var(--primary);
   --font-sans: var(--font-lato);
 }
 

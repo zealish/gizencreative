@@ -7,10 +7,10 @@ export function WebDevCta() {
 
   return (
     <section className="px-4 pb-14 sm:pb-20">
-      <ScrollScale className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-foreground px-5 py-16 text-center text-background dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground sm:rounded-[2.5rem] sm:px-6 sm:py-24">
+      <ScrollScale className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-primary px-5 py-16 text-center text-white dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground sm:rounded-[2.5rem] sm:px-6 sm:py-24">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,165,107,0.4),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,135,221,0.4),transparent_60%)]"
         />
         <div className="relative">
           <p className="mx-auto flex w-fit items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-background/80 backdrop-blur dark:text-foreground/80">

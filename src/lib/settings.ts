@@ -251,6 +251,42 @@ export const getUseCaseImages = unstable_cache(
   { tags: ["site-settings"] },
 );
 
+export const BENTO_CUSTOM_IMAGE_KEY = "bentoCustomImage";
+
+export const getBentoCustomImage = unstable_cache(
+  async (): Promise<string | null> => {
+    try {
+      const rows = await db
+        .select({ value: siteSetting.value })
+        .from(siteSetting)
+        .where(eq(siteSetting.key, BENTO_CUSTOM_IMAGE_KEY));
+      return rows[0]?.value || null;
+    } catch {
+      return null;
+    }
+  },
+  ["bento-custom-image"],
+  { tags: ["site-settings"] },
+);
+
+export const CTA_DARK_IMAGE_KEY = "ctaDarkImage";
+
+export const getCtaDarkImage = unstable_cache(
+  async (): Promise<string | null> => {
+    try {
+      const rows = await db
+        .select({ value: siteSetting.value })
+        .from(siteSetting)
+        .where(eq(siteSetting.key, CTA_DARK_IMAGE_KEY));
+      return rows[0]?.value || null;
+    } catch {
+      return null;
+    }
+  },
+  ["cta-dark-image"],
+  { tags: ["site-settings"] },
+);
+
 export const STORAGE_PROVIDERS = ["local", "cloudinary", "s3", "r2"] as const;
 
 export type StorageProvider = (typeof STORAGE_PROVIDERS)[number];

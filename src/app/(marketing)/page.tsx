@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getPageSeo, getUseCaseImages } from "@/lib/settings";
+import {
+  getBentoCustomImage,
+  getCtaDarkImage,
+  getPageSeo,
+  getUseCaseImages,
+} from "@/lib/settings";
 
 import { Bento } from "./_components/bento";
 import { CtaDark } from "./_components/cta-dark";
@@ -23,7 +28,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function MarketingPage() {
-  const useCaseImages = await getUseCaseImages();
+  const [useCaseImages, bentoImage, ctaDarkImage] = await Promise.all([
+    getUseCaseImages(),
+    getBentoCustomImage(),
+    getCtaDarkImage(),
+  ]);
 
   return (
     <>
@@ -31,12 +40,12 @@ export default async function MarketingPage() {
       <div className="bg-[#f9fafb] dark:bg-background">
         <TechMarquee />
         <Services />
-        <Bento />
+        <Bento customImage={bentoImage} />
         <Testimonials />
         <UseCases images={useCaseImages} />
         <WhyChooseUs />
         <Faq />
-        <CtaDark />
+        <CtaDark image={ctaDarkImage} />
       </div>
     </>
   );

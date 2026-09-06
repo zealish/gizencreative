@@ -20,7 +20,7 @@ export function UseCaseImagePicker({
   defaultValue?: string;
   files: CoverMediaItem[];
 }) {
-  const t = useTranslations("admin.settings.useCases");
+  const t = useTranslations("admin.settings.pages");
   const [value, setValue] = useState(defaultValue ?? "");
   const [open, setOpen] = useState(false);
 

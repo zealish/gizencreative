@@ -1558,7 +1558,7 @@
         "analytics": "Analytics",
         "smtp": "SMTP",
         "storage": "Storage",
-        "useCases": "Use Cases"
+        "pages": "Pages"
       },
       "general": {
         "title": "General",
@@ -1655,20 +1655,37 @@
           "publicUrlLabel": "Public Base URL"
         },
         "save": "Save Changes"
-      }
-      ,
-      "useCases": {
-        "title": "Use Cases",
-        "description": "Background images for each section in the homepage use cases.",
-        "sections": {
-          "website": "Website",
-          "socialMedia": "Social Media",
-          "seo": "SEO"
-        },
-        "hint": "Optional. Leave empty to use the default gradient background.",
+      },
+      "pages": {
+        "title": "Pages",
+        "description": "Manage content settings for each page on the site.",
         "browse": "Browse",
         "clear": "Remove",
-        "save": "Save Changes"
+        "useCases": {
+          "title": "Use Cases",
+          "description": "Background images for each section in the homepage use cases.",
+          "sections": {
+            "website": "Website",
+            "socialMedia": "Social Media",
+            "seo": "SEO"
+          },
+          "hint": "Optional. Leave empty to use the default gradient background.",
+          "save": "Save Changes"
+        },
+        "bento": {
+          "title": "Bento",
+          "description": "Background image for the highlight card in the homepage bento section.",
+          "customLabel": "Highlight Card",
+          "hint": "Optional. Leave empty to use the default gradient background.",
+          "save": "Save Changes"
+        },
+        "ctaDark": {
+          "title": "CTA",
+          "description": "Background image for the call-to-action section at the bottom of the homepage.",
+          "imageLabel": "Background Image",
+          "hint": "Optional. Leave empty to use the default gradient background.",
+          "save": "Save Changes"
+        }
       }
     }
   }

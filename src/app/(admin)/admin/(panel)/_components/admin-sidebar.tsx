@@ -161,7 +161,7 @@ export function AdminSidebar({
               />
             ) : (
               <>
-                <span className="grid h-7 w-7 place-items-center rounded-md bg-foreground text-background">
+                <span className="grid h-7 w-7 place-items-center rounded-md bg-primary text-white">
                   <svg
                     width="14"
                     height="14"
@@ -218,7 +218,7 @@ export function AdminSidebar({
                   collapsed ? "lg:justify-center lg:px-0" : ""
                 } ${
                   active
-                    ? "bg-foreground text-background"
+                    ? "bg-primary text-white"
                     : "text-muted hover:bg-black/5 hover:text-foreground dark:hover:bg-white/5"
                 }`}
               >

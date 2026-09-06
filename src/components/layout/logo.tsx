@@ -15,7 +15,7 @@ export function Logo({ logoUrl }: { logoUrl?: string | null }) {
         />
       ) : (
         <>
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-foreground text-background">
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-primary text-white">
             <svg
               width="14"
               height="14"

@@ -3,12 +3,12 @@ import { useTranslations } from "next-intl";
 import { HeroParticles } from "./hero-particles";
 
 const avatarColors = [
-  "bg-emerald-200",
+  "bg-blue-200",
   "bg-amber-200",
   "bg-sky-200",
   "bg-rose-200",
   "bg-violet-200",
-  "bg-lime-200",
+  "bg-cyan-200",
   "bg-orange-200",
 ];
 
@@ -28,7 +28,7 @@ export function Hero() {
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
             href="#kontak"
-            className="w-full max-w-xs rounded-full bg-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85 sm:w-auto"
+            className="w-full max-w-xs rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85 sm:w-auto"
           >
             {t("ctaPrimary")}
           </a>
