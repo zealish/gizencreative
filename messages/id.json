@@ -647,15 +647,7 @@
     "readArticle": "Baca Artikel",
     "allPosts": "Semua Artikel",
     "filters": {
-      "all": "Semua",
-      "website": "Website",
-      "social": "Social Media",
-      "seo": "SEO"
-    },
-    "categories": {
-      "website": "Website Development",
-      "social": "Social Media Management",
-      "seo": "SEO Website"
+      "all": "Semua"
     },
     "tags": {
       "design": "Desain",
@@ -697,8 +689,9 @@
       "messageLabel": "Komentar",
       "messagePlaceholder": "Tulis komentar Anda...",
       "submit": "Kirim Komentar",
-      "emptyState": "Jadilah yang pertama membagikan pendapat Anda.",
-      "justNow": "Baru saja"
+      "submitting": "Mengirim...",
+      "pendingNotice": "Terima kasih! Komentar Anda akan tampil setelah disetujui.",
+      "emptyState": "Jadilah yang pertama membagikan pendapat Anda."
     },
     "posts": {
       "websiteGuide": {
@@ -1291,6 +1284,21 @@
     }
   },
   "admin": {
+    "dataTable": {
+      "searchPlaceholder": "Cari…",
+      "reset": "Reset",
+      "export": "Ekspor",
+      "noResults": "Tidak ada hasil.",
+      "rowsPerPage": "Baris per halaman",
+      "pageOf": "Halaman {page} dari {total}",
+      "firstPage": "Ke halaman pertama",
+      "previousPage": "Ke halaman sebelumnya",
+      "nextPage": "Ke halaman berikutnya",
+      "lastPage": "Ke halaman terakhir",
+      "selectedCount": "{selected} dari {total} baris dipilih",
+      "selectAll": "Pilih semua",
+      "selectRow": "Pilih baris"
+    },
     "login": {
       "eyebrow": "Area Admin",
       "title": "Masuk ke Dashboard",
@@ -1305,6 +1313,8 @@
       "dashboard": "Dashboard",
       "settings": "Pengaturan",
       "media": "Media",
+      "blog": "Blog",
+      "comments": "Komentar",
       "backToSite": "Kembali ke Situs",
       "openMenu": "Buka menu",
       "closeMenu": "Tutup menu",
@@ -1318,10 +1328,14 @@
       "title": "Selamat datang kembali",
       "description": "Kelola konten situs Gizen Creative dari sini.",
       "signOut": "Keluar",
+      "postsCardTitle": "Artikel Blog",
+      "postsCardDescription": "Artikel terbit yang tayang di blog.",
+      "postsCardManage": "Kelola artikel blog",
+      "draftsCardTitle": "Draf Blog",
+      "draftsCardDescription": "Artikel belum terbit yang menunggu tayang.",
+      "draftsCardManage": "Lihat draf",
       "storageCardTitle": "Penyimpanan",
-      "storageCardDescription": "Penggunaan provider penyimpanan media yang aktif.",
       "storageCardManage": "Kelola pengaturan penyimpanan",
-      "storageBadge": "{provider} aktif",
       "usedLabel": "Terpakai",
       "totalLabel": "Total",
       "statsBucket": "Bucket",
@@ -1336,7 +1350,12 @@
       },
       "analytics": {
         "title": "Analitik",
-        "description": "Trafik Google Analytics selama 28 hari terakhir.",
+        "description": "Trafik Google Analytics selama {days} terakhir.",
+        "range": {
+          "7d": "7 hari",
+          "28d": "28 hari",
+          "90d": "90 hari"
+        },
         "badgeConnected": "GA4 terhubung",
         "badgeNotConnected": "Belum terhubung",
         "activeUsers": "Pengguna Aktif",
@@ -1346,6 +1365,161 @@
         "noData": "Belum ada data. Konfigurasikan kredensial GA4 dan ID properti untuk melihat statistik.",
         "topPages": "Halaman Teratas",
         "manage": "Kelola pengaturan analitik"
+      },
+      "waTrackers": {
+        "title": "WhatsApp Trackers",
+        "description": "Setiap klik tombol WhatsApp direkam beserta lokasi dan waktunya.",
+        "totalBadge": "{count, plural, =0 {Belum ada klik} one {# klik} other {# klik}} · {days}",
+        "range": {
+          "7d": "7 hari",
+          "28d": "28 hari",
+          "90d": "90 hari"
+        },
+        "empty": "Belum ada klik WhatsApp yang terekam pada periode ini.",
+        "bySource": "Klik per Sumber",
+        "recent": "Klik Terbaru",
+        "sources": {
+          "floating-button": "Tombol Mengambang",
+          "cta-home": "CTA Beranda",
+          "cta-about": "CTA Tentang",
+          "cta-contact": "CTA Kontak",
+          "contact-channel": "Kanal Kontak",
+          "footer": "Footer"
+        }
+      }
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "title": "Artikel Blog",
+      "description": "Buat dan kelola artikel yang tampil di halaman blog.",
+      "newPost": "Artikel Baru",
+      "listTitle": "Semua Artikel",
+      "postCount": "{count, plural, =0 {Belum ada artikel} one {# artikel} other {# artikel}}",
+      "empty": "Belum ada artikel blog. Buat artikel pertama Anda.",
+      "statusPublished": "Terbit",
+      "statusDraft": "Draf",
+      "publish": "Terbitkan",
+      "unpublish": "Batalkan Terbit",
+      "edit": "Edit",
+      "delete": "Hapus",
+      "backToList": "Kembali ke Artikel Blog",
+      "newTitle": "Artikel Baru",
+      "newDescription": "Tulis artikel baru dalam bahasa Indonesia dan Inggris.",
+      "editTitle": "Edit Artikel",
+      "editDescription": "Perbarui konten dan pengaturan artikel.",
+      "columns": {
+        "title": "Judul",
+        "slug": "Slug",
+        "category": "Kategori",
+        "status": "Status",
+        "date": "Tanggal",
+        "actions": "Aksi"
+      },
+      "searchPlaceholder": "Cari judul…",
+      "form": {
+        "slug": "Slug",
+        "slugReadonlyHint": "Slug tidak dapat diubah setelah artikel dibuat.",
+        "category": "Kategori",
+        "categorySelect": {
+          "placeholder": "Pilih kategori",
+          "searchPlaceholder": "Cari kategori...",
+          "empty": "Kategori tidak ditemukan.",
+          "createNew": "Buat kategori baru",
+          "viewAll": "Lihat semua",
+          "allTitle": "Semua Kategori",
+          "createTitle": "Buat Kategori Baru",
+          "nameIdLabel": "Nama (Indonesia)",
+          "nameEnLabel": "Nama (Inggris)",
+          "slugLabel": "Slug",
+          "slugHint": "Digunakan di URL, mis. /blog/category/branding-desain.",
+          "errorDuplicate": "Slug kategori sudah dipakai.",
+          "errorInvalid": "Data kategori tidak valid.",
+          "creating": "Membuat...",
+          "createButton": "Buat Kategori",
+          "selectedLabel": "Terpilih",
+          "useLabel": "Pilih"
+        },
+        "tags": "Tag",
+        "tagsHint": "Maksimal 8 tag. Tekan Enter untuk menambah tag baru.",
+        "tagsSelect": {
+          "placeholder": "Cari atau tambah tag...",
+          "limitReached": "Batas tag tercapai",
+          "createNew": "Tambah \"{tag}\"",
+          "remove": "Hapus tag {tag}"
+        },
+        "coverImage": "URL Gambar Sampul",
+        "coverImageHint": "Opsional. Gunakan file dari pustaka media. Kosongkan untuk sampul gradien.",
+        "coverImageBrowse": "Telusuri",
+        "coverImageClear": "Hapus",
+        "coverImageModalTitle": "Pustaka Media",
+        "coverImageModalClose": "Tutup",
+        "coverImageSearchPlaceholder": "Cari gambar...",
+        "coverImageEmpty": "Tidak ada gambar. Unggah file di halaman Media terlebih dahulu.",
+        "coverImageUpload": "Unggah",
+        "coverImageUploading": "Mengunggah…",
+        "coverImageUploadError": "Unggahan gagal. Silakan coba lagi.",
+        "readMinutes": "Waktu Baca (menit)",
+        "readMinutesHint": "Dihitung otomatis dari jumlah kata pada konten.",
+        "publishedAt": "Tanggal Terbit",
+        "datePicker": {
+          "label": "Pilih tanggal",
+          "prevMonth": "Bulan sebelumnya",
+          "nextMonth": "Bulan berikutnya",
+          "today": "Hari Ini"
+        },
+        "titleId": "Judul (Indonesia)",
+        "titleEn": "Judul (Inggris)",
+        "excerptId": "Ringkasan (Indonesia)",
+        "excerptEn": "Ringkasan (Inggris)",
+        "contentId": "Konten (Indonesia)",
+        "contentEn": "Konten (Inggris)",
+        "contentHint": "Gunakan toolbar untuk heading, daftar, tautan, dan gambar.",
+        "editor": {
+          "placeholder": "Tulis artikel Anda...",
+          "bold": "Tebal",
+          "italic": "Miring",
+          "strike": "Coret",
+          "code": "Kode inline",
+          "codeBlock": "Blok kode",
+          "heading2": "Heading 2",
+          "heading3": "Heading 3",
+          "bulletList": "Daftar poin",
+          "orderedList": "Daftar bernomor",
+          "blockquote": "Kutipan",
+          "horizontalRule": "Pembatas",
+          "link": "Tautan",
+          "linkPrompt": "URL tautan (kosongkan untuk menghapus)",
+          "image": "Gambar",
+          "imagePrompt": "URL gambar",
+          "words": "{count} kata",
+          "characters": "{count} karakter"
+        },
+        "published": "Terbit",
+        "createButton": "Buat Artikel",
+        "saveButton": "Simpan Perubahan"
+      }
+    },
+    "comments": {
+      "eyebrow": "Komentar",
+      "title": "Komentar Blog",
+      "description": "Moderasi komentar yang dikirim pada artikel blog.",
+      "listTitle": "Semua Komentar",
+      "commentCount": "{count, plural, =0 {Tidak ada komentar} one {# komentar} other {# komentar}}",
+      "pendingCount": "{count, plural, one {# menunggu} other {# menunggu}}",
+      "statusApproved": "Disetujui",
+      "statusPending": "Menunggu",
+      "approve": "Setujui",
+      "unapprove": "Batalkan Persetujuan",
+      "viewPost": "Lihat Artikel",
+      "delete": "Hapus",
+      "searchPlaceholder": "Cari nama…",
+      "columns": {
+        "name": "Nama",
+        "message": "Komentar",
+        "post": "Artikel",
+        "status": "Status",
+        "date": "Tanggal",
+        "actions": "Aksi"
       }
     },
     "media": {

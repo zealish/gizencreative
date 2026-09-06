@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { ScrollScale } from "@/components/scroll-scale";
+import { WaLink } from "@/components/wa-link";
 
 export function CtaDark() {
   const t = useTranslations("ctaDark");
@@ -22,12 +23,13 @@ export function CtaDark() {
             {t("description")}
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <WaLink
+              source="cta-home"
               href="https://wa.me/6281234567890"
               className="flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground dark:text-background transition-opacity hover:opacity-90 sm:w-auto"
             >
               {t("ctaWhatsApp")} <span aria-hidden="true">→</span>
-            </a>
+            </WaLink>
             <a
               href="mailto:hello@gizencreative.com"
               className="w-full max-w-xs rounded-full border border-white/25 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background dark:text-foreground transition-colors hover:border-white/60 sm:w-auto"

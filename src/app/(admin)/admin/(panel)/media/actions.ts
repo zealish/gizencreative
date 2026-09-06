@@ -64,6 +64,48 @@ export async function uploadMedia(formData: FormData) {
   revalidatePath("/admin/media");
 }
 
+export async function uploadMediaFiles(
+  formData: FormData,
+): Promise<{ name: string; url: string }[]> {
+  await requireSession();
+
+  const files = formData
+    .getAll("files")
+    .filter((f): f is File => f instanceof File && f.size > 0);
+  if (files.length === 0) {
+    throw new Error("No file uploaded");
+  }
+
+  const uploaded: { name: string; url: string }[] = [];
+  for (const file of files) {
+    if (file.size > MAX_FILE_SIZE) {
+      throw new Error(`File too large (max 10MB): ${file.name}`);
+    }
+    const ext = ALLOWED_TYPES[file.type];
+    if (!ext) {
+      throw new Error(`Invalid file type: ${file.name}`);
+    }
+
+    const base = path
+      .basename(file.name, path.extname(file.name))
+      .toLowerCase()
+      .replace(/[^a-z0-9-]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 48);
+    const filename = `${base || "file"}-${randomBytes(4).toString("hex")}${ext}`;
+
+    const url = await uploadFile({
+      filename,
+      contentType: file.type,
+      data: Buffer.from(await file.arrayBuffer()),
+    });
+    uploaded.push({ name: filename, url });
+  }
+
+  revalidatePath("/admin/media");
+  return uploaded;
+}
+
 export async function deleteMedia(formData: FormData) {
   await requireSession();
 

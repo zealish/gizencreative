@@ -2,8 +2,8 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { Reveal } from "@/components/reveal";
+import type { LocalizedBlogPost } from "@/lib/blog-shared";
 import { BlogCard } from "./blog-card";
-import type { BlogPost } from "./blog-data";
 
 export function BlogPostList({
   eyebrow,
@@ -14,7 +14,7 @@ export function BlogPostList({
   eyebrow: string;
   title: string;
   subtitle: string;
-  posts: BlogPost[];
+  posts: LocalizedBlogPost[];
 }) {
   const t = useTranslations("blog");
 

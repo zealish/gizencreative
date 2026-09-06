@@ -1,19 +1,24 @@
 import { statfs } from "node:fs/promises";
+import { count, eq } from "drizzle-orm";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { auth } from "@/lib/auth";
-import { getGaDashboardStats } from "@/lib/ga";
+import { db } from "@/lib/db";
+import { blogPost } from "@/lib/db/schema";
+import { getGaDashboardStats, parseGaRange } from "@/lib/ga";
 import {
   getStorageProvider,
   getStorageSettings,
   type StorageKey,
   type StorageProvider,
 } from "@/lib/settings";
+import { getWaClickStats } from "@/lib/wa-stats";
 import { AdminPageHeader } from "../_components/admin-page-header";
 import { AnalyticsCard } from "./_components/analytics-card";
+import { WaTrackersCard } from "./_components/wa-trackers-card";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -25,27 +30,45 @@ type StorageUsage = {
   rows: [{ label: string; value: string }, { label: string; value: string }];
 };
 
-export default async function AdminDashboardPage() {
+export default async function AdminDashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ range?: string; waRange?: string }>;
+}) {
   const session = await auth.api.getSession({ headers: await headers() });
 
   if (!session) {
     redirect("/admin/login");
   }
 
+  const params = await searchParams;
+  const range = parseGaRange(params.range);
+  const waRange = parseGaRange(params.waRange);
+
   const t = await getTranslations("admin.dashboard");
   const settings = await getStorageSettings();
   const provider = getStorageProvider(settings);
-  const [usage, gaStats] = await Promise.all([
-    getStorageUsage(provider, settings, {
-      used: t("usedLabel"),
-      total: t("totalLabel"),
-      bucket: t("statsBucket"),
-      credentials: t("statsCredentials"),
-      configured: t("statsConfigured"),
-      notConfigured: t("statsNotConfigured"),
-    }),
-    getGaDashboardStats(),
-  ]);
+  const [usage, gaStats, waStats, [publishedRow], [draftRow]] =
+    await Promise.all([
+      getStorageUsage(provider, settings, {
+        used: t("usedLabel"),
+        total: t("totalLabel"),
+        bucket: t("statsBucket"),
+        credentials: t("statsCredentials"),
+        configured: t("statsConfigured"),
+        notConfigured: t("statsNotConfigured"),
+      }),
+      getGaDashboardStats(range),
+      getWaClickStats(waRange),
+      db
+        .select({ value: count() })
+        .from(blogPost)
+        .where(eq(blogPost.published, true)),
+      db
+        .select({ value: count() })
+        .from(blogPost)
+        .where(eq(blogPost.published, false)),
+    ]);
 
   return (
     <section className="mx-auto max-w-6xl">
@@ -54,39 +77,48 @@ export default async function AdminDashboardPage() {
         title={`${t("title")}, ${session.user.name}`}
         description={t("description")}
       />
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
-        <div className="card-elegant rounded-3xl p-6 sm:p-8">
+      <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <StatCard
+          title={t("postsCardTitle")}
+          description={t("postsCardDescription")}
+          value={publishedRow?.value ?? 0}
+          href="/admin/blog"
+          linkLabel={t("postsCardManage")}
+        />
+        <StatCard
+          title={t("draftsCardTitle")}
+          description={t("draftsCardDescription")}
+          value={draftRow?.value ?? 0}
+          href="/admin/blog"
+          linkLabel={t("draftsCardManage")}
+        />
+        <div className="card-elegant flex flex-col rounded-3xl p-6 sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-xl font-bold tracking-tight">
               {t("storageCardTitle")}
             </h2>
             <span className="rounded-full border border-accent/30 bg-accent-soft/60 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-accent">
-              {t("storageBadge", {
-                provider: t(`storageProvider.${provider}`),
-              })}
+              {t(`storageProvider.${provider}`)}
             </span>
           </div>
-          <p className="mt-2 text-sm text-muted">
-            {t("storageCardDescription")}
-          </p>
-          <div className="mt-8 rounded-2xl border border-accent/20 bg-accent-soft/40 p-6">
-            <div className="flex items-center gap-6">
+          <div className="mt-6 rounded-2xl border border-accent/20 bg-accent-soft/40 p-4">
+            <div className="flex items-center gap-4">
               <UsageRing percent={usage.percent} />
               <div className="flex-1">
-                <div className="flex items-baseline justify-between gap-3 pb-3">
-                  <span className="text-sm text-muted">
+                <div className="flex items-baseline justify-between gap-3 pb-2">
+                  <span className="text-xs text-muted">
                     {usage.rows[0].label}
                   </span>
-                  <span className="text-sm font-bold">
+                  <span className="text-xs font-bold">
                     {usage.rows[0].value}
                   </span>
                 </div>
                 <div className="h-0.5 rounded-full bg-accent/60" />
-                <div className="flex items-baseline justify-between gap-3 pt-3">
-                  <span className="text-sm text-muted">
+                <div className="flex items-baseline justify-between gap-3 pt-2">
+                  <span className="text-xs text-muted">
                     {usage.rows[1].label}
                   </span>
-                  <span className="text-sm font-bold text-accent">
+                  <span className="text-xs font-bold text-accent">
                     {usage.rows[1].value}
                   </span>
                 </div>
@@ -95,14 +127,49 @@ export default async function AdminDashboardPage() {
           </div>
           <Link
             href="/admin/settings/storage"
-            className="mt-6 inline-block text-sm font-semibold text-accent hover:underline"
+            className="mt-auto pt-5 text-sm font-semibold text-accent hover:underline"
           >
             {t("storageCardManage")}
           </Link>
         </div>
-        <AnalyticsCard stats={gaStats} />
+      </div>
+      <div className="mt-5">
+        <AnalyticsCard stats={gaStats} range={range} waRange={waRange} />
+      </div>
+      <div className="mt-5">
+        <WaTrackersCard stats={waStats} range={waRange} gaRange={range} />
       </div>
     </section>
+  );
+}
+
+function StatCard({
+  title,
+  description,
+  value,
+  href,
+  linkLabel,
+}: {
+  title: string;
+  description: string;
+  value: number;
+  href: string;
+  linkLabel: string;
+}) {
+  return (
+    <div className="card-elegant flex flex-col rounded-3xl p-6 sm:p-8">
+      <h2 className="text-xl font-bold tracking-tight">{title}</h2>
+      <p className="mt-2 text-sm text-muted">{description}</p>
+      <p className="mt-6 text-5xl font-bold tracking-tight text-accent">
+        {value}
+      </p>
+      <Link
+        href={href}
+        className="mt-auto pt-6 text-sm font-semibold text-accent hover:underline"
+      >
+        {linkLabel}
+      </Link>
+    </div>
   );
 }
 
@@ -111,7 +178,7 @@ function UsageRing({ percent }: { percent: number }) {
   const radius = 40;
   const circumference = 2 * Math.PI * radius;
   return (
-    <div className="relative h-24 w-24 shrink-0">
+    <div className="relative h-16 w-16 shrink-0">
       <svg
         viewBox="0 0 100 100"
         className="h-full w-full -rotate-90"
@@ -136,7 +203,7 @@ function UsageRing({ percent }: { percent: number }) {
           className="stroke-accent"
         />
       </svg>
-      <span className="absolute inset-0 flex items-center justify-center text-lg font-bold">
+      <span className="absolute inset-0 flex items-center justify-center text-sm font-bold">
         {clamped}%
       </span>
     </div>

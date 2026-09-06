@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
 import type { StorageKey, StorageProvider } from "@/lib/settings";
 import { saveStorageSettings } from "./actions";
 
@@ -16,21 +16,30 @@ type FieldDef = {
   placeholder?: string;
 };
 
-const PROVIDER_FIELDS: Record<
-  Exclude<StorageProvider, "local">,
-  FieldDef[]
-> = {
+const PROVIDER_FIELDS: Record<Exclude<StorageProvider, "local">, FieldDef[]> = {
   cloudinary: [
     { key: "cloudinaryCloudName", labelKey: "cloudNameLabel" },
     { key: "cloudinaryApiKey", labelKey: "apiKeyLabel" },
-    { key: "cloudinaryApiSecret", labelKey: "apiSecretLabel", type: "password" },
-    { key: "cloudinaryFolder", labelKey: "folderLabel", placeholder: "uploads" },
+    {
+      key: "cloudinaryApiSecret",
+      labelKey: "apiSecretLabel",
+      type: "password",
+    },
+    {
+      key: "cloudinaryFolder",
+      labelKey: "folderLabel",
+      placeholder: "uploads",
+    },
   ],
   s3: [
     { key: "s3Region", labelKey: "regionLabel", placeholder: "ap-southeast-1" },
     { key: "s3Bucket", labelKey: "bucketLabel" },
     { key: "s3AccessKeyId", labelKey: "accessKeyIdLabel" },
-    { key: "s3SecretAccessKey", labelKey: "secretAccessKeyLabel", type: "password" },
+    {
+      key: "s3SecretAccessKey",
+      labelKey: "secretAccessKeyLabel",
+      type: "password",
+    },
     {
       key: "s3Endpoint",
       labelKey: "endpointLabel",
@@ -46,7 +55,11 @@ const PROVIDER_FIELDS: Record<
     { key: "r2AccountId", labelKey: "accountIdLabel" },
     { key: "r2Bucket", labelKey: "bucketLabel" },
     { key: "r2AccessKeyId", labelKey: "accessKeyIdLabel" },
-    { key: "r2SecretAccessKey", labelKey: "secretAccessKeyLabel", type: "password" },
+    {
+      key: "r2SecretAccessKey",
+      labelKey: "secretAccessKeyLabel",
+      type: "password",
+    },
     {
       key: "r2PublicUrl",
       labelKey: "publicUrlLabel",
@@ -89,28 +102,28 @@ export function StorageForm({
         <p className="text-xs text-muted">{t("providerHint")}</p>
       </div>
 
-      {(Object.keys(PROVIDER_FIELDS) as Array<keyof typeof PROVIDER_FIELDS>).map(
-        (p) => (
-          <div key={p} className={provider === p ? "space-y-5" : "hidden"}>
-            {PROVIDER_FIELDS[p].map((field) => (
-              <div key={field.key} className="space-y-1.5">
-                <label htmlFor={field.key} className={labelClass}>
-                  {t(`${p}.${field.labelKey}`)}
-                </label>
-                <input
-                  id={field.key}
-                  name={field.key}
-                  type={field.type ?? "text"}
-                  defaultValue={settings[field.key] ?? ""}
-                  placeholder={field.placeholder}
-                  autoComplete="off"
-                  className={inputClass}
-                />
-              </div>
-            ))}
-          </div>
-        ),
-      )}
+      {(
+        Object.keys(PROVIDER_FIELDS) as Array<keyof typeof PROVIDER_FIELDS>
+      ).map((p) => (
+        <div key={p} className={provider === p ? "space-y-5" : "hidden"}>
+          {PROVIDER_FIELDS[p].map((field) => (
+            <div key={field.key} className="space-y-1.5">
+              <label htmlFor={field.key} className={labelClass}>
+                {t(`${p}.${field.labelKey}`)}
+              </label>
+              <input
+                id={field.key}
+                name={field.key}
+                type={field.type ?? "text"}
+                defaultValue={settings[field.key] ?? ""}
+                placeholder={field.placeholder}
+                autoComplete="off"
+                className={inputClass}
+              />
+            </div>
+          ))}
+        </div>
+      ))}
 
       <button
         type="submit"

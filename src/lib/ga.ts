@@ -25,6 +25,18 @@ export type GaDashboardStats = {
   topPages: GaTopPage[];
 };
 
+export type GaRange = "7d" | "28d" | "90d";
+
+export const GA_RANGES: Record<GaRange, string> = {
+  "7d": "7daysAgo",
+  "28d": "28daysAgo",
+  "90d": "90daysAgo",
+};
+
+export function parseGaRange(value: string | undefined): GaRange {
+  return value === "7d" || value === "90d" ? value : "28d";
+}
+
 const TOKEN_URL = "https://oauth2.googleapis.com/token";
 const SCOPE = "https://www.googleapis.com/auth/analytics.readonly";
 
@@ -104,7 +116,9 @@ function metricNumber(row: RunReportRow, index: number): number {
   return Number(row.metricValues?.[index]?.value ?? 0);
 }
 
-export async function getGaDashboardStats(): Promise<GaDashboardStats | null> {
+export async function getGaDashboardStats(
+  range: GaRange = "28d",
+): Promise<GaDashboardStats | null> {
   const { gaPropertyId } = await getAnalyticsSettings();
   const creds = await getGaServiceAccountCredentials();
   if (!gaPropertyId || !creds) return null;
@@ -113,7 +127,7 @@ export async function getGaDashboardStats(): Promise<GaDashboardStats | null> {
     const token = await getAccessToken(creds.clientEmail, creds.privateKey);
     if (!token) return null;
 
-    const dateRanges = [{ startDate: "28daysAgo", endDate: "today" }];
+    const dateRanges = [{ startDate: GA_RANGES[range], endDate: "today" }];
     const [dailyRows, totalRows, pageRows] = await Promise.all([
       runReport(gaPropertyId, token, {
         dateRanges,

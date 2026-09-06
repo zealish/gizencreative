@@ -1,43 +1,49 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getFormatter, getLocale, getTranslations } from "next-intl/server";
 
 import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/reveal";
+import {
+  getApprovedCommentsByPostId,
+  getBlogCategories,
+  getPublishedPostBySlug,
+  getPublishedPosts,
+  localizeBlogPost,
+} from "@/lib/blog";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
 import { BlogCard } from "../_components/blog-card";
-import {
-  blogPosts,
-  findPostBySlug,
-  postContentParagraphs,
-} from "../_components/blog-data";
 import { BlogComments } from "./_components/blog-comments";
 import { ShareButtons } from "./_components/share-buttons";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+export async function generateStaticParams() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = findPostBySlug(slug);
-  if (!post) return {};
+  const record = await getPublishedPostBySlug(slug);
+  if (!record) return {};
 
-  const t = await getTranslations("blog");
+  const locale = await getLocale();
+  const categories = await getBlogCategories();
+  const post = localizeBlogPost(record, locale, categories);
 
   return {
-    title: `${t(`posts.${post.key}.title`)} | Gizen Creative`,
-    description: t(`posts.${post.key}.excerpt`),
+    title: `${post.title} | Gizen Creative`,
+    description: post.excerpt,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
-      title: t(`posts.${post.key}.title`),
-      description: t(`posts.${post.key}.excerpt`),
+      title: post.title,
+      description: post.excerpt,
       url: `/blog/${post.slug}`,
       publishedTime: post.date,
     },
@@ -46,32 +52,43 @@ export async function generateMetadata({
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const post = findPostBySlug(slug);
-  if (!post) notFound();
+  const record = await getPublishedPostBySlug(slug);
+  if (!record) notFound();
 
   const t = await getTranslations("blog");
   const format = await getFormatter();
+  const locale = await getLocale();
 
-  const title = t(`posts.${post.key}.title`);
-  const relatedPosts = blogPosts
+  const categories = await getBlogCategories();
+  const post = localizeBlogPost(record, locale, categories);
+  const allPosts = await getPublishedPosts();
+  const approvedComments = await getApprovedCommentsByPostId(record.id);
+  const comments = approvedComments.map((comment) => ({
+    id: comment.id,
+    name: comment.name,
+    message: comment.message,
+    createdAt: comment.createdAt.toISOString(),
+  }));
+  const relatedPosts = allPosts
     .filter(
       (candidate) =>
-        candidate.slug !== post.slug && candidate.category === post.category,
+        candidate.slug !== post.slug && candidate.category === record.category,
     )
-    .slice(0, 2);
+    .slice(0, 2)
+    .map((candidate) => localizeBlogPost(candidate, locale, categories));
 
   const jsonLd = [
     articleJsonLd({
-      title,
-      description: t(`posts.${post.key}.excerpt`),
+      title: post.title,
+      description: post.excerpt,
       path: `/blog/${post.slug}`,
       datePublished: post.date,
-      locale: await getLocale(),
+      locale,
     }),
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
       { name: "Blog", path: "/blog" },
-      { name: title, path: `/blog/${post.slug}` },
+      { name: post.title, path: `/blog/${post.slug}` },
     ]),
   ];
 
@@ -88,14 +105,14 @@ export default async function BlogDetailPage({ params }: PageProps) {
           </Link>
           <p className="mt-8 text-xs font-bold uppercase tracking-wider text-accent">
             <Link
-              href={`/blog/category/${post.category}`}
+              href={`/blog/category/${post.category.slug}`}
               className="transition-opacity hover:opacity-80"
             >
-              {t(`categories.${post.category}`)}
+              {post.category.name}
             </Link>
           </p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-            {title}
+            {post.title}
           </h1>
           <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted">
             {format.dateTime(new Date(post.date), {
@@ -107,34 +124,51 @@ export default async function BlogDetailPage({ params }: PageProps) {
             {t("readTime", { minutes: post.readMinutes })}
           </p>
           <div
-            aria-hidden="true"
-            className={`mt-8 aspect-[16/9] rounded-3xl bg-gradient-to-br ${post.gradient}`}
-          />
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/80 sm:mt-10">
-            {postContentParagraphs.map((paragraph) => (
-              <p key={paragraph}>
-                {t(`posts.${post.key}.content.${paragraph}`)}
+            className={`relative mt-8 aspect-[16/9] overflow-hidden rounded-3xl bg-gradient-to-br ${post.gradient}`}
+          >
+            {post.coverImage ? (
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                unoptimized
+                className="object-cover"
+              />
+            ) : null}
+          </div>
+          {post.contentHtml ? (
+            <div
+              className="rich-text mt-8 text-base leading-relaxed text-foreground/80 sm:mt-10"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: authored by authenticated admins via Tiptap
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            />
+          ) : (
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-foreground/80 sm:mt-10">
+              {post.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+            </div>
+          )}
+          {post.tags.length > 0 ? (
+            <div className="mt-10 flex flex-wrap items-center gap-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+                {t("detail.tagsTitle")}
               </p>
-            ))}
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-2">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-              {t("detail.tagsTitle")}
-            </p>
-            {post.tags.map((tag) => (
-              <Link
-                key={tag}
-                href={`/blog/tag/${tag}`}
-                className="rounded-full bg-accent-soft px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent transition-opacity hover:opacity-80"
-              >
-                #{t(`tags.${tag}`)}
-              </Link>
-            ))}
-          </div>
+              {post.tags.map((tag) => (
+                <Link
+                  key={tag}
+                  href={`/blog/tag/${tag}`}
+                  className="rounded-full bg-accent-soft px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent transition-opacity hover:opacity-80"
+                >
+                  #{tag}
+                </Link>
+              ))}
+            </div>
+          ) : null}
           <div className="mt-8 border-t border-black/10 pt-8 dark:border-white/15">
-            <ShareButtons title={title} path={`/blog/${post.slug}`} />
+            <ShareButtons title={post.title} path={`/blog/${post.slug}`} />
           </div>
-          <BlogComments />
+          <BlogComments postId={record.id} comments={comments} />
         </div>
       </article>
       {relatedPosts.length > 0 ? (

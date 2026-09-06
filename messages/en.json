@@ -647,15 +647,7 @@
     "readArticle": "Read Article",
     "allPosts": "All Articles",
     "filters": {
-      "all": "All",
-      "website": "Website",
-      "social": "Social Media",
-      "seo": "SEO"
-    },
-    "categories": {
-      "website": "Website Development",
-      "social": "Social Media Management",
-      "seo": "SEO Website"
+      "all": "All"
     },
     "tags": {
       "design": "Design",
@@ -697,8 +689,9 @@
       "messageLabel": "Comment",
       "messagePlaceholder": "Write your comment...",
       "submit": "Post Comment",
-      "emptyState": "Be the first to share your thoughts.",
-      "justNow": "Just now"
+      "submitting": "Posting...",
+      "pendingNotice": "Thank you! Your comment will appear after it is approved.",
+      "emptyState": "Be the first to share your thoughts."
     },
     "posts": {
       "websiteGuide": {
@@ -1291,6 +1284,21 @@
     }
   },
   "admin": {
+    "dataTable": {
+      "searchPlaceholder": "Search…",
+      "reset": "Reset",
+      "export": "Export",
+      "noResults": "No results.",
+      "rowsPerPage": "Rows per page",
+      "pageOf": "Page {page} of {total}",
+      "firstPage": "Go to first page",
+      "previousPage": "Go to previous page",
+      "nextPage": "Go to next page",
+      "lastPage": "Go to last page",
+      "selectedCount": "{selected} of {total} row(s) selected",
+      "selectAll": "Select all",
+      "selectRow": "Select row"
+    },
     "login": {
       "eyebrow": "Admin Area",
       "title": "Sign in to Dashboard",
@@ -1305,6 +1313,8 @@
       "dashboard": "Dashboard",
       "settings": "Settings",
       "media": "Media",
+      "blog": "Blog",
+      "comments": "Comments",
       "backToSite": "Back to Site",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
@@ -1318,10 +1328,14 @@
       "title": "Welcome back",
       "description": "Manage your Gizen Creative site content from here.",
       "signOut": "Sign Out",
+      "postsCardTitle": "Blog Posts",
+      "postsCardDescription": "Published articles live on the blog.",
+      "postsCardManage": "Manage blog posts",
+      "draftsCardTitle": "Blog Drafts",
+      "draftsCardDescription": "Unpublished articles waiting to go live.",
+      "draftsCardManage": "View drafts",
       "storageCardTitle": "Storage",
-      "storageCardDescription": "Usage of the active media storage provider.",
       "storageCardManage": "Manage storage settings",
-      "storageBadge": "{provider} active",
       "usedLabel": "Used",
       "totalLabel": "Total",
       "statsBucket": "Bucket",
@@ -1336,7 +1350,12 @@
       },
       "analytics": {
         "title": "Analytics",
-        "description": "Google Analytics traffic for the last 28 days.",
+        "description": "Google Analytics traffic for the last {days}.",
+        "range": {
+          "7d": "7 days",
+          "28d": "28 days",
+          "90d": "90 days"
+        },
         "badgeConnected": "GA4 connected",
         "badgeNotConnected": "Not connected",
         "activeUsers": "Active Users",
@@ -1346,6 +1365,161 @@
         "noData": "No data. Configure GA4 credentials and property ID to see statistics.",
         "topPages": "Top Pages",
         "manage": "Manage analytics settings"
+      },
+      "waTrackers": {
+        "title": "WhatsApp Trackers",
+        "description": "Every WhatsApp button click recorded with its location and time.",
+        "totalBadge": "{count, plural, =0 {No clicks} one {# click} other {# clicks}} · {days}",
+        "range": {
+          "7d": "7 days",
+          "28d": "28 days",
+          "90d": "90 days"
+        },
+        "empty": "No WhatsApp clicks recorded in this period yet.",
+        "bySource": "Clicks by Source",
+        "recent": "Recent Clicks",
+        "sources": {
+          "floating-button": "Floating Button",
+          "cta-home": "Home CTA",
+          "cta-about": "About CTA",
+          "cta-contact": "Contact CTA",
+          "contact-channel": "Contact Channel",
+          "footer": "Footer"
+        }
+      }
+    },
+    "blog": {
+      "eyebrow": "Blog",
+      "title": "Blog Posts",
+      "description": "Create and manage articles shown on the marketing blog.",
+      "newPost": "New Post",
+      "listTitle": "All Posts",
+      "postCount": "{count, plural, =0 {No posts} one {# post} other {# posts}}",
+      "empty": "No blog posts yet. Create your first article.",
+      "statusPublished": "Published",
+      "statusDraft": "Draft",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "edit": "Edit",
+      "delete": "Delete",
+      "backToList": "Back to Blog Posts",
+      "newTitle": "New Post",
+      "newDescription": "Write a new article in Indonesian and English.",
+      "editTitle": "Edit Post",
+      "editDescription": "Update the article content and settings.",
+      "columns": {
+        "title": "Title",
+        "slug": "Slug",
+        "category": "Category",
+        "status": "Status",
+        "date": "Date",
+        "actions": "Actions"
+      },
+      "searchPlaceholder": "Search title…",
+      "form": {
+        "slug": "Slug",
+        "slugReadonlyHint": "The slug cannot be changed after the post is created.",
+        "category": "Category",
+        "categorySelect": {
+          "placeholder": "Select a category",
+          "searchPlaceholder": "Search categories...",
+          "empty": "No categories found.",
+          "createNew": "Create new category",
+          "viewAll": "View all",
+          "allTitle": "All Categories",
+          "createTitle": "Create New Category",
+          "nameIdLabel": "Name (Indonesian)",
+          "nameEnLabel": "Name (English)",
+          "slugLabel": "Slug",
+          "slugHint": "Used in the URL, e.g. /blog/category/branding-design.",
+          "errorDuplicate": "That category slug is already in use.",
+          "errorInvalid": "Invalid category data.",
+          "creating": "Creating...",
+          "createButton": "Create Category",
+          "selectedLabel": "Selected",
+          "useLabel": "Use"
+        },
+        "tags": "Tags",
+        "tagsHint": "Up to 8 tags. Press Enter to add a new tag.",
+        "tagsSelect": {
+          "placeholder": "Search or add a tag...",
+          "limitReached": "Tag limit reached",
+          "createNew": "Add \"{tag}\"",
+          "remove": "Remove tag {tag}"
+        },
+        "coverImage": "Cover Image URL",
+        "coverImageHint": "Optional. Use a file from the media library. Leave empty for a gradient cover.",
+        "coverImageBrowse": "Browse",
+        "coverImageClear": "Remove",
+        "coverImageModalTitle": "Media Library",
+        "coverImageModalClose": "Close",
+        "coverImageSearchPlaceholder": "Search images...",
+        "coverImageEmpty": "No images found. Upload files in the Media page first.",
+        "coverImageUpload": "Upload",
+        "coverImageUploading": "Uploading…",
+        "coverImageUploadError": "Upload failed. Please try again.",
+        "readMinutes": "Read Time (minutes)",
+        "readMinutesHint": "Calculated automatically from the word count of the content.",
+        "publishedAt": "Publish Date",
+        "datePicker": {
+          "label": "Choose a date",
+          "prevMonth": "Previous month",
+          "nextMonth": "Next month",
+          "today": "Today"
+        },
+        "titleId": "Title (Indonesian)",
+        "titleEn": "Title (English)",
+        "excerptId": "Excerpt (Indonesian)",
+        "excerptEn": "Excerpt (English)",
+        "contentId": "Content (Indonesian)",
+        "contentEn": "Content (English)",
+        "contentHint": "Use the toolbar for headings, lists, links, and images.",
+        "editor": {
+          "placeholder": "Write your article...",
+          "bold": "Bold",
+          "italic": "Italic",
+          "strike": "Strikethrough",
+          "code": "Inline code",
+          "codeBlock": "Code block",
+          "heading2": "Heading 2",
+          "heading3": "Heading 3",
+          "bulletList": "Bullet list",
+          "orderedList": "Numbered list",
+          "blockquote": "Quote",
+          "horizontalRule": "Divider",
+          "link": "Link",
+          "linkPrompt": "Link URL (empty to remove)",
+          "image": "Image",
+          "imagePrompt": "Image URL",
+          "words": "{count, plural, one {# word} other {# words}}",
+          "characters": "{count, plural, one {# character} other {# characters}}"
+        },
+        "published": "Published",
+        "createButton": "Create Post",
+        "saveButton": "Save Changes"
+      }
+    },
+    "comments": {
+      "eyebrow": "Comments",
+      "title": "Blog Comments",
+      "description": "Moderate comments submitted on blog articles.",
+      "listTitle": "All Comments",
+      "commentCount": "{count, plural, =0 {No comments} one {# comment} other {# comments}}",
+      "pendingCount": "{count, plural, one {# pending} other {# pending}}",
+      "statusApproved": "Approved",
+      "statusPending": "Pending",
+      "approve": "Approve",
+      "unapprove": "Unapprove",
+      "viewPost": "View Post",
+      "delete": "Delete",
+      "searchPlaceholder": "Search name…",
+      "columns": {
+        "name": "Name",
+        "message": "Comment",
+        "post": "Post",
+        "status": "Status",
+        "date": "Date",
+        "actions": "Actions"
       }
     },
     "media": {

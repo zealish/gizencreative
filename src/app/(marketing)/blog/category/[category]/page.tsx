@@ -1,27 +1,32 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import {
-  blogCategories,
-  blogPosts,
-  isBlogCategory,
-} from "../../_components/blog-data";
+  getBlogCategories,
+  getPublishedPosts,
+  localizeBlogCategory,
+  localizeBlogPost,
+} from "@/lib/blog";
 import { BlogPostList } from "../../_components/blog-post-list";
 
 type PageProps = { params: Promise<{ category: string }> };
 
-export function generateStaticParams() {
-  return blogCategories.map((category) => ({ category }));
+export async function generateStaticParams() {
+  const categories = await getBlogCategories();
+  return categories.map((category) => ({ category: category.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { category } = await params;
-  if (!isBlogCategory(category)) return {};
+  const categories = await getBlogCategories();
+  const record = categories.find((entry) => entry.slug === category);
+  if (!record) return {};
 
   const t = await getTranslations("blog");
-  const categoryName = t(`categories.${category}`);
+  const locale = await getLocale();
+  const categoryName = localizeBlogCategory(record, locale).name;
 
   return {
     title: t("categoryPage.metaTitle", { category: categoryName }),
@@ -32,11 +37,16 @@ export async function generateMetadata({
 
 export default async function BlogCategoryPage({ params }: PageProps) {
   const { category } = await params;
-  if (!isBlogCategory(category)) notFound();
+  const categories = await getBlogCategories();
+  const record = categories.find((entry) => entry.slug === category);
+  if (!record) notFound();
 
   const t = await getTranslations("blog");
-  const categoryName = t(`categories.${category}`);
-  const posts = blogPosts.filter((post) => post.category === category);
+  const locale = await getLocale();
+  const categoryName = localizeBlogCategory(record, locale).name;
+  const posts = (await getPublishedPosts())
+    .filter((post) => post.category === category)
+    .map((post) => localizeBlogPost(post, locale, categories));
 
   return (
     <BlogPostList

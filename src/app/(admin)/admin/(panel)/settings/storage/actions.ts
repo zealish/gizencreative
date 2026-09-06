@@ -15,7 +15,9 @@ export async function saveStorageSettings(formData: FormData) {
   }
 
   const provider = String(formData.get("storageProvider") ?? "").trim();
-  if (!STORAGE_PROVIDERS.includes(provider as (typeof STORAGE_PROVIDERS)[number])) {
+  if (
+    !STORAGE_PROVIDERS.includes(provider as (typeof STORAGE_PROVIDERS)[number])
+  ) {
     throw new Error("Invalid storage provider");
   }
 

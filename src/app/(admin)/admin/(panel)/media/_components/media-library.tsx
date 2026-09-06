@@ -145,146 +145,151 @@ export function MediaLibrary({ files }: { files: MediaFileItem[] }) {
         {selected
           ? createPortal(
               <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            role="dialog"
-            aria-modal="true"
-            aria-label={t("detailsTitle")}
-          >
-            <button
-              type="button"
-              aria-label={t("detailsClose")}
-              onClick={() => setSelectedName(null)}
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            />
-            <div
-              data-lenis-prevent
-              className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border border-black/10 bg-background p-5 shadow-xl dark:border-white/10 dark:bg-neutral-900"
-            >
-            <div className="flex items-start justify-between gap-3">
-              <h3 className="text-sm font-bold tracking-tight">
-                {t("detailsTitle")}
-              </h3>
-              <button
-                type="button"
-                aria-label={t("detailsClose")}
-                onClick={() => setSelectedName(null)}
-                className="grid size-7 place-items-center rounded-md text-muted transition-colors hover:text-foreground"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4"
+                role="dialog"
+                aria-modal="true"
+                aria-label={t("detailsTitle")}
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  aria-hidden="true"
-                >
-                  <path d="M6 6l12 12M18 6L6 18" />
-                </svg>
-              </button>
-            </div>
-            <div className="relative mt-4 aspect-square overflow-hidden rounded-xl bg-black/5 dark:bg-white/5">
-              {selected.isImage || selected.isSvg ? (
-                // biome-ignore lint/performance/noImgElement: needed to read naturalWidth/naturalHeight
-                <img
-                  src={selected.url}
-                  alt={selected.name}
-                  className="absolute inset-0 h-full w-full object-contain"
-                  onLoad={(e) => {
-                    const img = e.currentTarget;
-                    if (img.naturalWidth > 0) {
-                      setDimensions((prev) => ({
-                        ...prev,
-                        [selected.name]: `${img.naturalWidth} x ${img.naturalHeight} px`,
-                      }));
-                    }
-                  }}
-                />
-              ) : (
-                <span className="grid h-full place-items-center text-muted">
-                  <FileIcon />
-                </span>
-              )}
-            </div>
-            <dl className="mt-4 space-y-3 text-sm">
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                  {t("detailsName")}
-                </dt>
-                <dd className="mt-0.5 break-all font-medium">
-                  {selected.name}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                  {t("detailsType")}
-                </dt>
-                <dd className="mt-0.5 font-medium uppercase">
-                  {selected.name.split(".").pop()}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                  {t("detailsSize")}
-                </dt>
-                <dd className="mt-0.5 font-medium">
-                  {formatBytes(selected.size)}
-                </dd>
-              </div>
-              {selected.isImage || selected.isSvg ? (
-                <div>
-                  <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                    {t("detailsDimensions")}
-                  </dt>
-                  <dd className="mt-0.5 font-medium">
-                    {dimensions[selected.name] ?? "…"}
-                  </dd>
-                </div>
-              ) : null}
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                  {t("detailsModified")}
-                </dt>
-                <dd className="mt-0.5 font-medium">
-                  {new Date(selected.modifiedAt).toLocaleString()}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
-                  {t("detailsUrl")}
-                </dt>
-                <dd className="mt-0.5 break-all font-medium">{selected.url}</dd>
-              </div>
-            </dl>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => copyUrl(selected.url)}
-                className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold transition-colors hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/5"
-              >
-                {copied ? t("detailsCopied") : t("detailsCopyUrl")}
-              </button>
-              <a
-                href={selected.url}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold transition-colors hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/5"
-              >
-                {t("detailsOpen")}
-              </a>
-              <form action={deleteMedia} onSubmit={() => setSelectedName(null)}>
-                <input type="hidden" name="name" value={selected.name} />
                 <button
-                  type="submit"
-                  className="rounded-full border border-red-600/30 px-4 py-2 text-xs font-semibold text-red-600 transition-colors hover:bg-red-600/10 dark:text-red-400"
+                  type="button"
+                  aria-label={t("detailsClose")}
+                  onClick={() => setSelectedName(null)}
+                  className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                />
+                <div
+                  data-lenis-prevent
+                  className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border border-black/10 bg-background p-5 shadow-xl dark:border-white/10 dark:bg-neutral-900"
                 >
-                  {t("delete")}
-                </button>
-              </form>
-            </div>
-            </div>
-          </div>,
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-sm font-bold tracking-tight">
+                      {t("detailsTitle")}
+                    </h3>
+                    <button
+                      type="button"
+                      aria-label={t("detailsClose")}
+                      onClick={() => setSelectedName(null)}
+                      className="grid size-7 place-items-center rounded-md text-muted transition-colors hover:text-foreground"
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M6 6l12 12M18 6L6 18" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="relative mt-4 aspect-square overflow-hidden rounded-xl bg-black/5 dark:bg-white/5">
+                    {selected.isImage || selected.isSvg ? (
+                      // biome-ignore lint/performance/noImgElement: needed to read naturalWidth/naturalHeight
+                      <img
+                        src={selected.url}
+                        alt={selected.name}
+                        className="absolute inset-0 h-full w-full object-contain"
+                        onLoad={(e) => {
+                          const img = e.currentTarget;
+                          if (img.naturalWidth > 0) {
+                            setDimensions((prev) => ({
+                              ...prev,
+                              [selected.name]: `${img.naturalWidth} x ${img.naturalHeight} px`,
+                            }));
+                          }
+                        }}
+                      />
+                    ) : (
+                      <span className="grid h-full place-items-center text-muted">
+                        <FileIcon />
+                      </span>
+                    )}
+                  </div>
+                  <dl className="mt-4 space-y-3 text-sm">
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
+                        {t("detailsName")}
+                      </dt>
+                      <dd className="mt-0.5 break-all font-medium">
+                        {selected.name}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
+                        {t("detailsType")}
+                      </dt>
+                      <dd className="mt-0.5 font-medium uppercase">
+                        {selected.name.split(".").pop()}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
+                        {t("detailsSize")}
+                      </dt>
+                      <dd className="mt-0.5 font-medium">
+                        {formatBytes(selected.size)}
+                      </dd>
+                    </div>
+                    {selected.isImage || selected.isSvg ? (
+                      <div>
+                        <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
+                          {t("detailsDimensions")}
+                        </dt>
+                        <dd className="mt-0.5 font-medium">
+                          {dimensions[selected.name] ?? "…"}
+                        </dd>
+                      </div>
+                    ) : null}
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
+                        {t("detailsModified")}
+                      </dt>
+                      <dd className="mt-0.5 font-medium">
+                        {new Date(selected.modifiedAt).toLocaleString()}
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-muted">
+                        {t("detailsUrl")}
+                      </dt>
+                      <dd className="mt-0.5 break-all font-medium">
+                        {selected.url}
+                      </dd>
+                    </div>
+                  </dl>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => copyUrl(selected.url)}
+                      className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold transition-colors hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/5"
+                    >
+                      {copied ? t("detailsCopied") : t("detailsCopyUrl")}
+                    </button>
+                    <a
+                      href={selected.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold transition-colors hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/5"
+                    >
+                      {t("detailsOpen")}
+                    </a>
+                    <form
+                      action={deleteMedia}
+                      onSubmit={() => setSelectedName(null)}
+                    >
+                      <input type="hidden" name="name" value={selected.name} />
+                      <button
+                        type="submit"
+                        className="rounded-full border border-red-600/30 px-4 py-2 text-xs font-semibold text-red-600 transition-colors hover:bg-red-600/10 dark:text-red-400"
+                      >
+                        {t("delete")}
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>,
               document.body,
             )
           : null}

@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import type { GaDashboardStats } from "@/lib/ga";
+import type { GaDashboardStats, GaRange } from "@/lib/ga";
+import { RangeFilter } from "./range-filter";
 
 export async function AnalyticsCard({
   stats,
+  range,
+  waRange,
 }: {
   stats: GaDashboardStats | null;
+  range: GaRange;
+  waRange: GaRange;
 }) {
   const t = await getTranslations("admin.dashboard.analytics");
   const totals = [
@@ -22,7 +27,15 @@ export async function AnalyticsCard({
           {stats ? t("badgeConnected") : t("badgeNotConnected")}
         </span>
       </div>
-      <p className="mt-2 text-sm text-muted">{t("description")}</p>
+      <p className="mt-2 text-sm text-muted">
+        {t("description", { days: t(`range.${range}`) })}
+      </p>
+      <RangeFilter
+        param="range"
+        range={range}
+        otherParam="waRange"
+        otherRange={waRange}
+      />
       <div className="mt-6 grid grid-cols-3 gap-3">
         {totals.map((item) => (
           <div

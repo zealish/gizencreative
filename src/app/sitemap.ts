@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 
-import { absoluteUrl } from "@/lib/seo/site-config";
 import {
-  blogCategories,
-  blogPosts,
-  blogTags,
-} from "./(marketing)/blog/_components/blog-data";
+  getBlogCategories,
+  getPublishedPosts,
+  getPublishedTags,
+} from "@/lib/blog";
+import { absoluteUrl } from "@/lib/seo/site-config";
 
 const staticRoutes: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
@@ -22,8 +22,11 @@ const staticRoutes: { path: string; priority: number }[] = [
   { path: "/terms-of-service", priority: 0.3 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
+  const posts = await getPublishedPosts();
+  const tags = await getPublishedTags();
+  const categories = await getBlogCategories();
 
   const staticEntries = staticRoutes.map((route) => ({
     url: absoluteUrl(route.path),
@@ -31,19 +34,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  const postEntries = blogPosts.map((post) => ({
+  const postEntries = posts.map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}`),
-    lastModified: new Date(post.date),
+    lastModified: post.updatedAt,
     priority: 0.6,
   }));
 
-  const categoryEntries = blogCategories.map((category) => ({
-    url: absoluteUrl(`/blog/category/${category}`),
+  const categoryEntries = categories.map((category) => ({
+    url: absoluteUrl(`/blog/category/${category.slug}`),
     lastModified,
     priority: 0.4,
   }));
 
-  const tagEntries = blogTags.map((tag) => ({
+  const tagEntries = tags.map((tag) => ({
     url: absoluteUrl(`/blog/tag/${tag}`),
     lastModified,
     priority: 0.3,

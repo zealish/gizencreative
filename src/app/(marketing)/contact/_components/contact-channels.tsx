@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { Reveal } from "@/components/reveal";
+import { WaLink } from "@/components/wa-link";
 
 const channels: { id: string; href: string; icon: React.ReactNode }[] = [
   {
@@ -95,18 +96,17 @@ export function ContactChannels() {
     <section className="px-4 pb-14 sm:pb-20">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {channels.map((channel, index) => (
-            <Reveal key={channel.id} delay={index * 100}>
-              <a
-                href={channel.href}
-                target={channel.href.startsWith("http") ? "_blank" : undefined}
-                rel={
-                  channel.href.startsWith("http")
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-                className="card-elegant flex h-full flex-col rounded-3xl p-6 sm:p-8"
-              >
+          {channels.map((channel, index) => {
+            const isExternal = channel.href.startsWith("http");
+            const linkProps = {
+              href: channel.href,
+              target: isExternal ? "_blank" : undefined,
+              rel: isExternal ? "noopener noreferrer" : undefined,
+              className:
+                "card-elegant flex h-full flex-col rounded-3xl p-6 sm:p-8",
+            };
+            const content = (
+              <>
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent-soft text-accent">
                   {channel.icon}
                 </span>
@@ -120,9 +120,20 @@ export function ContactChannels() {
                   {t(`channels.${channel.id}.action`)}
                   <span aria-hidden="true">→</span>
                 </span>
-              </a>
-            </Reveal>
-          ))}
+              </>
+            );
+            return (
+              <Reveal key={channel.id} delay={index * 100}>
+                {channel.id === "whatsapp" ? (
+                  <WaLink source="contact-channel" {...linkProps}>
+                    {content}
+                  </WaLink>
+                ) : (
+                  <a {...linkProps}>{content}</a>
+                )}
+              </Reveal>
+            );
+          })}
         </div>
         <Reveal delay={200}>
           <div className="mt-5 grid gap-5 rounded-3xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-white/5 dark:shadow-none sm:grid-cols-3 sm:p-8">

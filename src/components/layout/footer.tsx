@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Logo } from "@/components/layout/logo";
+import { WaLink } from "@/components/wa-link";
 
 const footerColumns: { title: string; links: string[] }[] = [
   {
@@ -39,9 +40,9 @@ const linkHrefs: Record<string, string> = {
   seoWebsite: "/services/seo-website",
 };
 
-const socialLinks: { label: string; href: string }[] = [
+const socialLinks: { label: string; href: string; wa?: boolean }[] = [
   { label: "Instagram", href: "https://instagram.com/gizencreative" },
-  { label: "WhatsApp", href: "https://wa.me/6281234567890" },
+  { label: "WhatsApp", href: "https://wa.me/6281234567890", wa: true },
   { label: "Email", href: "mailto:hello@gizencreative.com" },
   { label: "LinkedIn", href: "https://linkedin.com/company/gizencreative" },
 ];
@@ -57,16 +58,28 @@ export function Footer() {
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-muted">{t("tagline")}</p>
             <div className="mt-5 flex gap-3">
-              {socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-black/10 dark:border-white/15 text-muted transition-colors hover:text-foreground"
-                >
-                  <span className="text-[10px] font-bold">{s.label[0]}</span>
-                </a>
-              ))}
+              {socialLinks.map((s) =>
+                s.wa ? (
+                  <WaLink
+                    key={s.label}
+                    source="footer"
+                    href={s.href}
+                    aria-label={s.label}
+                    className="grid h-9 w-9 place-items-center rounded-full border border-black/10 dark:border-white/15 text-muted transition-colors hover:text-foreground"
+                  >
+                    <span className="text-[10px] font-bold">{s.label[0]}</span>
+                  </WaLink>
+                ) : (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    aria-label={s.label}
+                    className="grid h-9 w-9 place-items-center rounded-full border border-black/10 dark:border-white/15 text-muted transition-colors hover:text-foreground"
+                  >
+                    <span className="text-[10px] font-bold">{s.label[0]}</span>
+                  </a>
+                ),
+              )}
             </div>
           </div>
           {footerColumns.map((col) => (

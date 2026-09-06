@@ -1,32 +1,48 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useFormatter, useTranslations } from "next-intl";
+import { useState, useTransition } from "react";
+import { submitBlogComment } from "../actions";
 
-type Comment = {
-  id: number;
+export type CommentItem = {
+  id: string;
   name: string;
   message: string;
+  createdAt: string;
 };
 
-export function BlogComments() {
+export function BlogComments({
+  postId,
+  comments,
+}: {
+  postId: string;
+  comments: CommentItem[];
+}) {
   const t = useTranslations("blog.comments");
-  const [comments, setComments] = useState<Comment[]>([]);
+  const format = useFormatter();
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const handleSubmit: React.ComponentProps<"form">["onSubmit"] = (event) => {
     event.preventDefault();
     const trimmedName = name.trim();
     const trimmedMessage = message.trim();
-    if (!trimmedName || !trimmedMessage) return;
+    if (!trimmedName || !trimmedMessage || isPending) return;
 
-    setComments((previous) => [
-      { id: Date.now(), name: trimmedName, message: trimmedMessage },
-      ...previous,
-    ]);
-    setName("");
-    setMessage("");
+    startTransition(async () => {
+      const result = await submitBlogComment({
+        postId,
+        name: trimmedName,
+        message: trimmedMessage,
+      });
+      if (result.ok) {
+        setSubmitted(true);
+        setName("");
+        setMessage("");
+      }
+    });
   };
 
   const inputClass =
@@ -38,36 +54,43 @@ export function BlogComments() {
       <p className="mt-1 text-sm text-muted">
         {t("count", { count: comments.length })}
       </p>
-      <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-        <label className="block">
-          <span className="sr-only">{t("nameLabel")}</span>
-          <input
-            type="text"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder={t("namePlaceholder")}
-            required
-            className={inputClass}
-          />
-        </label>
-        <label className="block">
-          <span className="sr-only">{t("messageLabel")}</span>
-          <textarea
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
-            placeholder={t("messagePlaceholder")}
-            required
-            rows={4}
-            className={inputClass}
-          />
-        </label>
-        <button
-          type="submit"
-          className="rounded-full bg-foreground px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
-        >
-          {t("submit")}
-        </button>
-      </form>
+      {submitted ? (
+        <p className="mt-6 rounded-2xl bg-accent-soft px-5 py-4 text-sm font-semibold text-accent">
+          {t("pendingNotice")}
+        </p>
+      ) : (
+        <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+          <label className="block">
+            <span className="sr-only">{t("nameLabel")}</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              placeholder={t("namePlaceholder")}
+              required
+              className={inputClass}
+            />
+          </label>
+          <label className="block">
+            <span className="sr-only">{t("messageLabel")}</span>
+            <textarea
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
+              placeholder={t("messagePlaceholder")}
+              required
+              rows={4}
+              className={inputClass}
+            />
+          </label>
+          <button
+            type="submit"
+            disabled={isPending}
+            className="rounded-full bg-foreground px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
+          >
+            {isPending ? t("submitting") : t("submit")}
+          </button>
+        </form>
+      )}
       <div className="mt-8 space-y-4">
         {comments.length === 0 ? (
           <p className="text-sm text-muted">{t("emptyState")}</p>
@@ -80,13 +103,19 @@ export function BlogComments() {
               <div className="flex items-center gap-3">
                 <span
                   aria-hidden="true"
-                  className="grid h-9 w-9 place-items-center rounded-full bg-accent-soft text-xs font-bold uppercase text-accent"
+                  className="grid size-10 place-items-center rounded-full bg-accent-soft text-sm font-bold text-accent"
                 >
                   {comment.name[0]}
                 </span>
                 <div>
                   <p className="text-sm font-bold">{comment.name}</p>
-                  <p className="text-xs text-muted">{t("justNow")}</p>
+                  <p className="text-xs text-muted">
+                    {format.dateTime(new Date(comment.createdAt), {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </p>
                 </div>
               </div>
               <p className="mt-3 text-sm text-foreground/80">

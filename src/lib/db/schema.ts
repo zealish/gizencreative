@@ -1,4 +1,10 @@
-import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  integer,
+  pgTable,
+  text,
+  timestamp,
+} from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
@@ -56,4 +62,50 @@ export const siteSetting = pgTable("site_setting", {
   key: text("key").primaryKey(),
   value: text("value").notNull(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+export const blogCategory = pgTable("blog_category", {
+  slug: text("slug").primaryKey(),
+  nameId: text("name_id").notNull(),
+  nameEn: text("name_en").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const blogPost = pgTable("blog_post", {
+  id: text("id").primaryKey(),
+  slug: text("slug").notNull().unique(),
+  category: text("category").notNull(),
+  tags: text("tags").array().notNull().default([]),
+  coverImage: text("cover_image"),
+  readMinutes: integer("read_minutes").notNull().default(5),
+  titleId: text("title_id").notNull(),
+  titleEn: text("title_en").notNull(),
+  excerptId: text("excerpt_id").notNull(),
+  excerptEn: text("excerpt_en").notNull(),
+  contentId: text("content_id").notNull(),
+  contentEn: text("content_en").notNull(),
+  published: boolean("published").notNull().default(false),
+  publishedAt: timestamp("published_at").notNull().defaultNow(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+export const blogComment = pgTable("blog_comment", {
+  id: text("id").primaryKey(),
+  postId: text("post_id")
+    .notNull()
+    .references(() => blogPost.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  message: text("message").notNull(),
+  approved: boolean("approved").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const waClick = pgTable("wa_click", {
+  id: text("id").primaryKey(),
+  source: text("source").notNull(),
+  path: text("path").notNull(),
+  userAgent: text("user_agent"),
+  referrer: text("referrer"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
 });

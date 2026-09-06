@@ -4,29 +4,31 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { Reveal } from "@/components/reveal";
+import type { BlogCategoryInfo, LocalizedBlogPost } from "@/lib/blog-shared";
 import { BlogCard } from "./blog-card";
-import { type BlogCategory, blogCategories, blogPosts } from "./blog-data";
 
-type Filter = "all" | BlogCategory;
-
-const filterOptions: Filter[] = ["all", ...blogCategories];
-
-export function BlogGrid() {
+export function BlogGrid({
+  posts,
+  categories,
+}: {
+  posts: LocalizedBlogPost[];
+  categories: BlogCategoryInfo[];
+}) {
   const t = useTranslations("blog");
-  const [filter, setFilter] = useState<Filter>("all");
+  const [filter, setFilter] = useState<string>("all");
   const [query, setQuery] = useState("");
 
   const normalizedQuery = query.trim().toLowerCase();
 
-  const visiblePosts = blogPosts.filter((post) => {
-    if (filter !== "all" && post.category !== filter) return false;
+  const visiblePosts = posts.filter((post) => {
+    if (filter !== "all" && post.category.slug !== filter) return false;
     if (!normalizedQuery) return true;
 
     const haystack = [
-      t(`posts.${post.key}.title`),
-      t(`posts.${post.key}.excerpt`),
-      t(`categories.${post.category}`),
-      ...post.tags.map((tag) => t(`tags.${tag}`)),
+      post.title,
+      post.excerpt,
+      post.category.name,
+      ...post.tags,
     ]
       .join(" ")
       .toLowerCase();
@@ -69,20 +71,22 @@ export function BlogGrid() {
           </label>
         </div>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          {filterOptions.map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => setFilter(option)}
-              className={`rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-colors ${
-                filter === option
-                  ? "bg-foreground text-background shadow-lg"
-                  : "border border-black/10 bg-white text-muted hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
-              }`}
-            >
-              {t(`filters.${option}`)}
-            </button>
-          ))}
+          {[{ slug: "all", name: t("filters.all") }, ...categories].map(
+            (option) => (
+              <button
+                key={option.slug}
+                type="button"
+                onClick={() => setFilter(option.slug)}
+                className={`rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition-colors ${
+                  filter === option.slug
+                    ? "bg-foreground text-background shadow-lg"
+                    : "border border-black/10 bg-white text-muted hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
+                }`}
+              >
+                {option.name}
+              </button>
+            ),
+          )}
         </div>
         {visiblePosts.length === 0 ? (
           <p className="mt-14 text-center text-sm text-muted">{t("empty")}</p>

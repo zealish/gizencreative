@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { ScrollScale } from "@/components/scroll-scale";
+import { WaLink } from "@/components/wa-link";
 
 export function ContactCta() {
   const t = useTranslations("contact.cta");
@@ -19,12 +20,13 @@ export function ContactCta() {
           <p className="mx-auto mt-5 max-w-md text-background/70 dark:text-foreground/70">
             {t("subtitle")}
           </p>
-          <a
+          <WaLink
+            source="cta-contact"
             href="https://wa.me/6281234567890"
             className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground dark:text-background transition-opacity hover:opacity-90"
           >
             {t("button")} <span aria-hidden="true">→</span>
-          </a>
+          </WaLink>
         </div>
       </ScrollScale>
     </section>

@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import {
+  getBlogCategories,
+  getPublishedPosts,
+  localizeBlogPost,
+} from "@/lib/blog";
 import { getPageSeo } from "@/lib/settings";
 
 import { BlogGrid } from "./_components/blog-grid";
@@ -16,11 +21,24 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const locale = await getLocale();
+  const [posts, categories] = await Promise.all([
+    getPublishedPosts(),
+    getBlogCategories(),
+  ]);
+  const localizedPosts = posts.map((post) =>
+    localizeBlogPost(post, locale, categories),
+  );
+  const filterCategories = categories.map((category) => ({
+    slug: category.slug,
+    name: locale.startsWith("en") ? category.nameEn : category.nameId,
+  }));
+
   return (
     <>
       <BlogHero />
-      <BlogGrid />
+      <BlogGrid posts={localizedPosts} categories={filterCategories} />
     </>
   );
 }
