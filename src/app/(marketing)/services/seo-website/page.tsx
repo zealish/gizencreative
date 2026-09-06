@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
-import { getPageSeo } from "@/lib/settings";
+import { getCtaDarkImage, getPageSeo } from "@/lib/settings";
 import { SeoCta } from "./_components/seo-cta";
 import { SeoFeatures } from "./_components/seo-features";
 import { SeoHero } from "./_components/seo-hero";
@@ -24,6 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function SeoWebsitePage() {
   const t = await getTranslations("seoWebsite.meta");
+  const ctaImage = await getCtaDarkImage();
 
   return (
     <>
@@ -44,7 +45,7 @@ export default async function SeoWebsitePage() {
       <SeoOfferings />
       <SeoProcess />
       <SeoFeatures />
-      <SeoCta />
+      <SeoCta image={ctaImage} />
     </>
   );
 }

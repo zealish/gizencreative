@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getPageSeo } from "@/lib/settings";
+import { getCtaDarkImage, getPageSeo } from "@/lib/settings";
 
 import { PricingCta } from "./_components/pricing-cta";
 import { PricingFaq } from "./_components/pricing-faq";
@@ -17,12 +17,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const ctaImage = await getCtaDarkImage();
   return (
     <>
       <PricingPlans />
       <PricingFaq />
-      <PricingCta />
+      <PricingCta image={ctaImage} />
     </>
   );
 }

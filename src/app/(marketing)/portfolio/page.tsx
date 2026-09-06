@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getPageSeo } from "@/lib/settings";
+import { getCtaDarkImage, getPageSeo } from "@/lib/settings";
 
 import { PortfolioCta } from "./_components/portfolio-cta";
 import { PortfolioGrid } from "./_components/portfolio-grid";
@@ -17,12 +17,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const ctaImage = await getCtaDarkImage();
   return (
     <>
       <PortfolioHero />
       <PortfolioGrid />
-      <PortfolioCta />
+      <PortfolioCta image={ctaImage} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Figtree } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import "./globals.css";
@@ -10,10 +10,10 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { siteConfig } from "@/lib/seo/site-config";
 import { getAnalyticsSettings } from "@/lib/settings";
 
-const lato = Lato({
-  variable: "--font-lato",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -69,7 +69,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`${lato.variable} h-full antialiased`}
+      className={`${figtree.variable} h-full antialiased`}
     >
       {analytics.gtmId ? <GoogleTagManager gtmId={analytics.gtmId} /> : null}
       <body className="min-h-full flex flex-col">

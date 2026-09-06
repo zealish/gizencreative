@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getPageSeo } from "@/lib/settings";
+import { getCtaDarkImage, getPageSeo } from "@/lib/settings";
 
 import { ContactChannels } from "./_components/contact-channels";
 import { ContactCta } from "./_components/contact-cta";
@@ -17,12 +17,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const ctaImage = await getCtaDarkImage();
   return (
     <>
       <ContactHero />
       <ContactChannels />
-      <ContactCta />
+      <ContactCta image={ctaImage} />
     </>
   );
 }

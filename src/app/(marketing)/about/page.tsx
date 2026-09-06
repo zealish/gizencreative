@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { getPageSeo } from "@/lib/settings";
+import { getCtaDarkImage, getPageSeo } from "@/lib/settings";
 
 import { AboutCta } from "./_components/about-cta";
 import { AboutHero } from "./_components/about-hero";
@@ -18,13 +18,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const ctaImage = await getCtaDarkImage();
   return (
     <>
       <AboutHero />
       <AboutStory />
       <AboutValues />
-      <AboutCta />
+      <AboutCta image={ctaImage} />
     </>
   );
 }
