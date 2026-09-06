@@ -12,8 +12,13 @@ import { BlogPostList } from "../../_components/blog-post-list";
 type PageProps = { params: Promise<{ tag: string }> };
 
 export async function generateStaticParams() {
-  const tags = await getPublishedTags();
-  return tags.map((tag) => ({ tag }));
+  try {
+    const tags = await getPublishedTags();
+    return tags.map((tag) => ({ tag }));
+  } catch {
+    // DB unavailable at build time (e.g., Docker build); render on demand.
+    return [];
+  }
 }
 
 export async function generateMetadata({

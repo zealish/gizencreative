@@ -1,18 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export function Logo({ logoUrl }: { logoUrl?: string | null }) {
+export function Logo({
+  logoUrl,
+  siteName,
+}: {
+  logoUrl?: string | null;
+  siteName?: string | null;
+}) {
   return (
     <Link href="/" className="flex items-center gap-2">
       {logoUrl ? (
-        <Image
-          src={logoUrl}
-          alt="Gizen Creative"
-          width={160}
-          height={40}
-          className="h-8 w-auto object-contain"
-          priority
-        />
+        <>
+          <Image
+            src={logoUrl}
+            alt={siteName ?? "Gizen Creative"}
+            width={160}
+            height={40}
+            className="h-8 w-auto object-contain"
+            priority
+          />
+          {siteName ? (
+            <span className="text-lg font-bold tracking-tight">
+              {siteName}
+            </span>
+          ) : null}
+        </>
       ) : (
         <>
           <span className="grid h-7 w-7 place-items-center rounded-md bg-primary text-white">

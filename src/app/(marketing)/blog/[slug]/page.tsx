@@ -21,8 +21,13 @@ import { ShareButtons } from "./_components/share-buttons";
 type PageProps = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  const posts = await getPublishedPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  try {
+    const posts = await getPublishedPosts();
+    return posts.map((post) => ({ slug: post.slug }));
+  } catch {
+    // DB unavailable at build time (e.g., Docker build); render on demand.
+    return [];
+  }
 }
 
 export async function generateMetadata({

@@ -7,6 +7,10 @@ import {
 } from "@/lib/blog";
 import { absoluteUrl } from "@/lib/seo/site-config";
 
+// Render at request time so blog data comes from the live database
+// (the DB is not available during Docker image builds).
+export const dynamic = "force-dynamic";
+
 const staticRoutes: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
   { path: "/about", priority: 0.8 },

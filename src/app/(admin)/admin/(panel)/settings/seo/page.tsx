@@ -1,3 +1,4 @@
+import path from "node:path";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import {
@@ -5,6 +6,8 @@ import {
   getSeoOverrides,
   MARKETING_SEO_PAGES,
 } from "@/lib/settings";
+import { listFiles } from "@/lib/storage";
+import { UseCaseImagePicker } from "../pages/_components/use-case-image-picker";
 import { savePageSeo, saveSeoSettings } from "./actions";
 
 export const metadata: Metadata = {
@@ -18,10 +21,22 @@ const tableInputClass =
   "w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm text-foreground outline-none transition-colors focus:border-accent dark:border-white/15 dark:bg-white/5";
 const labelClass = "text-xs font-semibold uppercase tracking-wider text-muted";
 
+const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"]);
+
 export default async function SeoSettingsPage() {
   const t = await getTranslations("admin.settings.seo");
-  const overrides = await getSeoOverrides();
-  const pageSeo = await getPageSeoOverrides();
+  const [overrides, pageSeo, storedFiles] = await Promise.all([
+    getSeoOverrides(),
+    getPageSeoOverrides(),
+    listFiles(),
+  ]);
+  const mediaFiles = storedFiles
+    .filter((f) => IMAGE_EXTS.has(path.extname(f.name).toLowerCase()))
+    .sort(
+      (a, b) =>
+        new Date(b.modifiedAt).getTime() - new Date(a.modifiedAt).getTime(),
+    )
+    .map(({ name, url }) => ({ name, url }));
 
   return (
     <div className="space-y-5">
@@ -69,13 +84,10 @@ export default async function SeoSettingsPage() {
             <label htmlFor="ogImage" className={labelClass}>
               {t("ogImageLabel")}
             </label>
-            <input
-              id="ogImage"
+            <UseCaseImagePicker
               name="ogImage"
-              type="url"
-              placeholder="https://"
-              defaultValue={overrides.ogImage ?? ""}
-              className={inputClass}
+              defaultValue={overrides.ogImage ?? undefined}
+              files={mediaFiles}
             />
           </div>
           <button

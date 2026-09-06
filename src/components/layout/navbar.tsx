@@ -165,7 +165,13 @@ function MobileMenu() {
   );
 }
 
-export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
+export function Navbar({
+  logoUrl,
+  siteName,
+}: {
+  logoUrl?: string | null;
+  siteName?: string | null;
+}) {
   const t = useTranslations("navbar");
   const [scrolled, setScrolled] = useState(false);
 
@@ -185,7 +191,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
             : "mt-0 max-w-7xl bg-transparent"
         }`}
       >
-        <Logo logoUrl={logoUrl} />
+        <Logo logoUrl={logoUrl} siteName={siteName} />
         <nav className="hidden items-center gap-4 md:flex">
           <ServicesDropdown />
           {navLinks.map((link) => (
@@ -199,7 +205,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
           ))}
         </nav>
         <div className="col-start-3 flex items-center justify-end gap-3 sm:gap-5">
-          <ThemeToggle />
+          <ThemeToggle className="flex" />
           <Link
             href="/#kontak"
             className="hidden rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-opacity hover:opacity-85 md:inline-block"
