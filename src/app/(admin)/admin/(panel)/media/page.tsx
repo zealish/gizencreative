@@ -1,7 +1,7 @@
-import { readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { listFiles } from "@/lib/storage";
 import { AdminPageHeader } from "../_components/admin-page-header";
 import { type MediaFileItem, MediaLibrary } from "./_components/media-library";
 import { uploadMedia } from "./actions";
@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   title: "Media",
   robots: { index: false, follow: false },
 };
-
-const UPLOADS_DIR = path.join(process.cwd(), "public", "uploads");
 
 const IMAGE_EXTS: Record<string, true> = {
   ".png": true,
@@ -25,33 +23,16 @@ const IMAGE_EXTS: Record<string, true> = {
 type MediaFile = MediaFileItem;
 
 async function getMediaFiles(): Promise<MediaFile[]> {
-  let entries: string[];
-  try {
-    entries = await readdir(UPLOADS_DIR);
-  } catch {
-    return [];
-  }
-
-  const files = await Promise.all(
-    entries
-      .filter((name) => !name.startsWith("."))
-      .map(async (name): Promise<MediaFile | null> => {
-        const info = await stat(path.join(UPLOADS_DIR, name)).catch(() => null);
-        if (!info?.isFile()) return null;
-        const ext = path.extname(name).toLowerCase();
-        return {
-          name,
-          url: `/uploads/${name}`,
-          size: info.size,
-          modifiedAt: info.mtime.toISOString(),
-          isImage: IMAGE_EXTS[ext] === true,
-          isSvg: ext === ".svg",
-        };
-      }),
-  );
-
-  return files
-    .filter((f): f is MediaFile => f !== null)
+  const stored = await listFiles();
+  return stored
+    .map((file) => {
+      const ext = path.extname(file.name).toLowerCase();
+      return {
+        ...file,
+        isImage: IMAGE_EXTS[ext] === true,
+        isSvg: ext === ".svg",
+      };
+    })
     .sort(
       (a, b) =>
         new Date(b.modifiedAt).getTime() - new Date(a.modifiedAt).getTime(),

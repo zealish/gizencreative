@@ -1,12 +1,12 @@
 "use server";
 
 import { randomBytes } from "node:crypto";
-import { mkdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { deleteFile, uploadFile } from "@/lib/storage";
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
@@ -19,8 +19,6 @@ const ALLOWED_TYPES: Record<string, string> = {
   "image/avif": ".avif",
   "application/pdf": ".pdf",
 };
-
-const UPLOADS_DIR = path.join(process.cwd(), "public", "uploads");
 
 async function requireSession() {
   const session = await auth.api.getSession({ headers: await headers() });
@@ -39,8 +37,6 @@ export async function uploadMedia(formData: FormData) {
     throw new Error("No file uploaded");
   }
 
-  await mkdir(UPLOADS_DIR, { recursive: true });
-
   for (const file of files) {
     if (file.size > MAX_FILE_SIZE) {
       throw new Error(`File too large (max 10MB): ${file.name}`);
@@ -58,10 +54,11 @@ export async function uploadMedia(formData: FormData) {
       .slice(0, 48);
     const filename = `${base || "file"}-${randomBytes(4).toString("hex")}${ext}`;
 
-    await writeFile(
-      path.join(UPLOADS_DIR, filename),
-      Buffer.from(await file.arrayBuffer()),
-    );
+    await uploadFile({
+      filename,
+      contentType: file.type,
+      data: Buffer.from(await file.arrayBuffer()),
+    });
   }
 
   revalidatePath("/admin/media");
@@ -79,7 +76,7 @@ export async function deleteMedia(formData: FormData) {
     throw new Error("Invalid file name");
   }
 
-  await unlink(path.join(UPLOADS_DIR, safe)).catch(() => {});
+  await deleteFile(safe);
 
   revalidatePath("/admin/media");
 }

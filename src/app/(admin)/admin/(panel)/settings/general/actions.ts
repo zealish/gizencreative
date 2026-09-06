@@ -1,7 +1,6 @@
 "use server";
 
 import { randomBytes } from "node:crypto";
-import { mkdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { eq } from "drizzle-orm";
 import { revalidateTag } from "next/cache";
@@ -11,6 +10,7 @@ import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { siteSetting } from "@/lib/db/schema";
 import { GENERAL_SETTING_KEYS, SITE_LOGO_KEY } from "@/lib/settings";
+import { deleteFile, uploadFile } from "@/lib/storage";
 
 const MAX_LOGO_SIZE = 2 * 1024 * 1024;
 
@@ -20,8 +20,6 @@ const ALLOWED_LOGO_TYPES: Record<string, string> = {
   "image/svg+xml": ".svg",
   "image/webp": ".webp",
 };
-
-const UPLOADS_DIR = path.join(process.cwd(), "public", "uploads");
 
 export async function uploadSiteLogo(formData: FormData) {
   const session = await auth.api.getSession({ headers: await headers() });
@@ -42,13 +40,11 @@ export async function uploadSiteLogo(formData: FormData) {
   }
 
   const filename = `logo-${randomBytes(8).toString("hex")}${ext}`;
-  await mkdir(UPLOADS_DIR, { recursive: true });
-  await writeFile(
-    path.join(UPLOADS_DIR, filename),
-    Buffer.from(await file.arrayBuffer()),
-  );
-
-  const value = `/uploads/${filename}`;
+  const value = await uploadFile({
+    filename,
+    contentType: file.type,
+    data: Buffer.from(await file.arrayBuffer()),
+  });
 
   const previous = await db
     .select({ value: siteSetting.value })
@@ -64,10 +60,8 @@ export async function uploadSiteLogo(formData: FormData) {
     });
 
   const oldPath = previous[0]?.value;
-  if (oldPath?.startsWith("/uploads/")) {
-    await unlink(path.join(UPLOADS_DIR, path.basename(oldPath))).catch(
-      () => {},
-    );
+  if (oldPath) {
+    await deleteFile(path.basename(oldPath)).catch(() => {});
   }
 
   revalidateTag("site-settings", "max");
@@ -87,10 +81,8 @@ export async function removeSiteLogo() {
   await db.delete(siteSetting).where(eq(siteSetting.key, SITE_LOGO_KEY));
 
   const oldPath = rows[0]?.value;
-  if (oldPath?.startsWith("/uploads/")) {
-    await unlink(path.join(UPLOADS_DIR, path.basename(oldPath))).catch(
-      () => {},
-    );
+  if (oldPath) {
+    await deleteFile(path.basename(oldPath)).catch(() => {});
   }
 
   revalidateTag("site-settings", "max");
