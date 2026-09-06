@@ -47,15 +47,15 @@ const socialLinks: { label: string; href: string; wa?: boolean }[] = [
   { label: "LinkedIn", href: "https://linkedin.com/company/gizencreative" },
 ];
 
-export function Footer() {
+export function Footer({ logoUrl }: { logoUrl?: string | null }) {
   const t = useTranslations("footer");
 
   return (
-    <footer className="px-4 pb-8">
+    <footer className="bg-[#f9fafb] px-4 pb-8 dark:bg-background">
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-2 gap-10 py-14 sm:grid-cols-4 md:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div className="col-span-2 sm:col-span-4 md:col-span-1">
-            <Logo />
+            <Logo logoUrl={logoUrl} />
             <p className="mt-4 max-w-xs text-sm text-muted">{t("tagline")}</p>
             <div className="mt-5 flex gap-3">
               {socialLinks.map((s) =>

@@ -165,6 +165,7 @@ export function CommentsTable({ comments }: { comments: CommentRow[] }) {
           {row.original.message}
         </span>
       ),
+      meta: { className: "hidden sm:table-cell" },
     },
     {
       accessorKey: "postTitle",
@@ -180,6 +181,7 @@ export function CommentsTable({ comments }: { comments: CommentRow[] }) {
           {row.original.postTitle}
         </span>
       ),
+      meta: { className: "hidden lg:table-cell" },
     },
     {
       id: "status",
@@ -221,6 +223,7 @@ export function CommentsTable({ comments }: { comments: CommentRow[] }) {
           })}
         </span>
       ),
+      meta: { className: "hidden md:table-cell" },
     },
     {
       id: "actions",

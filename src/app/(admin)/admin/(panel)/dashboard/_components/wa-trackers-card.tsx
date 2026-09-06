@@ -36,8 +36,8 @@ export async function WaTrackersCard({
           {t("empty")}
         </div>
       ) : (
-        <div className="mt-6 grid gap-5 lg:grid-cols-2">
-          <div className="rounded-2xl border border-accent/20 bg-accent-soft/40 p-5">
+        <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2">
+          <div className="min-w-0 rounded-2xl border border-accent/20 bg-accent-soft/40 p-5">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
               {t("bySource")}
             </p>
@@ -64,7 +64,7 @@ export async function WaTrackersCard({
               ))}
             </ul>
           </div>
-          <div>
+          <div className="min-w-0">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
               {t("recent")}
             </p>
@@ -86,6 +86,7 @@ export async function WaTrackersCard({
                       month: "short",
                       hour: "2-digit",
                       minute: "2-digit",
+                      timeZone: "Asia/Jakarta",
                     })}
                   </span>
                 </li>

@@ -16,7 +16,7 @@ export function Hero() {
   const t = useTranslations("hero");
 
   return (
-    <section className="relative overflow-hidden px-4 pb-14 pt-28 text-center sm:pb-16 sm:pt-36">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#f2ece3] via-[#f5f1ea] to-[#f9fafb] px-4 pb-14 pt-28 text-center sm:pb-16 sm:pt-36 dark:from-[#1a1712] dark:via-[#141311] dark:to-background">
       <HeroParticles />
       <div className="relative mx-auto max-w-3xl">
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">

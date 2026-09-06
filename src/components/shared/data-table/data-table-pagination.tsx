@@ -29,18 +29,18 @@ export function DataTablePagination<TData extends RowData>({
   const state = table.state;
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 px-1">
+    <div className="flex flex-col gap-3 px-1 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
       {enableSelection ? (
-        <div className="flex-1 text-sm text-muted">
+        <div className="text-sm text-muted sm:flex-1">
           {t("selectedCount", {
             selected: table.getFilteredSelectedRowModel().rows.length,
             total: table.getFilteredRowModel().rows.length,
           })}
         </div>
       ) : (
-        <div className="flex-1" />
+        <div className="hidden sm:block sm:flex-1" />
       )}
-      <div className="flex flex-wrap items-center gap-4 lg:gap-6">
+      <div className="flex flex-wrap items-center justify-between gap-3 sm:justify-end sm:gap-4 lg:gap-6">
         <div className="flex items-center gap-2">
           <p className="text-sm font-medium">{t("rowsPerPage")}</p>
           <select

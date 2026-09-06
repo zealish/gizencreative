@@ -36,7 +36,7 @@ export async function AnalyticsCard({
         otherParam="waRange"
         otherRange={waRange}
       />
-      <div className="mt-6 grid grid-cols-3 gap-3">
+      <div className="mt-6 grid grid-cols-1 gap-3 min-[480px]:grid-cols-3">
         {totals.map((item) => (
           <div
             key={item.label}

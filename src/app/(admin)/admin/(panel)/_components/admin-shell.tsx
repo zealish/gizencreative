@@ -7,10 +7,12 @@ import { AdminTopbar } from "./admin-topbar";
 export function AdminShell({
   userName,
   userEmail,
+  logoUrl,
   children,
 }: {
   userName: string;
   userEmail: string;
+  logoUrl?: string | null;
   children: React.ReactNode;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -22,6 +24,7 @@ export function AdminShell({
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
         collapsed={sidebarCollapsed}
+        logoUrl={logoUrl}
       />
       <div className="flex min-w-0 flex-1 flex-col">
         <AdminTopbar

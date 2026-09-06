@@ -120,7 +120,7 @@ export function DatePickerField({
         <div
           role="dialog"
           aria-label={t("label")}
-          className="card-elegant absolute left-0 top-full z-40 mt-2 w-72 rounded-2xl p-4"
+          className="card-elegant absolute left-0 top-full z-40 mt-2 w-72 max-w-[calc(100vw-2.5rem)] rounded-2xl p-4"
         >
           <div className="flex items-center justify-between gap-2">
             <p className="text-sm font-bold tracking-tight">{monthLabel}</p>

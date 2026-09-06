@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
@@ -111,10 +112,12 @@ export function AdminSidebar({
   open,
   onClose,
   collapsed,
+  logoUrl,
 }: {
   open: boolean;
   onClose: () => void;
   collapsed: boolean;
+  logoUrl?: string | null;
 }) {
   const t = useTranslations("admin.nav");
   const pathname = usePathname();
@@ -146,27 +149,41 @@ export function AdminSidebar({
             className="flex items-center gap-2"
             onClick={onClose}
           >
-            <span className="grid h-7 w-7 place-items-center rounded-md bg-foreground text-background">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 6h10v4H8v8H4V6zm10 8h6v4h-6v-4z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <span
-              className={`text-sm font-bold tracking-tight ${
-                collapsed ? "lg:hidden" : ""
-              }`}
-            >
-              Gizen Admin
-            </span>
+            {logoUrl ? (
+              <Image
+                src={logoUrl}
+                alt="Gizen Admin"
+                width={140}
+                height={32}
+                className={`w-auto object-contain ${
+                  collapsed ? "h-8 lg:h-7 lg:max-w-9" : "h-8"
+                }`}
+              />
+            ) : (
+              <>
+                <span className="grid h-7 w-7 place-items-center rounded-md bg-foreground text-background">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 6h10v4H8v8H4V6zm10 8h6v4h-6v-4z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span
+                  className={`text-sm font-bold tracking-tight ${
+                    collapsed ? "lg:hidden" : ""
+                  }`}
+                >
+                  Gizen Admin
+                </span>
+              </>
+            )}
           </Link>
           <button
             type="button"

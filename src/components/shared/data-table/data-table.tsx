@@ -162,20 +162,25 @@ export function DataTable<TData extends RowData>({
                 key={headerGroup.id}
                 className="border-b border-black/10 dark:border-white/10"
               >
-                {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    colSpan={header.colSpan}
-                    className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted"
-                  >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext(),
-                        )}
-                  </th>
-                ))}
+                {headerGroup.headers.map((header) => {
+                  const meta = header.column.columnDef.meta as
+                    | { className?: string }
+                    | undefined;
+                  return (
+                    <th
+                      key={header.id}
+                      colSpan={header.colSpan}
+                      className={`px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-muted ${meta?.className ?? ""}`}
+                    >
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
+                    </th>
+                  );
+                })}
               </tr>
             ))}
           </thead>
@@ -187,14 +192,22 @@ export function DataTable<TData extends RowData>({
                   data-state={row.getIsSelected() && "selected"}
                   className="transition-colors hover:bg-black/[0.02] data-[state=selected]:bg-accent-soft/40 dark:hover:bg-white/[0.03]"
                 >
-                  {row.getVisibleCells().map((cell) => (
-                    <td key={cell.id} className="px-4 py-3 align-middle">
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext(),
-                      )}
-                    </td>
-                  ))}
+                  {row.getVisibleCells().map((cell) => {
+                    const meta = cell.column.columnDef.meta as
+                      | { className?: string }
+                      | undefined;
+                    return (
+                      <td
+                        key={cell.id}
+                        className={`px-4 py-3 align-middle ${meta?.className ?? ""}`}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
+                      </td>
+                    );
+                  })}
                 </tr>
               ))
             ) : (

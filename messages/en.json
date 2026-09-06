@@ -1557,7 +1557,8 @@
         "seo": "SEO",
         "analytics": "Analytics",
         "smtp": "SMTP",
-        "storage": "Storage"
+        "storage": "Storage",
+        "useCases": "Use Cases"
       },
       "general": {
         "title": "General",
@@ -1653,6 +1654,20 @@
           "secretAccessKeyLabel": "Secret Access Key",
           "publicUrlLabel": "Public Base URL"
         },
+        "save": "Save Changes"
+      }
+      ,
+      "useCases": {
+        "title": "Use Cases",
+        "description": "Background images for each section in the homepage use cases.",
+        "sections": {
+          "website": "Website",
+          "socialMedia": "Social Media",
+          "seo": "SEO"
+        },
+        "hint": "Optional. Leave empty to use the default gradient background.",
+        "browse": "Browse",
+        "clear": "Remove",
         "save": "Save Changes"
       }
     }

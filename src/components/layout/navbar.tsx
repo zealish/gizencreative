@@ -165,7 +165,7 @@ function MobileMenu() {
   );
 }
 
-export function Navbar() {
+export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
   const t = useTranslations("navbar");
   const [scrolled, setScrolled] = useState(false);
 
@@ -185,7 +185,7 @@ export function Navbar() {
             : "mt-0 max-w-7xl bg-transparent"
         }`}
       >
-        <Logo />
+        <Logo logoUrl={logoUrl} />
         <nav className="hidden items-center gap-4 md:flex">
           <ServicesDropdown />
           {navLinks.map((link) => (

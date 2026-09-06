@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { getSiteLogo } from "@/lib/settings";
 import { AdminShell } from "./_components/admin-shell";
 
 export default async function AdminPanelLayout({
@@ -14,8 +15,14 @@ export default async function AdminPanelLayout({
     redirect("/admin/login");
   }
 
+  const logoUrl = await getSiteLogo();
+
   return (
-    <AdminShell userName={session.user.name} userEmail={session.user.email}>
+    <AdminShell
+      userName={session.user.name}
+      userEmail={session.user.email}
+      logoUrl={logoUrl}
+    >
       {children}
     </AdminShell>
   );

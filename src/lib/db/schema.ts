@@ -107,5 +107,7 @@ export const waClick = pgTable("wa_click", {
   path: text("path").notNull(),
   userAgent: text("user_agent"),
   referrer: text("referrer"),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
 });

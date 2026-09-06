@@ -221,6 +221,36 @@ export const getSiteLogo = unstable_cache(
   { tags: ["site-settings"] },
 );
 
+export const USE_CASE_IDS = ["website", "socialMedia", "seo"] as const;
+
+export type UseCaseId = (typeof USE_CASE_IDS)[number];
+
+export const USE_CASE_IMAGE_PREFIX = "useCaseImage:";
+
+export const getUseCaseImages = unstable_cache(
+  async (): Promise<Partial<Record<UseCaseId, string>>> => {
+    try {
+      const keys = USE_CASE_IDS.map((id) => USE_CASE_IMAGE_PREFIX + id);
+      const rows = await db
+        .select()
+        .from(siteSetting)
+        .where(inArray(siteSetting.key, keys));
+      const result: Partial<Record<UseCaseId, string>> = {};
+      for (const row of rows) {
+        const id = row.key.slice(USE_CASE_IMAGE_PREFIX.length) as UseCaseId;
+        if (row.value) {
+          result[id] = row.value;
+        }
+      }
+      return result;
+    } catch {
+      return {};
+    }
+  },
+  ["use-case-images"],
+  { tags: ["site-settings"] },
+);
+
 export const STORAGE_PROVIDERS = ["local", "cloudinary", "s3", "r2"] as const;
 
 export type StorageProvider = (typeof STORAGE_PROVIDERS)[number];

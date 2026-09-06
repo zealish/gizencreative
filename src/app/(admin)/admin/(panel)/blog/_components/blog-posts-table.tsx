@@ -165,6 +165,7 @@ export function BlogPostsTable({
       cell: ({ row }) => (
         <span className="text-xs text-muted">/blog/{row.original.slug}</span>
       ),
+      meta: { className: "hidden md:table-cell" },
     },
     {
       accessorKey: "category",
@@ -176,6 +177,7 @@ export function BlogPostsTable({
         />
       ),
       cell: ({ row }) => row.original.categoryName,
+      meta: { className: "hidden lg:table-cell" },
     },
     {
       id: "status",
@@ -217,6 +219,7 @@ export function BlogPostsTable({
           })}
         </span>
       ),
+      meta: { className: "hidden sm:table-cell" },
     },
     {
       id: "actions",

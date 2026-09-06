@@ -10,6 +10,7 @@ const navItems = [
   { key: "analytics", href: "/admin/settings/analytics" },
   { key: "smtp", href: "/admin/settings/smtp" },
   { key: "storage", href: "/admin/settings/storage" },
+  { key: "useCases", href: "/admin/settings/use-cases" },
 ] as const;
 
 export function SettingsNav() {

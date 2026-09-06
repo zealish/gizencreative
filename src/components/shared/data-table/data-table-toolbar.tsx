@@ -54,9 +54,9 @@ export function DataTableToolbar<TData extends RowData>({
 
   return (
     <div className="flex flex-wrap items-center justify-between gap-3">
-      <div className="flex flex-1 items-center gap-2">
+      <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:flex-1">
         {searchKey && (
-          <div className="relative">
+          <div className="relative w-full sm:w-auto">
             <SearchIcon className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted" />
             <input
               type="search"
@@ -67,7 +67,7 @@ export function DataTableToolbar<TData extends RowData>({
               onChange={(event) =>
                 table.getColumn(searchKey)?.setFilterValue(event.target.value)
               }
-              className="h-9 w-[180px] rounded-xl border border-black/10 bg-white pl-9 pr-3 text-sm text-foreground outline-none transition-colors focus:border-accent dark:border-white/15 dark:bg-white/5 lg:w-[260px]"
+              className="h-9 w-full rounded-xl border border-black/10 bg-white pl-9 pr-3 text-sm text-foreground outline-none transition-colors focus:border-accent sm:w-[180px] dark:border-white/15 dark:bg-white/5 lg:w-[260px]"
             />
           </div>
         )}

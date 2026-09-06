@@ -1,27 +1,37 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
+import type { UseCaseId } from "@/lib/settings";
 
-const useCases = [
+const useCases: { id: UseCaseId; background: string; href: string }[] = [
   {
     id: "website",
     background:
       "radial-gradient(circle at 70% 20%, #2e3338 0%, #16181a 60%), #16181a",
+    href: "/services/website-development",
   },
   {
     id: "socialMedia",
     background:
       "radial-gradient(circle at 30% 30%, #10a56b 0%, #0a5c3d 55%, #073e2a 100%)",
+    href: "/services/social-media-management",
   },
   {
     id: "seo",
     background:
       "radial-gradient(circle at 60% 70%, #3a4148 0%, #1c2024 55%, #101214 100%)",
+    href: "/services/seo-website",
   },
 ];
 
-export function UseCases() {
+export function UseCases({
+  images,
+}: {
+  images: Partial<Record<UseCaseId, string>>;
+}) {
   const t = useTranslations("useCases");
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
   // coverage[i] = how far the next panel has scrolled over panel i (0..1)
@@ -70,6 +80,7 @@ export function UseCases() {
       </div>
       {useCases.map((uc, i) => {
         const c = coverage[i];
+        const image = images[uc.id];
         return (
           <div
             key={uc.id}
@@ -80,7 +91,7 @@ export function UseCases() {
           >
             <div
               aria-hidden="true"
-              className="absolute inset-0 will-change-transform"
+              className="absolute inset-0 overflow-hidden will-change-transform"
               style={{
                 background: uc.background,
                 transform: `scale(${1 - c * 0.06})`,
@@ -88,7 +99,17 @@ export function UseCases() {
                 borderRadius: `${c * 1.25}rem`,
                 filter: "brightness(0.7)",
               }}
-            />
+            >
+              {image ? (
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  unoptimized
+                  className="object-cover"
+                />
+              ) : null}
+            </div>
             <div
               className="relative flex h-full flex-col justify-end overflow-hidden will-change-transform"
               style={{
@@ -98,6 +119,15 @@ export function UseCases() {
                 borderRadius: `${c * 0.75}rem`,
               }}
             >
+              {image ? (
+                <Image
+                  src={image}
+                  alt=""
+                  fill
+                  unoptimized
+                  className="object-cover"
+                />
+              ) : null}
               <span
                 className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[10rem] font-bold leading-none text-white/5 sm:right-8 sm:text-[24rem]"
                 aria-hidden="true"
@@ -113,18 +143,18 @@ export function UseCases() {
                   {t(`items.${uc.id}.description`)}
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-widest sm:gap-6">
-                  <a
-                    href="#kontak"
+                  <Link
+                    href="/contact"
                     className="rounded-full bg-white/15 px-6 py-3.5 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
                   >
                     {t("start")}
-                  </a>
-                  <a
-                    href="#kontak"
+                  </Link>
+                  <Link
+                    href={uc.href}
                     className="flex items-center gap-2 text-white/80 transition-colors hover:text-white"
                   >
                     {t("learn")} <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

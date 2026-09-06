@@ -1557,7 +1557,8 @@
         "seo": "SEO",
         "analytics": "Analitik",
         "smtp": "SMTP",
-        "storage": "Penyimpanan"
+        "storage": "Penyimpanan",
+        "useCases": "Use Case"
       },
       "general": {
         "title": "Umum",
@@ -1653,6 +1654,19 @@
           "secretAccessKeyLabel": "Secret Access Key",
           "publicUrlLabel": "URL Publik"
         },
+        "save": "Simpan Perubahan"
+      },
+      "useCases": {
+        "title": "Use Case",
+        "description": "Gambar latar untuk setiap section use case di beranda.",
+        "sections": {
+          "website": "Website",
+          "socialMedia": "Social Media",
+          "seo": "SEO"
+        },
+        "hint": "Opsional. Kosongkan untuk menggunakan latar gradien bawaan.",
+        "browse": "Telusuri",
+        "clear": "Hapus",
         "save": "Simpan Perubahan"
       }
     }
