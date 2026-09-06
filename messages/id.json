@@ -1,0 +1,1445 @@
+{
+  "whatsappButton": {
+    "ariaLabel": "Chat dengan kami di WhatsApp",
+    "label": "Hubungi Kami"
+  },
+  "footer": {
+    "tagline": "Digital Service Platform untuk bisnis Anda. Website, Social Media, dan SEO dalam satu tim.",
+    "copyright": "© 2026 Gizen Creative. Hak cipta dilindungi.",
+    "language": "Bahasa",
+    "columns": {
+      "services": "Layanan",
+      "packages": "Paket",
+      "resources": "Resources",
+      "company": "Perusahaan"
+    },
+    "links": {
+      "websiteDevelopment": "Website Development",
+      "socialMediaManagement": "Social Media Management",
+      "seoWebsite": "SEO Website",
+      "websitePackage": "Website Package",
+      "socialMediaPackage": "Social Media Package",
+      "seoPackage": "SEO Package",
+      "enterprisePackage": "Enterprise Package",
+      "blog": "Blog",
+      "portfolio": "Portofolio",
+      "faq": "FAQ",
+      "caseStudies": "Studi Kasus",
+      "aboutUs": "Tentang Kami",
+      "contact": "Kontak",
+      "privacyPolicy": "Kebijakan Privasi",
+      "termsOfService": "Syarat Layanan"
+    }
+  },
+  "metadata": {
+    "title": "Gizen Creative — Website, Social Media & SEO untuk Bisnis Anda",
+    "description": "Gizen Creative Digital Service Platform. Layanan Website Development, Social Media Management, dan SEO Website profesional untuk mengembangkan bisnis Anda."
+  },
+  "hero": {
+    "title": "Tumbuh Digital. Lebih Cepat.",
+    "description": "Platform layanan digital untuk membangun website profesional, mengelola media sosial, dan mendatangkan trafik organik dalam satu tim.",
+    "ctaPrimary": "Konsultasi Gratis",
+    "ctaSecondary": "Lihat Paket",
+    "trustedBy": "Dipercaya 100+ bisnis di seluruh Indonesia",
+    "rating": "4.9"
+  },
+  "techMarquee": {
+    "heading": "Berpengalaman dengan platform favorit bisnis Anda"
+  },
+  "bento": {
+    "heading": "Partner digital untuk bisnis modern",
+    "custom": {
+      "badge": "100% Custom",
+      "title": "Solusi yang menjaga identitas brand Anda",
+      "description": "Setiap website, konten, dan strategi SEO dibuat khusus mengikuti karakter dan tujuan bisnis Anda."
+    },
+    "stats": {
+      "projects": {
+        "value": "100+",
+        "label": "Proyek Selesai"
+      },
+      "turnaround": {
+        "value": "7 Hari",
+        "label": "Rata-rata Pengerjaan Landing Page"
+      },
+      "clients": {
+        "value": "50+",
+        "label": "Klien Puas & Berulang"
+      }
+    },
+    "process": {
+      "title": "Proses Simpel",
+      "description": "Tanpa ribet. Cukup konsultasi, kami yang mengerjakan semuanya.",
+      "step1": "Konsultasi kebutuhan bisnis",
+      "step2": "Tim menyusun strategi & penawaran",
+      "step3": "Eksekusi & laporan berkala"
+    },
+    "lead": {
+      "title": "Respon Cepat via WhatsApp",
+      "description": "Kirim pertanyaan Anda, tim kami akan membalas dan menyiapkan penawaran terbaik.",
+      "placeholder": "Halo, saya mau buat website…",
+      "tags": {
+        "website": "Website",
+        "social": "Sosmed",
+        "seo": "SEO",
+        "enterprise": "Enterprise"
+      }
+    },
+    "pricing": {
+      "title": "Paket Fleksibel",
+      "badge": "Bisa Custom",
+      "description": "Pilih paket bulanan atau one-time project. Sesuaikan dengan kebutuhan dan budget bisnis Anda.",
+      "count": "4",
+      "categoryLabel": "Kategori",
+      "categoryValue": "Paket Layanan",
+      "priceLabel": "Mulai dari",
+      "priceValue": "Terjangkau"
+    }
+  },
+  "ctaDark": {
+    "titleLine1": "Siap Mengembangkan",
+    "titleLine2": "Bisnis Anda?",
+    "description": "Bergabung dengan 100+ bisnis yang telah tumbuh bersama Gizen Creative.",
+    "ctaWhatsApp": "Konsultasi via WhatsApp",
+    "ctaQuote": "Minta Penawaran"
+  },
+  "services": {
+    "included": "Termasuk",
+    "learnMore": "Pelajari lebih lanjut",
+    "items": {
+      "website": {
+        "eyebrow": "Website Development",
+        "title1": "Website Profesional",
+        "title2": "Untuk Bisnis Anda",
+        "description": "Layanan pembuatan website profesional untuk bisnis. Company profile, landing page, dan business website dengan desain responsif serta konten yang mudah dikelola.",
+        "cta": "Buat Website Sekarang",
+        "pills": {
+          "responsive": "Desain Responsif",
+          "cms": "CMS Mudah Dikelola"
+        },
+        "features": {
+          "companyProfile": "Website Company Profile",
+          "landingPage": "Landing Page",
+          "businessWebsite": "Website Bisnis",
+          "contactForm": "Formulir Kontak",
+          "whatsapp": "Integrasi WhatsApp",
+          "maps": "Integrasi Google Maps",
+          "seo": "Pengaturan SEO Dasar"
+        }
+      },
+      "socialMedia": {
+        "eyebrow": "Social Media Management",
+        "title1": "Media Sosial Aktif,",
+        "title2": "Tanpa Repot",
+        "description": "Pengelolaan media sosial secara strategis. Dari strategi konten, feed, story, hingga reels — lengkap dengan caption, hashtag, dan laporan performa bulanan.",
+        "cta": "Kelola Sosmed Sekarang",
+        "pills": {
+          "strategy": "Strategi Konten",
+          "report": "Laporan Bulanan"
+        },
+        "features": {
+          "strategy": "Strategi Konten",
+          "feed": "Pengelolaan Feed",
+          "story": "Pengelolaan Story",
+          "reels": "Pengelolaan Reels",
+          "caption": "Caption & Hashtag",
+          "scheduling": "Penjadwalan Konten",
+          "report": "Laporan Performa Bulanan"
+        }
+      },
+      "seo": {
+        "eyebrow": "SEO Website",
+        "title1": "Ranking Naik,",
+        "title2": "Trafik Organik Tumbuh",
+        "description": "Optimasi website agar memperoleh trafik organik. Mulai dari audit, riset keyword, penulisan konten SEO, hingga optimasi teknis dan laporan performa.",
+        "cta": "Optimasi SEO Sekarang",
+        "pills": {
+          "audit": "Audit SEO",
+          "keyword": "Riset Keyword",
+          "technical": "SEO Teknis"
+        },
+        "features": {
+          "audit": "Audit SEO",
+          "keyword": "Riset Keyword",
+          "content": "Penulisan Konten SEO",
+          "onPage": "SEO On-Page",
+          "technical": "SEO Teknis",
+          "report": "Laporan Performa Organik"
+        }
+      }
+    }
+  },
+  "websiteDevelopment": {
+    "meta": {
+      "title": "Website Development | Jasa Pembuatan Website Profesional | Gizen Creative",
+      "description": "Jasa pembuatan website profesional — landing page, company profile, hingga business website. Desain responsif, cepat, dan SEO-ready. Mulai dengan konsultasi gratis."
+    },
+    "hero": {
+      "eyebrow": "Website Development",
+      "title1": "Website Profesional,",
+      "title2": "Dibangun untuk Konversi",
+      "subtitle": "Dari landing page hingga business website dengan integrasi kompleks. Desain modern, performa cepat, dan SEO-ready — siap jadi aset penjualan bisnis Anda.",
+      "ctaPrimary": "Konsultasi Gratis",
+      "ctaSecondary": "Lihat Paket Harga",
+      "stats": {
+        "delivery": {
+          "value": "7–14 Hari",
+          "label": "Estimasi pengerjaan"
+        },
+        "responsive": {
+          "value": "100%",
+          "label": "Responsif semua perangkat"
+        },
+        "hosting": {
+          "value": "1 Tahun",
+          "label": "Domain & hosting gratis"
+        }
+      }
+    },
+    "offerings": {
+      "eyebrow": "Jenis Website",
+      "title1": "Pilih Sesuai",
+      "title2": "Kebutuhan Bisnis",
+      "subtitle": "Tiga jenis website yang paling sering dibutuhkan bisnis — semuanya dikerjakan dengan standar yang sama: cepat, rapi, dan mudah dikelola.",
+      "items": {
+        "landingPage": {
+          "title": "Landing Page",
+          "description": "Satu halaman fokus konversi untuk kampanye iklan, peluncuran produk, atau penawaran khusus.",
+          "bestFor": "Cocok untuk kampanye & produk baru"
+        },
+        "companyProfile": {
+          "title": "Company Profile",
+          "description": "Tampilkan profil, layanan, dan portofolio perusahaan secara profesional dan meyakinkan.",
+          "bestFor": "Cocok untuk UMKM & bisnis bertumbuh"
+        },
+        "businessWebsite": {
+          "title": "Business Website",
+          "description": "Website custom dengan CMS, multi-bahasa, dan integrasi sistem sesuai proses bisnis Anda.",
+          "bestFor": "Cocok untuk kebutuhan kompleks"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "Cara Kerja",
+      "title1": "Proses Jelas,",
+      "title2": "Hasil Terukur",
+      "steps": {
+        "discovery": {
+          "title": "Konsultasi & Riset",
+          "description": "Kami pahami tujuan bisnis, target audiens, dan kebutuhan fitur Anda."
+        },
+        "design": {
+          "title": "Desain UI/UX",
+          "description": "Rancangan visual modern yang selaras dengan identitas brand Anda."
+        },
+        "development": {
+          "title": "Development",
+          "description": "Dibangun dengan teknologi modern — cepat, aman, dan SEO-ready."
+        },
+        "launch": {
+          "title": "Peluncuran & Support",
+          "description": "Website tayang, lengkap dengan pendampingan dan maintenance."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "Sudah Termasuk",
+      "title1": "Semua Paket,",
+      "title2": "Tanpa Biaya Tersembunyi",
+      "subtitle": "Apa pun jenis website yang Anda pilih, semua sudah termasuk kebutuhan dasar untuk langsung online.",
+      "items": {
+        "responsive": "Desain Responsif",
+        "ssl": "SSL Certificate",
+        "hosting": "Domain & Hosting 1 Tahun",
+        "seo": "SEO On-Page Dasar",
+        "whatsapp": "Integrasi WhatsApp",
+        "maps": "Integrasi Google Maps",
+        "contactForm": "Formulir Kontak",
+        "revision": "Revisi Desain"
+      }
+    },
+    "cta": {
+      "badge": "Siap Online?",
+      "title": "Mulai Bangun Website Anda",
+      "subtitle": "Konsultasikan kebutuhan website Anda bersama tim kami — gratis, tanpa komitmen.",
+      "button": "Konsultasi Gratis"
+    }
+  },
+  "socialMediaManagement": {
+    "meta": {
+      "title": "Social Media Management | Jasa Kelola Media Sosial Profesional | Gizen Creative",
+      "description": "Jasa pengelolaan media sosial strategis — content strategy, feed, story, dan reels dikelola penuh, lengkap dengan laporan performa bulanan. Mulai dengan konsultasi gratis."
+    },
+    "hero": {
+      "eyebrow": "Social Media Management",
+      "title1": "Media Sosial Aktif,",
+      "title2": "Tanpa Repot",
+      "subtitle": "Dari strategi konten hingga laporan bulanan. Kami kelola feed, story, dan reels Anda agar brand tetap konsisten dan terus bertumbuh.",
+      "ctaPrimary": "Konsultasi Gratis",
+      "ctaSecondary": "Lihat Paket Harga",
+      "stats": {
+        "content": {
+          "value": "12–30",
+          "label": "Konten per bulan"
+        },
+        "platforms": {
+          "value": "IG & TikTok",
+          "label": "Platform utama dikelola"
+        },
+        "report": {
+          "value": "Bulanan",
+          "label": "Laporan performa"
+        }
+      }
+    },
+    "offerings": {
+      "eyebrow": "Yang Kami Kelola",
+      "title1": "Semua Kebutuhan",
+      "title2": "Media Sosial Anda",
+      "subtitle": "Tiga pilar utama pengelolaan media sosial — semuanya ditangani satu tim dengan satu strategi yang konsisten.",
+      "items": {
+        "contentStrategy": {
+          "title": "Content Strategy",
+          "description": "Perencanaan konten bulanan berdasarkan audiens, tren, dan tujuan bisnis — agar setiap postingan punya arah.",
+          "bestFor": "Cocok untuk membangun arah"
+        },
+        "feedManagement": {
+          "title": "Feed Management",
+          "description": "Desain visual dan copy feed yang konsisten, lengkap dengan caption dan hashtag hasil riset.",
+          "bestFor": "Cocok untuk konsistensi brand"
+        },
+        "storiesReels": {
+          "title": "Story & Reels",
+          "description": "Konten short-form yang menarik — story harian dan reels sesuai tren untuk mendongkrak jangkauan.",
+          "bestFor": "Cocok untuk reach & engagement"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "Cara Kerja",
+      "title1": "Alur Terstruktur,",
+      "title2": "Output Konsisten",
+      "steps": {
+        "audit": {
+          "title": "Audit & Riset",
+          "description": "Kami tinjau akun, audiens, dan kompetitor Anda untuk menemukan peluang pertumbuhan."
+        },
+        "planning": {
+          "title": "Perencanaan Konten",
+          "description": "Kalender konten bulanan dengan tema, format, dan jadwal posting — disetujui oleh Anda."
+        },
+        "production": {
+          "title": "Produksi & Publikasi",
+          "description": "Desain, copywriting, dan penjadwalan dikerjakan menyeluruh, tepat waktu setiap saat."
+        },
+        "reporting": {
+          "title": "Laporan & Evaluasi",
+          "description": "Laporan performa bulanan dengan insight dan rekomendasi untuk bulan berikutnya."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "Sudah Termasuk",
+      "title1": "Semua Paket,",
+      "title2": "Tanpa Biaya Tersembunyi",
+      "subtitle": "Apa pun paket yang Anda pilih, semua kebutuhan media sosial yang konsisten dan bertumbuh sudah termasuk.",
+      "items": {
+        "contentStrategy": "Content Strategy",
+        "feed": "Feed Management",
+        "story": "Story Management",
+        "reels": "Reels Management",
+        "captionHashtag": "Riset Caption & Hashtag",
+        "scheduling": "Penjadwalan Konten",
+        "design": "Desain Konten Custom",
+        "report": "Laporan Performa Bulanan"
+      }
+    },
+    "cta": {
+      "badge": "Siap Bertumbuh?",
+      "title": "Serahkan Media Sosial Anda pada Kami",
+      "subtitle": "Konsultasikan kebutuhan media sosial Anda bersama tim kami — gratis, tanpa komitmen.",
+      "button": "Konsultasi Gratis"
+    }
+  },
+  "seoWebsite": {
+    "meta": {
+      "title": "SEO Website | Jasa SEO Profesional | Gizen Creative",
+      "description": "Jasa SEO website — audit, riset keyword, konten SEO, optimasi on-page dan technical, lengkap dengan laporan performa organik bulanan. Mulai dengan konsultasi gratis."
+    },
+    "hero": {
+      "eyebrow": "SEO Website",
+      "title1": "Ranking Lebih Tinggi,",
+      "title2": "Trafik Organik Bertumbuh",
+      "subtitle": "Dari audit SEO dan riset keyword hingga optimasi konten dan technical. Kami bantu website Anda ditemukan di Google dan mengubah pencarian menjadi pelanggan.",
+      "ctaPrimary": "Konsultasi Gratis",
+      "ctaSecondary": "Lihat Paket Harga",
+      "stats": {
+        "keywords": {
+          "value": "5–30+",
+          "label": "Keyword dioptimasi"
+        },
+        "articles": {
+          "value": "2–8",
+          "label": "Artikel SEO per bulan"
+        },
+        "report": {
+          "value": "Bulanan",
+          "label": "Laporan ranking"
+        }
+      }
+    },
+    "offerings": {
+      "eyebrow": "Yang Kami Optimasi",
+      "title1": "Semua Penentu",
+      "title2": "Ranking Website Anda",
+      "subtitle": "Tiga pilar utama SEO — semuanya ditangani satu tim dengan satu strategi yang terukur.",
+      "items": {
+        "auditKeyword": {
+          "title": "Audit & Riset Keyword",
+          "description": "Tinjauan menyeluruh kesehatan SEO website Anda plus riset keyword yang benar-benar dicari calon pelanggan.",
+          "bestFor": "Cocok untuk membangun fondasi"
+        },
+        "contentOnPage": {
+          "title": "Konten & On-Page SEO",
+          "description": "Artikel SEO dan optimasi halaman — judul, meta description, struktur, dan internal link yang sesuai search intent.",
+          "bestFor": "Cocok untuk pertumbuhan ranking"
+        },
+        "technicalReport": {
+          "title": "Technical SEO & Laporan",
+          "description": "Perbaikan kecepatan situs, indexing, dan structured data, lengkap dengan laporan performa organik bulanan.",
+          "bestFor": "Cocok untuk hasil berkelanjutan"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "Cara Kerja",
+      "title1": "Proses Berbasis Data,",
+      "title2": "Pertumbuhan Terukur",
+      "steps": {
+        "audit": {
+          "title": "Audit SEO",
+          "description": "Kami analisis website, kompetitor, dan ranking saat ini untuk menemukan peluang terbesar."
+        },
+        "strategy": {
+          "title": "Strategi Keyword",
+          "description": "Riset keyword dan rencana konten yang menargetkan pencarian bernilai bisnis nyata."
+        },
+        "optimization": {
+          "title": "Optimasi & Konten",
+          "description": "Perbaikan on-page, peningkatan technical, dan konten SEO dipublikasikan secara konsisten."
+        },
+        "reporting": {
+          "title": "Laporan & Evaluasi",
+          "description": "Laporan ranking dan trafik bulanan dengan insight dan langkah berikutnya."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "Sudah Termasuk",
+      "title1": "Semua Paket,",
+      "title2": "Tanpa Biaya Tersembunyi",
+      "subtitle": "Apa pun paket yang Anda pilih, semua kebutuhan trafik organik yang bertumbuh sudah termasuk.",
+      "items": {
+        "audit": "Audit SEO",
+        "keyword": "Riset Keyword",
+        "content": "Penulisan Konten SEO",
+        "onPage": "On-Page SEO",
+        "technical": "Technical SEO",
+        "backlinks": "Backlink Berkualitas",
+        "report": "Laporan Performa Organik",
+        "specialist": "Dedicated SEO Specialist"
+      }
+    },
+    "cta": {
+      "badge": "Siap Naik Ranking?",
+      "title": "Mulai Optimasi SEO Anda",
+      "subtitle": "Konsultasikan kebutuhan SEO Anda bersama tim kami — gratis, tanpa komitmen.",
+      "button": "Konsultasi Gratis"
+    }
+  },
+  "useCases": {
+    "title1": "Untuk setiap tahap",
+    "title2": "Perjalanan Bisnis Anda",
+    "subtitle": "Tiga layanan utama Gizen Creative — Website, Social Media, dan SEO — siap beradaptasi dengan setiap kebutuhan digital bisnis Anda.",
+    "start": "Mulai Sekarang",
+    "learn": "Pelajari",
+    "items": {
+      "website": {
+        "title": "Website Development",
+        "description": "Website profesional untuk bisnis Anda — company profile, landing page, hingga business website dengan desain responsif."
+      },
+      "socialMedia": {
+        "title": "Social Media Management",
+        "description": "Media sosial aktif tanpa repot. Strategi konten, feed, story, dan reels dikelola penuh dengan laporan bulanan."
+      },
+      "seo": {
+        "title": "Spesialis SEO",
+        "description": "Naikkan ranking di Google dan datangkan trafik organik lewat audit, riset keyword, dan optimasi teknis."
+      }
+    }
+  },
+  "whyChooseUs": {
+    "eyebrow": "Kenapa Kami?",
+    "title1": "Alasan Memilih Kami.",
+    "title2": "Partner Digital Terpercaya.",
+    "cta": "Konsultasi Gratis",
+    "items": {
+      "team": {
+        "title": "Tim Berpengalaman",
+        "description": "Dikerjakan oleh tim yang paham desain, teknologi, dan strategi digital untuk kebutuhan bisnis lokal."
+      },
+      "pricing": {
+        "title": "Harga Transparan",
+        "description": "Paket jelas tanpa biaya tersembunyi. Anda tahu persis apa yang didapat sejak awal."
+      },
+      "speed": {
+        "title": "Pengerjaan Cepat",
+        "description": "Proses kerja terstruktur dengan timeline jelas, sehingga project selesai tepat waktu."
+      },
+      "support": {
+        "title": "Support Berkelanjutan",
+        "description": "Tidak lepas tangan setelah launching. Kami siap bantu maintenance dan konsultasi lanjutan."
+      },
+      "reports": {
+        "title": "Laporan Terukur",
+        "description": "Setiap layanan disertai laporan berkala agar perkembangan bisnis Anda mudah dipantau."
+      },
+      "results": {
+        "title": "Fokus Hasil Bisnis",
+        "description": "Bukan sekadar tampil bagus — semua strategi diarahkan untuk mendatangkan pelanggan nyata."
+      }
+    }
+  },
+  "testimonials": {
+    "headingLine1": "Dipercaya oleh",
+    "headingLine2": "Bisnis di Seluruh Indonesia",
+    "items": {
+      "andi": {
+        "quote": "Gizen Creative benar-benar mengubah cara bisnis kami tampil online. Website selesai cepat, hasilnya profesional, dan leads mulai masuk.",
+        "name": "Andi Pratama",
+        "role": "Owner, Kopi Nusantara"
+      },
+      "sari": {
+        "quote": "Pengelolaan sosmed jadi rapi dan konsisten. Laporan bulanannya jelas, engagement naik terus. Tim support-nya juga responsif banget.",
+        "name": "Sari Wulandari",
+        "role": "Marketing Manager, Rumah Batik"
+      },
+      "budi": {
+        "quote": "Trafik organik website kami naik signifikan setelah 3 bulan program SEO. Riset keyword dan kontennya tepat sasaran.",
+        "name": "Budi Santoso",
+        "role": "Direktur, PT Maju Bersama"
+      },
+      "rina": {
+        "quote": "Prosesnya simpel: konsultasi, deal, jadi. Website company profile kami sekarang jadi andalan tim sales saat presentasi.",
+        "name": "Rina Kusuma",
+        "role": "Founder, Kusuma Interior"
+      },
+      "dedi": {
+        "quote": "Satu vendor untuk website, sosmed, dan SEO — nggak perlu koordinasi ke banyak pihak. Sangat direkomendasikan.",
+        "name": "Dedi Firmansyah",
+        "role": "CEO, Firman Logistik"
+      }
+    }
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ | Pertanyaan yang Sering Diajukan | Gizen Creative",
+      "description": "Jawaban atas pertanyaan umum seputar layanan pembuatan website, pengelolaan media sosial, SEO, paket, dan pembayaran di Gizen Creative."
+    },
+    "headingLine1": "Pertanyaan yang",
+    "headingLine2": "Sering Diajukan",
+    "subtitle": "Semua yang perlu Anda ketahui sebelum memulai proyek digital bersama Gizen Creative.",
+    "items": {
+      "whatIs": {
+        "q": "Apa itu Gizen Creative?",
+        "a": "Gizen Creative adalah platform layanan digital yang membantu bisnis membangun website profesional, mengelola media sosial, dan meningkatkan trafik organik melalui SEO."
+      },
+      "timeline": {
+        "q": "Berapa lama proses pembuatan website?",
+        "a": "Landing page rata-rata selesai dalam 7 hari kerja, sedangkan company profile dan business website menyesuaikan kompleksitas — umumnya 2–4 minggu."
+      },
+      "selfManage": {
+        "q": "Apakah konten website bisa saya kelola sendiri?",
+        "a": "Ya. Semua website dilengkapi CMS sehingga Anda dapat mengubah konten, gambar, dan artikel tanpa perlu kemampuan coding."
+      },
+      "packages": {
+        "q": "Bagaimana sistem paket dan pembayarannya?",
+        "a": "Tersedia paket one-time untuk website serta paket bulanan untuk social media dan SEO. Untuk kebutuhan khusus, tersedia Enterprise Package dengan penawaran custom."
+      },
+      "reports": {
+        "q": "Apakah ada laporan performa?",
+        "a": "Ada. Paket Social Media dan SEO menyertakan laporan performa bulanan yang mencakup pertumbuhan, engagement, dan trafik organik."
+      },
+      "gettingStarted": {
+        "q": "Bagaimana cara memulai?",
+        "a": "Cukup hubungi kami melalui form konsultasi atau WhatsApp. Tim kami akan menggali kebutuhan Anda dan menyiapkan penawaran terbaik."
+      }
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portofolio | Hasil Karya Kami | Gizen Creative",
+      "description": "Jelajahi portofolio Gizen Creative — website, kampanye media sosial, dan proyek SEO yang membantu bisnis tumbuh secara digital."
+    },
+    "hero": {
+      "eyebrow": "Portofolio",
+      "title1": "Karya yang Berbicara.",
+      "title2": "Hasil yang Bertahan.",
+      "subtitle": "Pilihan website, kampanye media sosial, dan proyek SEO yang telah kami kerjakan untuk bisnis di seluruh Indonesia."
+    },
+    "filters": {
+      "all": "Semua",
+      "website": "Website",
+      "social": "Social Media",
+      "seo": "SEO"
+    },
+    "categories": {
+      "website": "Website Development",
+      "social": "Social Media Management",
+      "seo": "SEO Website"
+    },
+    "badges": {
+      "new": "Baru",
+      "featured": "Unggulan"
+    },
+    "viewProject": "Lihat Proyek",
+    "items": {
+      "arunika": {
+        "title": "Arunika Studio"
+      },
+      "kopiSemesta": {
+        "title": "Kopi Semesta"
+      },
+      "lumina": {
+        "title": "Lumina Interior"
+      },
+      "sehatDaily": {
+        "title": "Sehat Daily"
+      },
+      "batikNusantara": {
+        "title": "Batik Nusantara"
+      },
+      "travelindo": {
+        "title": "Travelindo"
+      }
+    },
+    "cta": {
+      "title": "Ingin Hasil Seperti Ini?",
+      "subtitle": "Mari diskusikan proyek Anda dan bangun sesuatu yang dicintai pelanggan Anda.",
+      "button": "Konsultasi Gratis"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Insight Pertumbuhan Digital | Gizen Creative",
+      "description": "Tips dan insight seputar website development, social media, dan SEO untuk membantu bisnis Anda tumbuh digital."
+    },
+    "hero": {
+      "eyebrow": "Blog",
+      "title1": "Insight yang Membantu",
+      "title2": "Bisnis Anda Tumbuh.",
+      "subtitle": "Artikel praktis seputar website, social media, dan SEO — ditulis oleh tim Gizen Creative."
+    },
+    "searchPlaceholder": "Cari artikel...",
+    "searchLabel": "Cari artikel",
+    "empty": "Tidak ada artikel yang cocok dengan pencarian Anda.",
+    "readTime": "{minutes} menit baca",
+    "readArticle": "Baca Artikel",
+    "allPosts": "Semua Artikel",
+    "filters": {
+      "all": "Semua",
+      "website": "Website",
+      "social": "Social Media",
+      "seo": "SEO"
+    },
+    "categories": {
+      "website": "Website Development",
+      "social": "Social Media Management",
+      "seo": "SEO Website"
+    },
+    "tags": {
+      "design": "Desain",
+      "ux": "UX",
+      "performance": "Performa",
+      "instagram": "Instagram",
+      "content": "Konten",
+      "branding": "Branding",
+      "keyword": "Keyword",
+      "ranking": "Ranking",
+      "local": "SEO Lokal"
+    },
+    "categoryPage": {
+      "eyebrow": "Kategori",
+      "metaTitle": "Artikel {category} | Blog | Gizen Creative",
+      "metaDescription": "Semua artikel blog Gizen Creative dalam kategori {category}.",
+      "subtitle": "Semua artikel dalam kategori {category}."
+    },
+    "tagPage": {
+      "eyebrow": "Tag",
+      "metaTitle": "Artikel dengan Tag {tag} | Blog | Gizen Creative",
+      "metaDescription": "Semua artikel blog Gizen Creative dengan tag {tag}.",
+      "subtitle": "Semua artikel dengan tag {tag}."
+    },
+    "detail": {
+      "backToBlog": "Kembali ke Blog",
+      "share": "Bagikan artikel ini",
+      "shareOn": "Bagikan ke {network}",
+      "copyLink": "Salin tautan",
+      "copied": "Tautan disalin!",
+      "tagsTitle": "Tag",
+      "relatedTitle": "Artikel Terkait"
+    },
+    "comments": {
+      "title": "Komentar",
+      "count": "{count, plural, =0 {Belum ada komentar} =1 {1 komentar} other {# komentar}}",
+      "nameLabel": "Nama",
+      "namePlaceholder": "Nama Anda",
+      "messageLabel": "Komentar",
+      "messagePlaceholder": "Tulis komentar Anda...",
+      "submit": "Kirim Komentar",
+      "emptyState": "Jadilah yang pertama membagikan pendapat Anda.",
+      "justNow": "Baru saja"
+    },
+    "posts": {
+      "websiteGuide": {
+        "title": "Cara Memilih Jasa Pembuatan Website yang Tepat",
+        "excerpt": "Tidak semua agensi web sama. Ini yang perlu Anda perhatikan sebelum berinvestasi pada website profesional.",
+        "content": {
+          "p1": "Website sering kali menjadi kesan pertama pelanggan terhadap bisnis Anda. Memilih partner pengembangan yang tepat menentukan apakah kesan itu membangun kepercayaan atau justru membuat pengunjung pergi. Mulailah dengan meninjau portofolio agensi: cari proyek yang masih live, kualitas yang konsisten, dan industri yang mirip dengan bisnis Anda.",
+          "p2": "Selain tampilan, tanyakan soal teknologi yang dipakai, kecepatan halaman, dan responsivitas mobile. Situs yang indah tapi lambat akan kehilangan pengunjung sebelum sempat dilihat. Pastikan agensi mencakup fondasi SEO, SSL, dan analytics sejak hari pertama.",
+          "p3": "Terakhir, perjelas dukungan berkelanjutan. Website butuh update, patch keamanan, dan perubahan konten. Partner yang baik menawarkan ketentuan maintenance yang jelas agar investasi Anda terus berkinerja lama setelah launching."
+        }
+      },
+      "instagramStrategy": {
+        "title": "Strategi Konten Instagram yang Efektif di 2026",
+        "excerpt": "Reels, carousel, atau stories? Pelajari format mana yang mendorong engagement nyata untuk brand Indonesia tahun ini.",
+        "content": {
+          "p1": "Algoritma Instagram terus berubah, tapi satu prinsip tetap sama: konten yang memulai percakapan akan menang. Di 2026, video pendek masih mendominasi jangkauan, sementara carousel paling efektif untuk edukasi dan storytelling produk.",
+          "p2": "Konsistensi mengalahkan viralitas. Brand yang posting tiga sampai lima kali per minggu dengan struktur content pillar yang jelas tumbuh stabil, sementara posting sporadis mengulang momentum dari nol. Rencanakan pillar seputar edukasi, social proof, behind-the-scenes, dan penawaran.",
+          "p3": "Ukur yang benar-benar penting: saves, shares, dan kunjungan profil menandakan minat asli jauh lebih baik daripada likes. Tinjau insight setiap bulan dan perkuat format yang paling direspons audiens Anda."
+        }
+      },
+      "seoBasics": {
+        "title": "Panduan SEO untuk Pemula: Dari Nol ke Halaman Satu",
+        "excerpt": "Pengantar praktis search engine optimization — tanpa jargon, hanya langkah yang benar-benar menaikkan ranking.",
+        "content": {
+          "p1": "SEO adalah praktik membuat website Anda mudah ditemukan, dipahami, dan direkomendasikan oleh mesin pencari. Semuanya dimulai dari riset keyword: menemukan frasa persis yang diketik pelanggan saat mencari produk atau layanan seperti milik Anda.",
+          "p2": "Berikutnya adalah optimasi on-page — judul, heading, meta description, dan konten yang benar-benar menjawab pertanyaan pencari. Kesehatan teknis juga penting: loading cepat, layout mobile-friendly, dan struktur URL yang rapi.",
+          "p3": "Otoritas dibangun seiring waktu melalui backlink berkualitas dan publikasi yang konsisten. SEO adalah maraton, bukan sprint, tapi traffic yang terus bertumbuh menjadikannya salah satu channel dengan ROI tertinggi."
+        }
+      },
+      "speedTips": {
+        "title": "Cara Mengatasi Website Lambat: 7 Teknik Terbukti",
+        "excerpt": "Halaman lambat membuat pelanggan pergi. Perbaikan praktis ini bisa memangkas waktu loading hingga setengahnya.",
+        "content": {
+          "p1": "Setiap detik ekstra waktu loading mengorbankan konversi. Penyebab terbesar biasanya gambar berukuran besar, script yang memblokir render, dan hosting murah. Mulailah dengan audit menggunakan PageSpeed Insights untuk melihat persis di mana waktu terbuang.",
+          "p2": "Kompres dan lazy-load gambar, gunakan format modern seperti WebP atau AVIF, dan tunda JavaScript non-kritis. Content delivery network menempatkan file Anda lebih dekat ke pengunjung dan bisa memangkas latensi secara drastis di seluruh kepulauan Indonesia.",
+          "p3": "Caching adalah pengganda terakhir: browser caching, server-side caching, dan static generation jika memungkinkan. Ukur ulang setelah setiap perubahan — kerja performa itu iteratif, dan kemenangan kecil terus terakumulasi."
+        }
+      },
+      "socialBranding": {
+        "title": "Membangun Brand yang Kuat di Social Media",
+        "excerpt": "Feed Anda adalah etalase Anda. Begini cara membangun identitas brand yang diingat dan dipercaya.",
+        "content": {
+          "p1": "Branding di social media lebih dari sekadar logo dan palet warna. Ia adalah suara, gaya visual, dan nilai yang konsisten dirasakan audiens di setiap postingan. Mulailah dengan menentukan tiga kata sifat yang menggambarkan bagaimana brand Anda seharusnya terasa.",
+          "p2": "Terjemahkan identitas itu ke sistem visual: template, tipografi, dan penggunaan warna yang konsisten di semua post. Feed yang kohesif menandakan profesionalisme bahkan sebelum pengunjung membaca satu caption pun.",
+          "p3": "Suara melengkapi gambarannya. Baik playful maupun otoritatif, jaga caption tetap konsisten dan balas komentar dengan nada yang sama. Seiring waktu, konsistensi ini mengubah followers menjadi komunitas yang langsung mengenali Anda."
+        }
+      },
+      "localKeyword": {
+        "title": "Riset Keyword untuk Bisnis Lokal",
+        "excerpt": "Menangkan pelanggan di kota Anda dengan keyword berbasis lokasi yang diabaikan kompetitor.",
+        "content": {
+          "p1": "Riset keyword lokal berfokus pada frasa dengan intent geografis — 'jasa website Jakarta' atau 'coffee shop dekat saya'. Pencarian seperti ini konversinya jauh lebih tinggi karena pencarinya sering kali sudah siap membeli.",
+          "p2": "Mulai dari layanan inti Anda lalu tambahkan modifier kota, kecamatan, dan landmark. Tools gratis seperti Google Keyword Planner dan saran autocomplete mengungkap apa yang benar-benar diketik warga lokal.",
+          "p3": "Optimalkan Google Business Profile bersama website Anda: nama, alamat, dan nomor telepon yang konsisten, foto terbaru, dan review asli. SEO lokal mengganjar bisnis yang terlihat aktif dan terpercaya."
+        }
+      }
+    }
+  },
+  "navbar": {
+    "services": "Layanan",
+    "serviceItems": {
+      "websiteDevelopment": {
+        "title": "Website Development",
+        "description": "Website profesional dengan desain responsif & CMS"
+      },
+      "socialMediaManagement": {
+        "title": "Social Media Management",
+        "description": "Pengelolaan konten, feed, hingga laporan performa"
+      },
+      "seoWebsite": {
+        "title": "SEO Website",
+        "description": "Optimasi ranking & trafik organik untuk website Anda"
+      }
+    },
+    "links": {
+      "pricing": "Harga",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "about": "Tentang Kami"
+    },
+    "cta": "Konsultasi Gratis"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Harga | Paket Website, Social Media & SEO | Gizen Creative",
+      "description": "Dari paket sekali bayar hingga paket bulanan unlimited, Gizen Creative menawarkan harga fleksibel untuk UMKM, bisnis bertumbuh, dan brand besar. Mulai dengan konsultasi gratis."
+    },
+    "plans": {
+      "badge": "Penawaran Terbatas: Diskon hingga 35%",
+      "title": "Harga Fleksibel",
+      "subtitle": "Pilih layanan yang Anda butuhkan — Website, Social Media, atau SEO. Setiap layanan punya paket yang bisa disesuaikan dengan skala bisnis Anda.",
+      "services": {
+        "website": "Website",
+        "social": "Social Media",
+        "seo": "SEO"
+      },
+      "discountBadge": "Diskon {percent}%",
+      "customPrice": "Custom",
+      "planCta": "Mulai Sekarang",
+      "website": {
+        "basic": {
+          "name": "Basic Website",
+          "description": "Cocok untuk UMKM & bisnis yang baru mulai online",
+          "unit": "Landing page · Sekali bayar",
+          "features": [
+            "1–3 Halaman",
+            "Desain Responsive",
+            "Domain & Hosting 1 Tahun",
+            "SSL Certificate",
+            "2x Revisi Desain"
+          ]
+        },
+        "professional": {
+          "name": "Professional Website",
+          "description": "Ideal untuk company profile & bisnis bertumbuh",
+          "unit": "Company profile · Sekali bayar",
+          "features": [
+            "Hingga 10 Halaman",
+            "Desain Responsive",
+            "CMS — Kelola Konten Sendiri",
+            "SEO On-Page Dasar",
+            "Copywriting Konten",
+            "Domain & Hosting 1 Tahun",
+            "Revisi Tanpa Batas"
+          ]
+        },
+        "corporate": {
+          "name": "Corporate Website",
+          "description": "Untuk perusahaan dengan kebutuhan kompleks",
+          "unit": "Business website · Sekali bayar",
+          "features": [
+            "Halaman Tanpa Batas",
+            "Desain Custom Eksklusif",
+            "CMS — Kelola Konten Sendiri",
+            "Multi-bahasa",
+            "Integrasi Sistem (Payment, CRM, dll)",
+            "SEO On-Page Lengkap",
+            "Domain & Hosting 1 Tahun",
+            "Priority Support"
+          ]
+        }
+      },
+      "social": {
+        "standard": {
+          "name": "Standard Package",
+          "description": "Kehadiran media sosial yang konsisten untuk bisnis Anda",
+          "unit": "12 konten · Bulanan",
+          "features": [
+            "12 Konten Feed/Carousel",
+            "Copywriting Caption & Hashtag",
+            "Kalender Konten Bulanan",
+            "Laporan Performa Bulanan"
+          ]
+        },
+        "professional": {
+          "name": "Professional Package",
+          "description": "Pengelolaan penuh untuk pertumbuhan brand yang serius",
+          "unit": "20 konten + reels · Bulanan",
+          "features": [
+            "20 Konten Feed/Carousel",
+            "4 Konten Video Reels",
+            "Copywriting Caption & Hashtag",
+            "Admin Engagement Harian",
+            "Setup & Optimasi Ads",
+            "Kalender Konten Bulanan",
+            "Laporan Performa Bulanan"
+          ]
+        }
+      },
+      "seo": {
+        "starter": {
+          "name": "Starter SEO",
+          "description": "Fondasi SEO untuk bisnis yang baru mulai",
+          "unit": "5 keywords · Bulanan",
+          "features": [
+            "Riset 5 Keywords",
+            "SEO On-Page Optimization",
+            "2 Artikel SEO / Bulan",
+            "Laporan Ranking Bulanan"
+          ]
+        },
+        "growth": {
+          "name": "Growth SEO",
+          "description": "Ideal untuk bisnis yang ingin tumbuh konsisten",
+          "unit": "15 keywords · Bulanan",
+          "features": [
+            "Riset 15 Keywords",
+            "SEO On-Page & Off-Page",
+            "4 Artikel SEO / Bulan",
+            "Backlink Berkualitas",
+            "Laporan Ranking Bulanan"
+          ]
+        },
+        "business": {
+          "name": "Business SEO",
+          "description": "Untuk bisnis dengan target trafik tinggi",
+          "unit": "30 keywords · Bulanan",
+          "features": [
+            "Riset 30 Keywords",
+            "SEO On-Page & Off-Page",
+            "8 Artikel SEO / Bulan",
+            "Backlink Berkualitas",
+            "Technical SEO Audit",
+            "Laporan Ranking Bulanan"
+          ]
+        },
+        "enterprise": {
+          "name": "Enterprise SEO",
+          "description": "Strategi custom untuk skala perusahaan",
+          "unit": "Sesuai kebutuhan",
+          "features": [
+            "Keywords Tanpa Batas",
+            "SEO On-Page & Off-Page",
+            "Artikel Sesuai Kebutuhan",
+            "Technical SEO Audit",
+            "Dedicated SEO Specialist",
+            "Priority Support"
+          ]
+        }
+      },
+      "bundle": {
+        "title": "Butuh lebih dari satu layanan?",
+        "description": "Kombinasikan Website, Social Media, dan SEO dalam satu paket bundling dengan <strong>harga khusus</strong>. Konsultasikan kebutuhan Anda dan tim kami akan menyiapkan penawaran terbaik.",
+        "cta": "Konsultasi Gratis"
+      }
+    },
+    "compare": {
+      "eyebrow": "Perbandingan Lengkap",
+      "title": "Bandingkan Semua Paket",
+      "featureColumn": "Fitur",
+      "included": "Termasuk",
+      "notIncluded": "Tidak termasuk",
+      "perMonth": "{price}/bln",
+      "values": {
+        "unlimited": "Tanpa Batas",
+        "custom": "Custom"
+      },
+      "website": {
+        "columns": {
+          "basic": "Basic",
+          "professional": "Professional",
+          "corporate": "Corporate"
+        },
+        "rows": {
+          "pages": "Jumlah Halaman",
+          "responsive": "Desain Responsive",
+          "customDesign": "Desain Custom Eksklusif",
+          "cms": "CMS — Kelola Konten Sendiri",
+          "onPageSeo": "SEO On-Page",
+          "copywriting": "Copywriting Konten",
+          "multiLanguage": "Multi-bahasa",
+          "integrations": "Integrasi Sistem",
+          "domainHosting": "Domain & Hosting 1 Tahun",
+          "revisions": "Revisi",
+          "prioritySupport": "Priority Support"
+        }
+      },
+      "social": {
+        "columns": {
+          "standard": "Standard",
+          "professional": "Professional"
+        },
+        "rows": {
+          "feedContent": "Konten Feed/Carousel",
+          "reels": "Konten Video Reels",
+          "copywriting": "Copywriting Caption & Hashtag",
+          "calendar": "Kalender Konten Bulanan",
+          "engagement": "Admin Engagement Harian",
+          "ads": "Setup & Optimasi Ads",
+          "report": "Laporan Performa Bulanan"
+        }
+      },
+      "seo": {
+        "columns": {
+          "starter": "Starter",
+          "growth": "Growth",
+          "business": "Business",
+          "enterprise": "Enterprise"
+        },
+        "rows": {
+          "keywords": "Keywords",
+          "onPageSeo": "SEO On-Page",
+          "offPageSeo": "SEO Off-Page",
+          "articles": "Artikel SEO / Bulan",
+          "backlinks": "Backlink Berkualitas",
+          "audit": "Technical SEO Audit",
+          "specialist": "Dedicated SEO Specialist",
+          "rankingReport": "Laporan Ranking Bulanan",
+          "prioritySupport": "Priority Support"
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Pertanyaan Seputar Harga",
+      "items": [
+        {
+          "q": "Apa yang dimaksud satu konten?",
+          "a": "Satu konten mencakup satu desain feed atau carousel lengkap dengan copywriting. Konten video pendek (reels) dihitung 2 konten, sedangkan artikel SEO dihitung berdasarkan panjang — artikel 1.000 kata setara 3 konten."
+        },
+        {
+          "q": "Apakah saya harus berlangganan bulanan?",
+          "a": "Tidak. Gizen Creative menyediakan paket sekali bayar untuk pembuatan website serta paket bulanan untuk social media dan SEO. Anda bebas memilih sesuai kebutuhan."
+        },
+        {
+          "q": "Apakah kuota konten hangus?",
+          "a": "Kuota paket bulanan diperbarui di awal setiap siklus penagihan. Untuk proyek sekali bayar, tidak ada kuota yang hangus — semua deliverable diserahkan penuh saat proyek selesai."
+        },
+        {
+          "q": "Bisakah saya menambah konten di kemudian hari?",
+          "a": "Bisa. Anda dapat membeli konten tambahan kapan saja. Konten tambahan langsung masuk ke kuota berjalan sehingga pekerjaan tidak terputus."
+        },
+        {
+          "q": "Apakah ada harga khusus untuk UMKM?",
+          "a": "Ada. Cukup daftarkan bisnis Anda dengan NIB yang valid untuk membuka Paket UMKM mulai Rp 900rb per bulan."
+        },
+        {
+          "q": "Sampai kapan diskon berlaku?",
+          "a": "Diskon pada paket Pro dan Studio merupakan bagian dari penawaran peluncuran dalam waktu terbatas. Harga dapat naik sewaktu-waktu, jadi kami sarankan mengunci harga saat ini selagi tersedia."
+        },
+        {
+          "q": "Apa saja yang termasuk hak penggunaan komersial?",
+          "a": "Semua paket menyertakan hak penggunaan komersial, sehingga Anda bebas menggunakan seluruh hasil desain, konten, dan website untuk keperluan bisnis, promosi, iklan, dan materi pemasaran tanpa biaya tambahan."
+        }
+      ]
+    },
+    "cta": {
+      "badge": "Gizen Creative Studio",
+      "title": "Siap tumbuh digital?",
+      "subtitle": "Konsultasi gratis, lalu pilih paket yang sesuai untuk Anda.",
+      "button": "Mulai Konsultasi Gratis"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Kontak | Gizen Creative",
+      "description": "Hubungi Gizen Creative melalui WhatsApp, email, atau media sosial. Mulai proyek website, social media, atau SEO Anda dengan konsultasi gratis."
+    },
+    "hero": {
+      "eyebrow": "Kontak",
+      "title": "Mari Bicarakan Proyek Anda",
+      "subtitle": "Punya pertanyaan atau siap memulai? Hubungi kami lewat channel di bawah — tim kami biasanya membalas dalam satu hari kerja."
+    },
+    "channels": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Cara tercepat menghubungi kami. Chat langsung dengan tim untuk konsultasi gratis.",
+        "action": "Chat via WhatsApp"
+      },
+      "email": {
+        "title": "Email",
+        "description": "Kirim detail proyek atau pertanyaan Anda, kami akan segera membalas.",
+        "action": "hello@gizencreative.com"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "description": "Lihat karya terbaru kami dan kirim DM kapan saja.",
+        "action": "@gizencreative"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "description": "Terhubung dengan Gizen Creative secara profesional.",
+        "action": "Gizen Creative"
+      }
+    },
+    "info": {
+      "hoursTitle": "Jam Operasional",
+      "hours": "Senin – Jumat, 09.00 – 18.00 WIB",
+      "responseTitle": "Waktu Respons",
+      "response": "Kurang dari 24 jam di hari kerja",
+      "consultTitle": "Konsultasi Gratis",
+      "consult": "Setiap proyek dimulai dengan konsultasi gratis tanpa komitmen"
+    },
+    "cta": {
+      "title": "Siap Mengembangkan Bisnis Anda?",
+      "subtitle": "Ceritakan tujuan Anda, kami rekomendasikan solusi yang tepat untuk bisnis Anda.",
+      "button": "Konsultasi Gratis"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "Tentang Kami | Gizen Creative",
+      "description": "Kenali Gizen Creative — tim digital yang membantu bisnis bertumbuh melalui Website Development, Social Media Management, dan SEO."
+    },
+    "hero": {
+      "eyebrow": "Tentang Kami",
+      "title": "Tim di Balik Pertumbuhan Digital Anda",
+      "subtitle": "Gizen Creative adalah platform layanan digital yang menggabungkan pengembangan website, media sosial, dan SEO dalam satu tim khusus untuk bisnis Anda."
+    },
+    "story": {
+      "missionEyebrow": "Misi Kami",
+      "missionTitle": "Membuat Digital Sederhana untuk Setiap Bisnis",
+      "missionBody": "Kami percaya setiap bisnis berhak memiliki kehadiran digital yang kuat tanpa kerumitan. Misi kami adalah menangani sisi teknis — website, konten, dan visibilitas pencarian — agar Anda bisa fokus menjalankan bisnis.",
+      "visionEyebrow": "Visi Kami",
+      "visionTitle": "Satu Tim untuk Semua Kebutuhan Digital",
+      "visionBody": "Kami ingin menjadi mitra digital jangka panjang bagi bisnis yang bertumbuh di Indonesia dan sekitarnya — satu tim yang memahami brand Anda dan bertumbuh bersama Anda, dari website pertama hingga pertumbuhan organik berkelanjutan.",
+      "stats": {
+        "projects": {
+          "value": "50+",
+          "label": "Proyek selesai"
+        },
+        "clients": {
+          "value": "30+",
+          "label": "Klien puas"
+        },
+        "years": {
+          "value": "3+",
+          "label": "Tahun pengalaman"
+        }
+      }
+    },
+    "values": {
+      "eyebrow": "Nilai Kami",
+      "title": "Prinsip yang Kami Pegang",
+      "items": {
+        "transparency": {
+          "title": "Transparansi",
+          "description": "Harga jelas, timeline jujur, dan komunikasi terbuka di setiap tahap proyek Anda."
+        },
+        "quality": {
+          "title": "Kualitas",
+          "description": "Setiap website, konten, dan optimasi dikerjakan dengan teliti dan dibangun untuk bertahan lama."
+        },
+        "partnership": {
+          "title": "Kemitraan",
+          "description": "Kami bekerja sebagai bagian dari tim Anda, bukan sekadar vendor — tujuan Anda adalah tujuan kami."
+        },
+        "growth": {
+          "title": "Pertumbuhan",
+          "description": "Semua yang kami kerjakan diukur dari satu hal: pertumbuhan nyata dan berkelanjutan untuk bisnis Anda."
+        }
+      }
+    },
+    "cta": {
+      "title": "Mari Bangun Sesuatu Bersama",
+      "subtitle": "Ceritakan bisnis Anda dan kami tunjukkan bagaimana kami bisa membantu bisnis Anda bertumbuh.",
+      "button": "Konsultasi Gratis"
+    }
+  },
+  "legal": {
+    "terms": {
+      "meta": {
+        "title": "Syarat Layanan | Gizen Creative",
+        "description": "Syarat dan ketentuan penggunaan layanan Website Development, Social Media Management, dan SEO dari Gizen Creative."
+      },
+      "eyebrow": "Legal",
+      "title": "Syarat Layanan",
+      "updated": "Terakhir diperbarui: 5 September 2026",
+      "sections": [
+        {
+          "heading": "1. Penerimaan Syarat",
+          "body": [
+            "Dengan mengakses website kami atau menggunakan layanan Gizen Creative — termasuk Website Development, Social Media Management, dan SEO — Anda setuju untuk terikat pada Syarat Layanan ini. Jika Anda tidak setuju, mohon tidak menggunakan layanan kami."
+          ]
+        },
+        {
+          "heading": "2. Layanan",
+          "body": [
+            "Gizen Creative menyediakan layanan digital sebagaimana dijelaskan di halaman harga dan dalam perjanjian proyek masing-masing. Cakupan, hasil kerja, dan jadwal setiap kerja sama ditentukan oleh paket yang Anda pilih atau perjanjian tertulis antara kedua belah pihak.",
+            "Kami berhak memperbarui, mengubah, atau menghentikan bagian mana pun dari layanan kami sewaktu-waktu. Perubahan material pada kerja sama yang sedang berjalan akan selalu dikomunikasikan kepada Anda terlebih dahulu."
+          ]
+        },
+        {
+          "heading": "3. Pemesanan dan Pembayaran",
+          "body": [
+            "Pengerjaan dimulai setelah pembayaran dikonfirmasi, kecuali disepakati lain secara tertulis. Paket bulanan ditagih di muka untuk setiap periode penagihan. Proyek sekali bayar dapat memerlukan uang muka sebelum pengerjaan dimulai, dengan sisa pembayaran dilunasi saat serah terima.",
+            "Harga yang ditampilkan dapat berubah, namun perubahan tidak akan memengaruhi periode penagihan yang sudah dibayar."
+          ]
+        },
+        {
+          "heading": "4. Revisi dan Hasil Kerja",
+          "body": [
+            "Setiap paket mencakup jumlah revisi sesuai deskripsinya. Revisi tambahan di luar kuota dapat dikenakan biaya ekstra yang akan dikomunikasikan sebelum pengerjaan dilakukan.",
+            "Hasil kerja dianggap diterima jika tidak ada permintaan revisi dalam 7 hari sejak serah terima."
+          ]
+        },
+        {
+          "heading": "5. Tanggung Jawab Klien",
+          "body": [
+            "Anda bertanggung jawab menyediakan informasi yang akurat, aset brand, akses akun, dan umpan balik tepat waktu yang dibutuhkan untuk menyelesaikan pekerjaan. Keterlambatan penyediaan materi dapat memperpanjang jadwal proyek.",
+            "Anda menjamin bahwa seluruh materi yang Anda berikan tidak melanggar hak pihak ketiga mana pun, termasuk hak cipta dan merek dagang."
+          ]
+        },
+        {
+          "heading": "6. Hak Kekayaan Intelektual",
+          "body": [
+            "Setelah pembayaran lunas, Anda menerima hak penggunaan komersial atas hasil kerja final, termasuk desain, konten, dan website, untuk keperluan bisnis, promosi, iklan, dan pemasaran.",
+            "Gizen Creative tetap berhak menampilkan karya yang telah selesai di portofolio dan materi pemasaran kami, kecuali Anda meminta sebaliknya secara tertulis."
+          ]
+        },
+        {
+          "heading": "7. Pembatalan dan Pengembalian Dana",
+          "body": [
+            "Paket bulanan dapat dibatalkan kapan saja dan tetap aktif hingga akhir periode penagihan yang sudah dibayar. Pembayaran atas pekerjaan yang telah dilakukan tidak dapat dikembalikan.",
+            "Untuk proyek sekali bayar, pembatalan sebelum pengerjaan dimulai berhak atas pengembalian dana dikurangi biaya administrasi. Setelah pengerjaan dimulai, pengembalian dana dihitung proporsional berdasarkan pekerjaan yang telah diselesaikan."
+          ]
+        },
+        {
+          "heading": "8. Batasan Tanggung Jawab",
+          "body": [
+            "Gizen Creative memberikan layanan dengan upaya terbaik. Kami tidak menjamin hasil bisnis tertentu seperti peringkat pencarian, pertumbuhan pengikut, atau pendapatan. Sejauh diizinkan oleh hukum, total tanggung jawab kami terbatas pada jumlah yang Anda bayarkan untuk layanan terkait."
+          ]
+        },
+        {
+          "heading": "9. Perubahan Syarat",
+          "body": [
+            "Kami dapat memperbarui Syarat Layanan ini dari waktu ke waktu. Versi terbaru akan selalu dipublikasikan di halaman ini dengan tanggal revisi yang diperbarui. Penggunaan layanan secara berkelanjutan setelah perubahan berarti Anda menerima syarat yang telah direvisi."
+          ]
+        },
+        {
+          "heading": "10. Kontak",
+          "body": [
+            "Jika Anda memiliki pertanyaan tentang syarat ini, hubungi kami melalui WhatsApp atau bagian kontak di website kami."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "meta": {
+        "title": "Kebijakan Privasi | Gizen Creative",
+        "description": "Cara Gizen Creative mengumpulkan, menggunakan, dan melindungi data pribadi Anda saat menggunakan website dan layanan kami."
+      },
+      "eyebrow": "Legal",
+      "title": "Kebijakan Privasi",
+      "updated": "Terakhir diperbarui: 5 September 2026",
+      "sections": [
+        {
+          "heading": "1. Informasi yang Kami Kumpulkan",
+          "body": [
+            "Kami mengumpulkan informasi yang Anda berikan secara langsung, seperti nama, alamat email, nomor telepon, nama bisnis, dan detail proyek saat Anda menghubungi kami, meminta konsultasi, atau membeli layanan.",
+            "Kami juga mengumpulkan data teknis secara otomatis, seperti alamat IP, jenis browser, halaman yang dikunjungi, dan sumber rujukan, untuk memahami bagaimana website kami digunakan."
+          ]
+        },
+        {
+          "heading": "2. Cara Kami Menggunakan Informasi Anda",
+          "body": [
+            "Kami menggunakan informasi Anda untuk menyediakan dan meningkatkan layanan, merespons pertanyaan, memproses pembayaran, mengirim pembaruan terkait layanan, dan mempersonalisasi pengalaman Anda. Kami tidak menjual data pribadi Anda kepada pihak ketiga."
+          ]
+        },
+        {
+          "heading": "3. Cookie dan Analitik",
+          "body": [
+            "Website kami menggunakan cookie dan teknologi serupa untuk mengingat preferensi Anda (seperti bahasa dan tema) serta mengumpulkan statistik penggunaan anonim melalui alat analitik. Anda dapat menonaktifkan cookie di pengaturan browser, meski beberapa fitur mungkin tidak berfungsi sebagaimana mestinya."
+          ]
+        },
+        {
+          "heading": "4. Pembagian Informasi",
+          "body": [
+            "Kami hanya membagikan data Anda dengan pihak ketiga tepercaya jika diperlukan untuk menyediakan layanan — misalnya pemroses pembayaran, penyedia hosting, dan platform analitik. Pihak-pihak tersebut terikat untuk melindungi data Anda dan hanya menggunakannya untuk tujuan yang disepakati.",
+            "Kami dapat mengungkapkan informasi jika diwajibkan oleh hukum atau untuk melindungi hak hukum kami."
+          ]
+        },
+        {
+          "heading": "5. Keamanan Data",
+          "body": [
+            "Kami menerapkan langkah teknis dan organisasi yang wajar untuk melindungi data pribadi Anda dari akses tidak sah, perubahan, atau kehilangan. Namun, tidak ada metode transmisi melalui internet yang sepenuhnya aman, dan kami tidak dapat menjamin keamanan mutlak."
+          ]
+        },
+        {
+          "heading": "6. Retensi Data",
+          "body": [
+            "Kami menyimpan data pribadi hanya selama diperlukan untuk tujuan yang dijelaskan dalam kebijakan ini, untuk memenuhi kewajiban hukum, atau untuk menyelesaikan sengketa. Data yang tidak lagi diperlukan akan dihapus atau dianonimkan."
+          ]
+        },
+        {
+          "heading": "7. Hak Anda",
+          "body": [
+            "Anda dapat meminta akses, koreksi, atau penghapusan data pribadi Anda kapan saja. Anda juga dapat menarik persetujuan untuk komunikasi pemasaran. Untuk menggunakan hak-hak ini, hubungi kami melalui saluran yang tercantum di bawah."
+          ]
+        },
+        {
+          "heading": "8. Layanan Pihak Ketiga",
+          "body": [
+            "Website kami dapat berisi tautan ke layanan pihak ketiga seperti WhatsApp, Instagram, dan LinkedIn. Kebijakan ini tidak mencakup layanan tersebut, dan kami menyarankan Anda meninjau kebijakan privasi masing-masing."
+          ]
+        },
+        {
+          "heading": "9. Perubahan Kebijakan",
+          "body": [
+            "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Versi terbaru akan selalu dipublikasikan di halaman ini dengan tanggal revisi yang diperbarui."
+          ]
+        },
+        {
+          "heading": "10. Kontak",
+          "body": [
+            "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini atau cara kami menangani data Anda, hubungi kami melalui WhatsApp atau bagian kontak di website kami."
+          ]
+        }
+      ]
+    }
+  },
+  "admin": {
+    "login": {
+      "eyebrow": "Area Admin",
+      "title": "Masuk ke Dashboard",
+      "description": "Masuk dengan akun admin untuk mengelola konten Gizen Creative.",
+      "emailLabel": "Email",
+      "passwordLabel": "Kata Sandi",
+      "submit": "Masuk",
+      "submitting": "Sedang masuk...",
+      "error": "Email atau kata sandi salah."
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "settings": "Pengaturan",
+      "backToSite": "Kembali ke Situs",
+      "openMenu": "Buka menu",
+      "closeMenu": "Tutup menu",
+      "collapseSidebar": "Ciutkan sidebar",
+      "expandSidebar": "Perluas sidebar",
+      "signOut": "Keluar",
+      "accountMenu": "Menu akun"
+    },
+    "dashboard": {
+      "eyebrow": "Dashboard",
+      "title": "Selamat datang kembali",
+      "description": "Kelola konten situs Gizen Creative dari sini.",
+      "signOut": "Keluar",
+      "storageCardTitle": "Penyimpanan",
+      "storageCardDescription": "Penggunaan provider penyimpanan media yang aktif.",
+      "storageCardManage": "Kelola pengaturan penyimpanan",
+      "storageBadge": "{provider} aktif",
+      "usedLabel": "Terpakai",
+      "totalLabel": "Total",
+      "statsBucket": "Bucket",
+      "statsCredentials": "Kredensial",
+      "statsConfigured": "Terkonfigurasi",
+      "statsNotConfigured": "Belum dikonfigurasi",
+      "storageProvider": {
+        "local": "Disk Lokal",
+        "cloudinary": "Cloudinary",
+        "s3": "Amazon S3",
+        "r2": "Cloudflare R2"
+      }
+    },
+    "settings": {
+      "eyebrow": "Pengaturan",
+      "title": "Pengaturan Situs",
+      "description": "Atur konfigurasi umum, SEO, dan email untuk situs Anda.",
+      "nav": {
+        "general": "Umum",
+        "seo": "SEO",
+        "analytics": "Analitik",
+        "smtp": "SMTP",
+        "storage": "Penyimpanan"
+      },
+      "general": {
+        "title": "Umum",
+        "description": "Informasi dasar situs dan detail kontak.",
+        "siteNameLabel": "Nama Situs",
+        "siteTaglineLabel": "Tagline",
+        "contactEmailLabel": "Email Kontak",
+        "contactPhoneLabel": "Telepon Kontak",
+        "addressLabel": "Alamat",
+        "save": "Simpan Perubahan",
+        "logoTitle": "Logo Situs",
+        "logoDescription": "Unggah logo yang ditampilkan di seluruh situs.",
+        "logoHint": "PNG, JPG, SVG, atau WebP. Maks 2MB.",
+        "logoUpload": "Unggah Logo",
+        "logoReplace": "Ganti Logo",
+        "logoRemove": "Hapus Logo"
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "Metadata bawaan yang digunakan di seluruh situs.",
+        "metaTitleLabel": "Judul Meta",
+        "metaDescriptionLabel": "Deskripsi Meta",
+        "metaKeywordsLabel": "Kata Kunci Meta",
+        "ogImageLabel": "URL Gambar Open Graph",
+        "pagesTitle": "SEO per Halaman",
+        "pagesDescription": "Timpa judul dan deskripsi meta untuk setiap halaman marketing. Kolom kosong memakai nilai bawaan halaman.",
+        "pagesColumnPage": "Halaman",
+        "pagesColumnTitle": "Judul Meta",
+        "pagesColumnDescription": "Deskripsi Meta",
+        "pagesColumnActions": "Aksi",
+        "pagesDefaultPlaceholder": "Bawaan",
+        "pagesSave": "Simpan",
+        "pagesHint": "Kosongkan kedua kolom lalu simpan untuk mengembalikan metadata bawaan halaman.",
+        "save": "Simpan Perubahan"
+      },
+      "analytics": {
+        "title": "Analitik & Verifikasi",
+        "description": "ID Google Analytics, Tag Manager, dan verifikasi Search Console.",
+        "gaMeasurementIdLabel": "ID Pengukuran GA4",
+        "gtmIdLabel": "ID Google Tag Manager",
+        "googleSiteVerificationLabel": "Verifikasi Situs Google",
+        "analyticsFallbackHint": "Kosongkan kolom untuk memakai nilai dari environment variables (.env).",
+        "gaCredsTitle": "Kredensial Google Analytics",
+        "gaCredsDescription": "Unggah file service account auth-creds.json untuk menghubungkan data Google Analytics.",
+        "gaCredsUpdatedAt": "Diunggah {date}",
+        "gaCredsUpload": "Unggah Kredensial",
+        "gaCredsReplace": "Ganti Kredensial",
+        "gaCredsRemove": "Hapus Kredensial",
+        "save": "Simpan Perubahan"
+      },
+      "smtp": {
+        "title": "SMTP",
+        "description": "Konfigurasi server email keluar.",
+        "hostLabel": "Host SMTP",
+        "portLabel": "Port",
+        "userLabel": "Nama Pengguna",
+        "passwordLabel": "Kata Sandi",
+        "fromLabel": "Alamat Pengirim",
+        "secureLabel": "Gunakan TLS/SSL",
+        "save": "Simpan Perubahan",
+        "testConnection": "Tes Koneksi"
+      },
+      "storage": {
+        "title": "Penyimpanan",
+        "description": "Atur tempat penyimpanan file media yang diunggah.",
+        "providerLabel": "Penyedia Penyimpanan",
+        "providerHint": "Lokal menyimpan file di disk server. Pilih penyedia cloud untuk penyimpanan yang skalabel.",
+        "providers": {
+          "local": "Lokal (disk server)",
+          "cloudinary": "Cloudinary",
+          "s3": "Amazon S3",
+          "r2": "Cloudflare R2"
+        },
+        "cloudinary": {
+          "cloudNameLabel": "Cloud Name",
+          "apiKeyLabel": "API Key",
+          "apiSecretLabel": "API Secret",
+          "folderLabel": "Folder"
+        },
+        "s3": {
+          "regionLabel": "Region",
+          "bucketLabel": "Bucket",
+          "accessKeyIdLabel": "Access Key ID",
+          "secretAccessKeyLabel": "Secret Access Key",
+          "endpointLabel": "Endpoint (opsional)",
+          "publicUrlLabel": "URL Publik (opsional)"
+        },
+        "r2": {
+          "accountIdLabel": "Account ID",
+          "bucketLabel": "Bucket",
+          "accessKeyIdLabel": "Access Key ID",
+          "secretAccessKeyLabel": "Secret Access Key",
+          "publicUrlLabel": "URL Publik"
+        },
+        "save": "Simpan Perubahan"
+      }
+    }
+  }
+}

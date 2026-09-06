@@ -1,0 +1,1445 @@
+{
+  "whatsappButton": {
+    "ariaLabel": "Chat with us on WhatsApp",
+    "label": "Contact Us"
+  },
+  "footer": {
+    "tagline": "Digital Service Platform for your business. Website, Social Media, and SEO in one team.",
+    "copyright": "© 2026 Gizen Creative. All rights reserved.",
+    "language": "Language",
+    "columns": {
+      "services": "Services",
+      "packages": "Packages",
+      "resources": "Resources",
+      "company": "Company"
+    },
+    "links": {
+      "websiteDevelopment": "Website Development",
+      "socialMediaManagement": "Social Media Management",
+      "seoWebsite": "SEO Website",
+      "websitePackage": "Website Package",
+      "socialMediaPackage": "Social Media Package",
+      "seoPackage": "SEO Package",
+      "enterprisePackage": "Enterprise Package",
+      "blog": "Blog",
+      "portfolio": "Portfolio",
+      "faq": "FAQ",
+      "caseStudies": "Case Studies",
+      "aboutUs": "About Us",
+      "contact": "Contact",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
+    }
+  },
+  "metadata": {
+    "title": "Gizen Creative — Website, Social Media & SEO for Your Business",
+    "description": "Gizen Creative Digital Service Platform. Professional Website Development, Social Media Management, and Website SEO services to grow your business."
+  },
+  "hero": {
+    "title": "Grow Digital. Faster.",
+    "description": "A digital service platform to build professional websites, manage social media, and drive organic traffic — all with one team.",
+    "ctaPrimary": "Free Consultation",
+    "ctaSecondary": "View Packages",
+    "trustedBy": "Trusted by 100+ businesses across Indonesia",
+    "rating": "4.9"
+  },
+  "techMarquee": {
+    "heading": "Experienced with the platforms your business loves"
+  },
+  "bento": {
+    "heading": "The digital partner for modern businesses",
+    "custom": {
+      "badge": "100% Custom",
+      "title": "Solutions that protect your brand identity",
+      "description": "Every website, piece of content, and SEO strategy is tailor-made to match your business character and goals."
+    },
+    "stats": {
+      "projects": {
+        "value": "100+",
+        "label": "Projects Completed"
+      },
+      "turnaround": {
+        "value": "7 Days",
+        "label": "Average Landing Page Turnaround"
+      },
+      "clients": {
+        "value": "50+",
+        "label": "Happy & Returning Clients"
+      }
+    },
+    "process": {
+      "title": "Simple Process",
+      "description": "No hassle. Just consult with us — we handle everything.",
+      "step1": "Consult your business needs",
+      "step2": "Our team crafts a strategy & proposal",
+      "step3": "Execution & regular reports"
+    },
+    "lead": {
+      "title": "Fast Response via WhatsApp",
+      "description": "Send us your questions — our team will reply and prepare the best offer for you.",
+      "placeholder": "Hi, I'd like to build a website…",
+      "tags": {
+        "website": "Website",
+        "social": "Social Media",
+        "seo": "SEO",
+        "enterprise": "Enterprise"
+      }
+    },
+    "pricing": {
+      "title": "Flexible Packages",
+      "badge": "Customizable",
+      "description": "Choose a monthly plan or a one-time project. Tailor it to your business needs and budget.",
+      "count": "4",
+      "categoryLabel": "Categories",
+      "categoryValue": "Service Packages",
+      "priceLabel": "Starting from",
+      "priceValue": "Affordable"
+    }
+  },
+  "ctaDark": {
+    "titleLine1": "Ready to Grow",
+    "titleLine2": "Your Business?",
+    "description": "Join 100+ businesses that have grown with Gizen Creative.",
+    "ctaWhatsApp": "Consult via WhatsApp",
+    "ctaQuote": "Request a Quote"
+  },
+  "services": {
+    "included": "Included",
+    "learnMore": "Learn more",
+    "items": {
+      "website": {
+        "eyebrow": "Website Development",
+        "title1": "Professional Websites",
+        "title2": "For Your Business",
+        "description": "Professional website development services for businesses. Company profiles, landing pages, and business websites with responsive design and easily manageable content.",
+        "cta": "Build Your Website Now",
+        "pills": {
+          "responsive": "Responsive Design",
+          "cms": "CMS Editable"
+        },
+        "features": {
+          "companyProfile": "Company Profile Website",
+          "landingPage": "Landing Page",
+          "businessWebsite": "Business Website",
+          "contactForm": "Contact Form",
+          "whatsapp": "WhatsApp Integration",
+          "maps": "Google Maps Integration",
+          "seo": "Basic SEO Setup"
+        }
+      },
+      "socialMedia": {
+        "eyebrow": "Social Media Management",
+        "title1": "Active Social Media,",
+        "title2": "Without the Hassle",
+        "description": "Strategic social media management. From content strategy, feeds, and stories to reels — complete with captions, hashtags, and monthly performance reports.",
+        "cta": "Manage Your Social Media",
+        "pills": {
+          "strategy": "Content Strategy",
+          "report": "Monthly Report"
+        },
+        "features": {
+          "strategy": "Content Strategy",
+          "feed": "Feed Management",
+          "story": "Story Management",
+          "reels": "Reels Management",
+          "caption": "Captions & Hashtags",
+          "scheduling": "Content Scheduling",
+          "report": "Monthly Performance Report"
+        }
+      },
+      "seo": {
+        "eyebrow": "SEO Website",
+        "title1": "Higher Rankings,",
+        "title2": "Growing Organic Traffic",
+        "description": "Website optimization to earn organic traffic. From audits and keyword research to SEO content writing, technical optimization, and performance reporting.",
+        "cta": "Optimize Your SEO Now",
+        "pills": {
+          "audit": "SEO Audit",
+          "keyword": "Keyword Research",
+          "technical": "Technical SEO"
+        },
+        "features": {
+          "audit": "SEO Audit",
+          "keyword": "Keyword Research",
+          "content": "SEO Content Writing",
+          "onPage": "On-Page SEO",
+          "technical": "Technical SEO",
+          "report": "Organic Performance Report"
+        }
+      }
+    }
+  },
+  "websiteDevelopment": {
+    "meta": {
+      "title": "Website Development | Professional Website Services | Gizen Creative",
+      "description": "Professional website development — landing pages, company profiles, and business websites. Responsive, fast, and SEO-ready. Start with a free consultation."
+    },
+    "hero": {
+      "eyebrow": "Website Development",
+      "title1": "Professional Websites,",
+      "title2": "Built to Convert",
+      "subtitle": "From landing pages to business websites with complex integrations. Modern design, fast performance, and SEO-ready — built to become your business's sales asset.",
+      "ctaPrimary": "Free Consultation",
+      "ctaSecondary": "View Pricing",
+      "stats": {
+        "delivery": {
+          "value": "7–14 Days",
+          "label": "Estimated delivery"
+        },
+        "responsive": {
+          "value": "100%",
+          "label": "Responsive on all devices"
+        },
+        "hosting": {
+          "value": "1 Year",
+          "label": "Free domain & hosting"
+        }
+      }
+    },
+    "offerings": {
+      "eyebrow": "Website Types",
+      "title1": "Pick What Fits",
+      "title2": "Your Business",
+      "subtitle": "The three website types businesses need most — all built to the same standard: fast, clean, and easy to manage.",
+      "items": {
+        "landingPage": {
+          "title": "Landing Page",
+          "description": "A single conversion-focused page for ad campaigns, product launches, or special offers.",
+          "bestFor": "Best for campaigns & new products"
+        },
+        "companyProfile": {
+          "title": "Company Profile",
+          "description": "Present your company's profile, services, and portfolio professionally and convincingly.",
+          "bestFor": "Best for SMEs & growing businesses"
+        },
+        "businessWebsite": {
+          "title": "Business Website",
+          "description": "A custom website with CMS, multi-language support, and integrations tailored to your business.",
+          "bestFor": "Best for complex requirements"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How We Work",
+      "title1": "Clear Process,",
+      "title2": "Measurable Results",
+      "steps": {
+        "discovery": {
+          "title": "Consultation & Research",
+          "description": "We learn your business goals, target audience, and feature needs."
+        },
+        "design": {
+          "title": "UI/UX Design",
+          "description": "A modern visual design aligned with your brand identity."
+        },
+        "development": {
+          "title": "Development",
+          "description": "Built with modern technology — fast, secure, and SEO-ready."
+        },
+        "launch": {
+          "title": "Launch & Support",
+          "description": "Your website goes live, complete with support and maintenance."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "All Included",
+      "title1": "Every Package,",
+      "title2": "No Hidden Fees",
+      "subtitle": "Whichever website type you choose, everything you need to go live is already included.",
+      "items": {
+        "responsive": "Responsive Design",
+        "ssl": "SSL Certificate",
+        "hosting": "Domain & Hosting 1 Year",
+        "seo": "Basic On-Page SEO",
+        "whatsapp": "WhatsApp Integration",
+        "maps": "Google Maps Integration",
+        "contactForm": "Contact Form",
+        "revision": "Design Revisions"
+      }
+    },
+    "cta": {
+      "badge": "Ready to Go Online?",
+      "title": "Start Building Your Website",
+      "subtitle": "Discuss your website needs with our team — free, no commitment.",
+      "button": "Free Consultation"
+    }
+  },
+  "socialMediaManagement": {
+    "meta": {
+      "title": "Social Media Management | Professional Social Media Services | Gizen Creative",
+      "description": "Strategic social media management — content strategy, feeds, stories, and reels fully handled, with monthly performance reports. Start with a free consultation."
+    },
+    "hero": {
+      "eyebrow": "Social Media Management",
+      "title1": "Active Social Media,",
+      "title2": "Without the Hassle",
+      "subtitle": "From content strategy to monthly reports. We manage your feeds, stories, and reels so your brand stays consistent and keeps growing.",
+      "ctaPrimary": "Free Consultation",
+      "ctaSecondary": "View Pricing",
+      "stats": {
+        "content": {
+          "value": "12–30",
+          "label": "Content pieces per month"
+        },
+        "platforms": {
+          "value": "IG & TikTok",
+          "label": "Main platforms managed"
+        },
+        "report": {
+          "value": "Monthly",
+          "label": "Performance report"
+        }
+      }
+    },
+    "offerings": {
+      "eyebrow": "What We Manage",
+      "title1": "Everything Your",
+      "title2": "Social Media Needs",
+      "subtitle": "Three core pillars of social media management — all handled by one team with a single consistent strategy.",
+      "items": {
+        "contentStrategy": {
+          "title": "Content Strategy",
+          "description": "Monthly content planning based on your audience, trends, and business goals — so every post has a purpose.",
+          "bestFor": "Best for building direction"
+        },
+        "feedManagement": {
+          "title": "Feed Management",
+          "description": "Consistent visual design and copy for your feed, complete with captions and researched hashtags.",
+          "bestFor": "Best for brand consistency"
+        },
+        "storiesReels": {
+          "title": "Stories & Reels",
+          "description": "Engaging short-form content — daily stories and trend-aware reels to boost reach and engagement.",
+          "bestFor": "Best for reach & engagement"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How We Work",
+      "title1": "Structured Workflow,",
+      "title2": "Consistent Output",
+      "steps": {
+        "audit": {
+          "title": "Audit & Research",
+          "description": "We review your account, audience, and competitors to find growth opportunities."
+        },
+        "planning": {
+          "title": "Content Planning",
+          "description": "A monthly content calendar with themes, formats, and posting schedules — approved by you."
+        },
+        "production": {
+          "title": "Production & Publishing",
+          "description": "Design, copywriting, and scheduling handled end to end, on time, every time."
+        },
+        "reporting": {
+          "title": "Report & Evaluation",
+          "description": "Monthly performance reports with insights and recommendations for next month."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "All Included",
+      "title1": "Every Package,",
+      "title2": "No Hidden Fees",
+      "subtitle": "Whichever package you choose, everything you need for consistent, growing social media is already included.",
+      "items": {
+        "contentStrategy": "Content Strategy",
+        "feed": "Feed Management",
+        "story": "Story Management",
+        "reels": "Reels Management",
+        "captionHashtag": "Caption & Hashtag Research",
+        "scheduling": "Content Scheduling",
+        "design": "Custom Content Design",
+        "report": "Monthly Performance Report"
+      }
+    },
+    "cta": {
+      "badge": "Ready to Grow?",
+      "title": "Let Us Handle Your Social Media",
+      "subtitle": "Discuss your social media needs with our team — free, no commitment.",
+      "button": "Free Consultation"
+    }
+  },
+  "seoWebsite": {
+    "meta": {
+      "title": "SEO Website | Professional SEO Services | Gizen Creative",
+      "description": "Website SEO services — audits, keyword research, SEO content, on-page and technical optimization, plus monthly organic performance reports. Start with a free consultation."
+    },
+    "hero": {
+      "eyebrow": "SEO Website",
+      "title1": "Higher Rankings,",
+      "title2": "Growing Organic Traffic",
+      "subtitle": "From SEO audits and keyword research to content and technical optimization. We help your website get found on Google and turn searches into customers.",
+      "ctaPrimary": "Free Consultation",
+      "ctaSecondary": "View Pricing",
+      "stats": {
+        "keywords": {
+          "value": "5–30+",
+          "label": "Keywords optimized"
+        },
+        "articles": {
+          "value": "2–8",
+          "label": "SEO articles per month"
+        },
+        "report": {
+          "value": "Monthly",
+          "label": "Ranking report"
+        }
+      }
+    },
+    "offerings": {
+      "eyebrow": "What We Optimize",
+      "title1": "Everything Your",
+      "title2": "Rankings Depend On",
+      "subtitle": "Three core pillars of SEO — all handled by one team with a single measurable strategy.",
+      "items": {
+        "auditKeyword": {
+          "title": "Audit & Keyword Research",
+          "description": "A full review of your website's SEO health plus keyword research targeting terms your customers actually search for.",
+          "bestFor": "Best for building a foundation"
+        },
+        "contentOnPage": {
+          "title": "Content & On-Page SEO",
+          "description": "SEO articles and page optimization — titles, meta descriptions, structure, and internal links that satisfy search intent.",
+          "bestFor": "Best for ranking growth"
+        },
+        "technicalReport": {
+          "title": "Technical SEO & Reporting",
+          "description": "Site speed, indexing, and structured data fixes, with monthly organic performance reports you can track.",
+          "bestFor": "Best for sustainable results"
+        }
+      }
+    },
+    "process": {
+      "eyebrow": "How We Work",
+      "title1": "Data-Driven Process,",
+      "title2": "Measurable Growth",
+      "steps": {
+        "audit": {
+          "title": "SEO Audit",
+          "description": "We analyze your website, competitors, and current rankings to find the biggest opportunities."
+        },
+        "strategy": {
+          "title": "Keyword Strategy",
+          "description": "Keyword research and a content plan targeting searches with real business value."
+        },
+        "optimization": {
+          "title": "Optimization & Content",
+          "description": "On-page fixes, technical improvements, and SEO content published consistently."
+        },
+        "reporting": {
+          "title": "Report & Evaluation",
+          "description": "Monthly ranking and traffic reports with insights and next steps."
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "All Included",
+      "title1": "Every Package,",
+      "title2": "No Hidden Fees",
+      "subtitle": "Whichever package you choose, everything you need for growing organic traffic is already included.",
+      "items": {
+        "audit": "SEO Audit",
+        "keyword": "Keyword Research",
+        "content": "SEO Content Writing",
+        "onPage": "On-Page SEO",
+        "technical": "Technical SEO",
+        "backlinks": "High-Quality Backlinks",
+        "report": "Organic Performance Report",
+        "specialist": "Dedicated SEO Specialist"
+      }
+    },
+    "cta": {
+      "badge": "Ready to Rank?",
+      "title": "Start Optimizing Your SEO",
+      "subtitle": "Discuss your SEO needs with our team — free, no commitment.",
+      "button": "Free Consultation"
+    }
+  },
+  "useCases": {
+    "title1": "For every stage of",
+    "title2": "Your Business Journey",
+    "subtitle": "Gizen Creative's three core services — Website, Social Media, and SEO — adapt to every digital need of your business.",
+    "start": "Get Started",
+    "learn": "Learn More",
+    "items": {
+      "website": {
+        "title": "Website Development",
+        "description": "Professional websites for your business — from company profiles and landing pages to full business websites with responsive design."
+      },
+      "socialMedia": {
+        "title": "Social Media Management",
+        "description": "Active social media without the hassle. Content strategy, feeds, stories, and reels fully managed with monthly reports."
+      },
+      "seo": {
+        "title": "SEO Specialist",
+        "description": "Climb Google rankings and drive organic traffic through audits, keyword research, and technical optimization."
+      }
+    }
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why Us?",
+    "title1": "Reasons to Choose Us.",
+    "title2": "Your Trusted Digital Partner.",
+    "cta": "Free Consultation",
+    "items": {
+      "team": {
+        "title": "Experienced Team",
+        "description": "Handled by a team that understands design, technology, and digital strategy for local business needs."
+      },
+      "pricing": {
+        "title": "Transparent Pricing",
+        "description": "Clear packages with no hidden fees. You know exactly what you get from the start."
+      },
+      "speed": {
+        "title": "Fast Delivery",
+        "description": "A structured workflow with clear timelines, so your project is completed on time."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "We don't disappear after launch. We're ready to help with maintenance and further consultation."
+      },
+      "reports": {
+        "title": "Measurable Reporting",
+        "description": "Every service comes with regular reports so your business growth is easy to track."
+      },
+      "results": {
+        "title": "Focused on Business Results",
+        "description": "Not just good looks — every strategy is aimed at bringing in real customers."
+      }
+    }
+  },
+  "testimonials": {
+    "headingLine1": "Trusted by",
+    "headingLine2": "Businesses Across Indonesia",
+    "items": {
+      "andi": {
+        "quote": "Gizen Creative completely changed the way our business shows up online. The website was finished fast, looks professional, and leads started coming in.",
+        "name": "Andi Pratama",
+        "role": "Owner, Kopi Nusantara"
+      },
+      "sari": {
+        "quote": "Our social media management is now organized and consistent. The monthly reports are clear, engagement keeps growing, and the support team is incredibly responsive.",
+        "name": "Sari Wulandari",
+        "role": "Marketing Manager, Rumah Batik"
+      },
+      "budi": {
+        "quote": "Our website's organic traffic grew significantly after 3 months on the SEO program. The keyword research and content were right on target.",
+        "name": "Budi Santoso",
+        "role": "Director, PT Maju Bersama"
+      },
+      "rina": {
+        "quote": "The process was simple: consult, agree, done. Our company profile website is now the sales team's go-to asset for presentations.",
+        "name": "Rina Kusuma",
+        "role": "Founder, Kusuma Interior"
+      },
+      "dedi": {
+        "quote": "One vendor for website, social media, and SEO — no need to coordinate with multiple parties. Highly recommended.",
+        "name": "Dedi Firmansyah",
+        "role": "CEO, Firman Logistik"
+      }
+    }
+  },
+  "faq": {
+    "meta": {
+      "title": "FAQ | Frequently Asked Questions | Gizen Creative",
+      "description": "Answers to common questions about Gizen Creative's website development, social media management, and SEO services, packages, and payments."
+    },
+    "headingLine1": "Frequently Asked",
+    "headingLine2": "Questions",
+    "subtitle": "Everything you need to know before starting a digital project with Gizen Creative.",
+    "items": {
+      "whatIs": {
+        "q": "What is Gizen Creative?",
+        "a": "Gizen Creative is a digital services platform that helps businesses build professional websites, manage social media, and grow organic traffic through SEO."
+      },
+      "timeline": {
+        "q": "How long does it take to build a website?",
+        "a": "A landing page is typically completed within 7 business days, while company profiles and business websites depend on complexity — usually 2–4 weeks."
+      },
+      "selfManage": {
+        "q": "Can I manage the website content myself?",
+        "a": "Yes. Every website comes with a CMS so you can update content, images, and articles without any coding skills."
+      },
+      "packages": {
+        "q": "How do the packages and payments work?",
+        "a": "We offer one-time packages for websites and monthly packages for social media and SEO. For special needs, an Enterprise Package with a custom quote is available."
+      },
+      "reports": {
+        "q": "Are performance reports included?",
+        "a": "Yes. The Social Media and SEO packages include monthly performance reports covering growth, engagement, and organic traffic."
+      },
+      "gettingStarted": {
+        "q": "How do I get started?",
+        "a": "Simply reach out via our consultation form or WhatsApp. Our team will explore your needs and prepare the best offer."
+      }
+    }
+  },
+  "portfolio": {
+    "meta": {
+      "title": "Portfolio | Our Work | Gizen Creative",
+      "description": "Explore Gizen Creative's portfolio — websites, social media campaigns, and SEO projects that helped businesses grow digitally."
+    },
+    "hero": {
+      "eyebrow": "Portfolio",
+      "title1": "Work That Speaks.",
+      "title2": "Results That Last.",
+      "subtitle": "A selection of websites, social media campaigns, and SEO projects we have delivered for businesses across Indonesia."
+    },
+    "filters": {
+      "all": "All",
+      "website": "Website",
+      "social": "Social Media",
+      "seo": "SEO"
+    },
+    "categories": {
+      "website": "Website Development",
+      "social": "Social Media Management",
+      "seo": "SEO Website"
+    },
+    "badges": {
+      "new": "New",
+      "featured": "Featured"
+    },
+    "viewProject": "View Project",
+    "items": {
+      "arunika": {
+        "title": "Arunika Studio"
+      },
+      "kopiSemesta": {
+        "title": "Kopi Semesta"
+      },
+      "lumina": {
+        "title": "Lumina Interior"
+      },
+      "sehatDaily": {
+        "title": "Sehat Daily"
+      },
+      "batikNusantara": {
+        "title": "Batik Nusantara"
+      },
+      "travelindo": {
+        "title": "Travelindo"
+      }
+    },
+    "cta": {
+      "title": "Want Results Like These?",
+      "subtitle": "Let's discuss your project and build something your customers will love.",
+      "button": "Free Consultation"
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog | Digital Growth Insights | Gizen Creative",
+      "description": "Tips and insights on website development, social media, and SEO to help your business grow digitally."
+    },
+    "hero": {
+      "eyebrow": "Blog",
+      "title1": "Insights That Help",
+      "title2": "Your Business Grow.",
+      "subtitle": "Practical articles about websites, social media, and SEO — written by the Gizen Creative team."
+    },
+    "searchPlaceholder": "Search articles...",
+    "searchLabel": "Search articles",
+    "empty": "No articles match your search.",
+    "readTime": "{minutes} min read",
+    "readArticle": "Read Article",
+    "allPosts": "All Articles",
+    "filters": {
+      "all": "All",
+      "website": "Website",
+      "social": "Social Media",
+      "seo": "SEO"
+    },
+    "categories": {
+      "website": "Website Development",
+      "social": "Social Media Management",
+      "seo": "SEO Website"
+    },
+    "tags": {
+      "design": "Design",
+      "ux": "UX",
+      "performance": "Performance",
+      "instagram": "Instagram",
+      "content": "Content",
+      "branding": "Branding",
+      "keyword": "Keyword",
+      "ranking": "Ranking",
+      "local": "Local SEO"
+    },
+    "categoryPage": {
+      "eyebrow": "Category",
+      "metaTitle": "{category} Articles | Blog | Gizen Creative",
+      "metaDescription": "All Gizen Creative blog articles in the {category} category.",
+      "subtitle": "All articles in the {category} category."
+    },
+    "tagPage": {
+      "eyebrow": "Tag",
+      "metaTitle": "Articles Tagged {tag} | Blog | Gizen Creative",
+      "metaDescription": "All Gizen Creative blog articles tagged {tag}.",
+      "subtitle": "All articles tagged {tag}."
+    },
+    "detail": {
+      "backToBlog": "Back to Blog",
+      "share": "Share this article",
+      "shareOn": "Share on {network}",
+      "copyLink": "Copy link",
+      "copied": "Link copied!",
+      "tagsTitle": "Tags",
+      "relatedTitle": "Related Articles"
+    },
+    "comments": {
+      "title": "Comments",
+      "count": "{count, plural, =0 {No comments yet} =1 {1 comment} other {# comments}}",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "messageLabel": "Comment",
+      "messagePlaceholder": "Write your comment...",
+      "submit": "Post Comment",
+      "emptyState": "Be the first to share your thoughts.",
+      "justNow": "Just now"
+    },
+    "posts": {
+      "websiteGuide": {
+        "title": "How to Choose the Right Website Development Service",
+        "excerpt": "Not all web agencies are equal. Here is what to look for before you invest in a professional website.",
+        "content": {
+          "p1": "A website is often the first impression customers get of your business. Choosing the right development partner determines whether that impression builds trust or drives visitors away. Start by reviewing an agency's portfolio: look for live projects, consistent quality, and industries similar to yours.",
+          "p2": "Beyond visuals, ask about the technology stack, page speed, and mobile responsiveness. A beautiful site that loads slowly will lose visitors before they see it. Make sure the agency covers SEO fundamentals, SSL, and analytics from day one.",
+          "p3": "Finally, clarify ongoing support. Websites need updates, security patches, and content changes. A good partner offers clear maintenance terms so your investment keeps performing long after launch."
+        }
+      },
+      "instagramStrategy": {
+        "title": "Instagram Content Strategy That Works in 2026",
+        "excerpt": "Reels, carousels, or stories? Learn which formats drive real engagement for Indonesian brands this year.",
+        "content": {
+          "p1": "Instagram's algorithm keeps evolving, but one principle stays constant: content that starts conversations wins. In 2026, short-form video still dominates reach, while carousels convert best for education and product storytelling.",
+          "p2": "Consistency beats virality. Brands that post three to five times per week with a clear content pillar structure grow steadily, while sporadic posting resets momentum. Plan pillars around education, social proof, behind-the-scenes, and offers.",
+          "p3": "Measure what matters: saves, shares, and profile visits signal genuine interest far better than likes. Review insights monthly and double down on the formats your audience actually responds to."
+        }
+      },
+      "seoBasics": {
+        "title": "SEO Guide for Beginners: From Zero to First Page",
+        "excerpt": "A practical introduction to search engine optimization — no jargon, just the steps that move rankings.",
+        "content": {
+          "p1": "SEO is the practice of making your website easy for search engines to find, understand, and recommend. It starts with keyword research: discovering the exact phrases your customers type when looking for products or services like yours.",
+          "p2": "On-page optimization comes next — titles, headings, meta descriptions, and content that genuinely answers the searcher's question. Technical health matters too: fast loading, mobile-friendly layout, and clean URL structure.",
+          "p3": "Authority is built over time through quality backlinks and consistent publishing. SEO is a marathon, not a sprint, but the compounding traffic it delivers makes it one of the highest-ROI channels available."
+        }
+      },
+      "speedTips": {
+        "title": "How to Fix a Slow Website: 7 Proven Techniques",
+        "excerpt": "Slow pages lose customers. These practical fixes can cut your load time in half.",
+        "content": {
+          "p1": "Every extra second of load time costs conversions. The biggest culprits are usually oversized images, render-blocking scripts, and cheap hosting. Start with an audit using PageSpeed Insights to see exactly where time is spent.",
+          "p2": "Compress and lazy-load images, serve modern formats like WebP or AVIF, and defer non-critical JavaScript. A content delivery network places your files closer to visitors and can dramatically cut latency across Indonesia's archipelago.",
+          "p3": "Caching is the final multiplier: browser caching, server-side caching, and static generation where possible. Measure again after each change — performance work is iterative, and small wins compound."
+        }
+      },
+      "socialBranding": {
+        "title": "Building a Strong Brand on Social Media",
+        "excerpt": "Your feed is your storefront. Here is how to craft a brand identity people remember and trust.",
+        "content": {
+          "p1": "Branding on social media goes beyond a logo and color palette. It is the consistent voice, visual style, and values your audience experiences in every post. Start by defining three adjectives that describe how your brand should feel.",
+          "p2": "Translate that identity into a visual system: consistent templates, typography, and color usage across posts. A cohesive feed signals professionalism before a visitor reads a single caption.",
+          "p3": "Voice completes the picture. Whether playful or authoritative, keep captions consistent and reply to comments in the same tone. Over time, this consistency turns followers into a community that recognizes you instantly."
+        }
+      },
+      "localKeyword": {
+        "title": "Keyword Research for Local Businesses",
+        "excerpt": "Win customers in your city with location-based keywords your competitors are ignoring.",
+        "content": {
+          "p1": "Local keyword research focuses on phrases with geographic intent — 'jasa website Jakarta' or 'coffee shop dekat saya'. These searches convert far better because the searcher is often ready to buy.",
+          "p2": "Start with your core services and layer in city, district, and landmark modifiers. Free tools like Google Keyword Planner and autocomplete suggestions reveal what locals actually type.",
+          "p3": "Optimize your Google Business Profile alongside your website: consistent name, address, and phone number, fresh photos, and genuine reviews. Local SEO rewards businesses that look active and trustworthy."
+        }
+      }
+    }
+  },
+  "navbar": {
+    "services": "Services",
+    "serviceItems": {
+      "websiteDevelopment": {
+        "title": "Website Development",
+        "description": "Professional websites with responsive design & CMS"
+      },
+      "socialMediaManagement": {
+        "title": "Social Media Management",
+        "description": "Content, feed management, and performance reports"
+      },
+      "seoWebsite": {
+        "title": "SEO Website",
+        "description": "Ranking optimization & organic traffic for your website"
+      }
+    },
+    "links": {
+      "pricing": "Pricing",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "about": "About Us"
+    },
+    "cta": "Free Consultation"
+  },
+  "pricing": {
+    "meta": {
+      "title": "Pricing | Website, Social Media & SEO Packages | Gizen Creative",
+      "description": "From one-time website builds to unlimited monthly plans, Gizen Creative offers flexible pricing for SMEs, growing businesses, and established brands. Start with a free consultation."
+    },
+    "plans": {
+      "badge": "Limited-Time Offer: Up to 35% Off",
+      "title": "Flexible Pricing",
+      "subtitle": "Choose the service you need — Website, Social Media, or SEO. Each service offers packages that scale with your business.",
+      "services": {
+        "website": "Website",
+        "social": "Social Media",
+        "seo": "SEO"
+      },
+      "discountBadge": "Save {percent}%",
+      "customPrice": "Custom",
+      "planCta": "Get Started",
+      "website": {
+        "basic": {
+          "name": "Basic Website",
+          "description": "Perfect for SMEs and businesses just getting online",
+          "unit": "Landing page · One-time payment",
+          "features": [
+            "1–3 Pages",
+            "Responsive Design",
+            "Domain & Hosting for 1 Year",
+            "SSL Certificate",
+            "2 Design Revisions"
+          ]
+        },
+        "professional": {
+          "name": "Professional Website",
+          "description": "Ideal for company profiles and growing businesses",
+          "unit": "Company profile · One-time payment",
+          "features": [
+            "Up to 10 Pages",
+            "Responsive Design",
+            "CMS — Manage Your Own Content",
+            "Basic On-Page SEO",
+            "Content Copywriting",
+            "Domain & Hosting for 1 Year",
+            "Unlimited Revisions"
+          ]
+        },
+        "corporate": {
+          "name": "Corporate Website",
+          "description": "For companies with complex requirements",
+          "unit": "Business website · One-time payment",
+          "features": [
+            "Unlimited Pages",
+            "Exclusive Custom Design",
+            "CMS — Manage Your Own Content",
+            "Multi-language Support",
+            "System Integrations (Payment, CRM, etc.)",
+            "Complete On-Page SEO",
+            "Domain & Hosting for 1 Year",
+            "Priority Support"
+          ]
+        }
+      },
+      "social": {
+        "standard": {
+          "name": "Standard Package",
+          "description": "A consistent social media presence for your business",
+          "unit": "12 posts · Monthly",
+          "features": [
+            "12 Feed/Carousel Posts",
+            "Caption & Hashtag Copywriting",
+            "Monthly Content Calendar",
+            "Monthly Performance Report"
+          ]
+        },
+        "professional": {
+          "name": "Professional Package",
+          "description": "Full management for serious brand growth",
+          "unit": "20 posts + reels · Monthly",
+          "features": [
+            "20 Feed/Carousel Posts",
+            "4 Reels Video Posts",
+            "Caption & Hashtag Copywriting",
+            "Daily Engagement Management",
+            "Ads Setup & Optimization",
+            "Monthly Content Calendar",
+            "Monthly Performance Report"
+          ]
+        }
+      },
+      "seo": {
+        "starter": {
+          "name": "Starter SEO",
+          "description": "An SEO foundation for businesses just getting started",
+          "unit": "5 keywords · Monthly",
+          "features": [
+            "5-Keyword Research",
+            "On-Page SEO Optimization",
+            "2 SEO Articles / Month",
+            "Monthly Ranking Report"
+          ]
+        },
+        "growth": {
+          "name": "Growth SEO",
+          "description": "Ideal for businesses aiming for consistent growth",
+          "unit": "15 keywords · Monthly",
+          "features": [
+            "15-Keyword Research",
+            "On-Page & Off-Page SEO",
+            "4 SEO Articles / Month",
+            "High-Quality Backlinks",
+            "Monthly Ranking Report"
+          ]
+        },
+        "business": {
+          "name": "Business SEO",
+          "description": "For businesses targeting high traffic",
+          "unit": "30 keywords · Monthly",
+          "features": [
+            "30-Keyword Research",
+            "On-Page & Off-Page SEO",
+            "8 SEO Articles / Month",
+            "High-Quality Backlinks",
+            "Technical SEO Audit",
+            "Monthly Ranking Report"
+          ]
+        },
+        "enterprise": {
+          "name": "Enterprise SEO",
+          "description": "A custom strategy at enterprise scale",
+          "unit": "Tailored to your needs",
+          "features": [
+            "Unlimited Keywords",
+            "On-Page & Off-Page SEO",
+            "Articles as Needed",
+            "Technical SEO Audit",
+            "Dedicated SEO Specialist",
+            "Priority Support"
+          ]
+        }
+      },
+      "bundle": {
+        "title": "Need more than one service?",
+        "description": "Combine Website, Social Media, and SEO into one bundle at a <strong>special price</strong>. Tell us what you need and our team will prepare the best offer for you.",
+        "cta": "Free Consultation"
+      }
+    },
+    "compare": {
+      "eyebrow": "Full Comparison",
+      "title": "Compare All Plans",
+      "featureColumn": "Features",
+      "included": "Included",
+      "notIncluded": "Not included",
+      "perMonth": "{price}/mo",
+      "values": {
+        "unlimited": "Unlimited",
+        "custom": "Custom"
+      },
+      "website": {
+        "columns": {
+          "basic": "Basic",
+          "professional": "Professional",
+          "corporate": "Corporate"
+        },
+        "rows": {
+          "pages": "Number of Pages",
+          "responsive": "Responsive Design",
+          "customDesign": "Exclusive Custom Design",
+          "cms": "CMS — Manage Your Own Content",
+          "onPageSeo": "On-Page SEO",
+          "copywriting": "Content Copywriting",
+          "multiLanguage": "Multi-language Support",
+          "integrations": "System Integrations",
+          "domainHosting": "Domain & Hosting for 1 Year",
+          "revisions": "Revisions",
+          "prioritySupport": "Priority Support"
+        }
+      },
+      "social": {
+        "columns": {
+          "standard": "Standard",
+          "professional": "Professional"
+        },
+        "rows": {
+          "feedContent": "Feed/Carousel Posts",
+          "reels": "Reels Video Posts",
+          "copywriting": "Caption & Hashtag Copywriting",
+          "calendar": "Monthly Content Calendar",
+          "engagement": "Daily Engagement Management",
+          "ads": "Ads Setup & Optimization",
+          "report": "Monthly Performance Report"
+        }
+      },
+      "seo": {
+        "columns": {
+          "starter": "Starter",
+          "growth": "Growth",
+          "business": "Business",
+          "enterprise": "Enterprise"
+        },
+        "rows": {
+          "keywords": "Keywords",
+          "onPageSeo": "On-Page SEO",
+          "offPageSeo": "Off-Page SEO",
+          "articles": "SEO Articles / Month",
+          "backlinks": "High-Quality Backlinks",
+          "audit": "Technical SEO Audit",
+          "specialist": "Dedicated SEO Specialist",
+          "rankingReport": "Monthly Ranking Report",
+          "prioritySupport": "Priority Support"
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Pricing Questions",
+      "items": [
+        {
+          "q": "What counts as one piece of content?",
+          "a": "One piece of content covers one feed design or a complete carousel, including copywriting. Short-form video content (reels) counts as 2 pieces, while SEO articles are counted by length — a 1,000-word article equals 3 pieces."
+        },
+        {
+          "q": "Do I have to subscribe monthly?",
+          "a": "No. Gizen Creative offers one-time packages for website development, plus monthly plans for social media and SEO. You are free to choose whatever fits your needs."
+        },
+        {
+          "q": "Does unused content quota expire?",
+          "a": "Monthly plan quotas reset at the start of each billing cycle. For one-time projects there is no expiring quota — every deliverable is handed over in full when the project is complete."
+        },
+        {
+          "q": "Can I add more content later?",
+          "a": "Yes. You can purchase additional content at any time. Add-ons go straight into your current quota so the work never stops."
+        },
+        {
+          "q": "Is there special pricing for SMEs?",
+          "a": "Yes. Simply register your business with a valid NIB to unlock the SME Package starting from Rp 900rb per month."
+        },
+        {
+          "q": "How long is the discount valid?",
+          "a": "Discounts on the Pro and Studio packages are part of a limited-time launch offer. Prices may increase at any time, so we recommend locking in today's rate while it lasts."
+        },
+        {
+          "q": "What do commercial usage rights include?",
+          "a": "Every package includes commercial usage rights, so you are free to use all designs, content, and websites for business, promotion, advertising, and marketing materials at no extra cost."
+        }
+      ]
+    },
+    "cta": {
+      "badge": "Gizen Creative Studio",
+      "title": "Ready to grow digitally?",
+      "subtitle": "Get a free consultation, then pick the plan that fits you.",
+      "button": "Start Your Free Consultation"
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact | Gizen Creative",
+      "description": "Get in touch with Gizen Creative via WhatsApp, email, or social media. Start your website, social media, or SEO project with a free consultation."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's Talk About Your Project",
+      "subtitle": "Have a question or ready to start? Reach us through any channel below — our team typically replies within one business day."
+    },
+    "channels": {
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "The fastest way to reach us. Chat directly with our team for a free consultation.",
+        "action": "Chat on WhatsApp"
+      },
+      "email": {
+        "title": "Email",
+        "description": "Send your project details or questions and we'll get back to you.",
+        "action": "hello@gizencreative.com"
+      },
+      "instagram": {
+        "title": "Instagram",
+        "description": "See our latest work and send us a DM anytime.",
+        "action": "@gizencreative"
+      },
+      "linkedin": {
+        "title": "LinkedIn",
+        "description": "Connect with Gizen Creative professionally.",
+        "action": "Gizen Creative"
+      }
+    },
+    "info": {
+      "hoursTitle": "Business Hours",
+      "hours": "Monday – Friday, 09.00 – 18.00 WIB",
+      "responseTitle": "Response Time",
+      "response": "Under 24 hours on business days",
+      "consultTitle": "Free Consultation",
+      "consult": "Every project starts with a free, no-obligation consultation"
+    },
+    "cta": {
+      "title": "Ready to Grow Your Business?",
+      "subtitle": "Tell us about your goals and we'll recommend the right solution for your business.",
+      "button": "Free Consultation"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us | Gizen Creative",
+      "description": "Get to know Gizen Creative — a digital team helping businesses grow through Website Development, Social Media Management, and SEO."
+    },
+    "hero": {
+      "eyebrow": "About Us",
+      "title": "The Team Behind Your Digital Growth",
+      "subtitle": "Gizen Creative is a digital service platform that combines website development, social media, and SEO into one dedicated team for your business."
+    },
+    "story": {
+      "missionEyebrow": "Our Mission",
+      "missionTitle": "Making Digital Simple for Every Business",
+      "missionBody": "We believe every business deserves a strong digital presence without the complexity. Our mission is to handle the technical side — websites, content, and search visibility — so you can focus on running your business.",
+      "visionEyebrow": "Our Vision",
+      "visionTitle": "One Team for Everything Digital",
+      "visionBody": "We aim to be the long-term digital partner for growing businesses in Indonesia and beyond — one team that understands your brand and grows with you, from your first website to sustained organic growth.",
+      "stats": {
+        "projects": {
+          "value": "50+",
+          "label": "Projects delivered"
+        },
+        "clients": {
+          "value": "30+",
+          "label": "Happy clients"
+        },
+        "years": {
+          "value": "3+",
+          "label": "Years of experience"
+        }
+      }
+    },
+    "values": {
+      "eyebrow": "Our Values",
+      "title": "What We Stand For",
+      "items": {
+        "transparency": {
+          "title": "Transparency",
+          "description": "Clear pricing, honest timelines, and open communication at every stage of your project."
+        },
+        "quality": {
+          "title": "Quality",
+          "description": "Every website, post, and optimization is crafted with care and built to last."
+        },
+        "partnership": {
+          "title": "Partnership",
+          "description": "We work as an extension of your team, not just a vendor — your goals are our goals."
+        },
+        "growth": {
+          "title": "Growth",
+          "description": "Everything we do is measured by one thing: real, sustainable growth for your business."
+        }
+      }
+    },
+    "cta": {
+      "title": "Let's Build Something Together",
+      "subtitle": "Tell us about your business and we'll show you how we can help it grow.",
+      "button": "Free Consultation"
+    }
+  },
+  "legal": {
+    "terms": {
+      "meta": {
+        "title": "Terms of Service | Gizen Creative",
+        "description": "Terms and conditions for using Gizen Creative's Website Development, Social Media Management, and SEO services."
+      },
+      "eyebrow": "Legal",
+      "title": "Terms of Service",
+      "updated": "Last updated: September 5, 2026",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "body": [
+            "By accessing our website or using any of Gizen Creative's services — including Website Development, Social Media Management, and SEO — you agree to be bound by these Terms of Service. If you do not agree, please do not use our services."
+          ]
+        },
+        {
+          "heading": "2. Services",
+          "body": [
+            "Gizen Creative provides digital services as described on our pricing page and in individual project agreements. The scope, deliverables, and timeline of each engagement are defined in the package you select or in a written agreement between both parties.",
+            "We reserve the right to update, modify, or discontinue any part of our services at any time. Material changes to an active engagement will always be communicated to you in advance."
+          ]
+        },
+        {
+          "heading": "3. Orders and Payments",
+          "body": [
+            "Work begins after payment is confirmed, unless otherwise agreed in writing. Monthly plans are billed in advance for each billing period. One-time projects may require a down payment before work starts, with the remainder due upon delivery.",
+            "Prices shown are subject to change, but changes will never affect a billing period that has already been paid."
+          ]
+        },
+        {
+          "heading": "4. Revisions and Deliverables",
+          "body": [
+            "Each package includes the number of revisions stated in its description. Additional revisions beyond the included quota may incur extra charges, which will be communicated before any work is done.",
+            "Deliverables are considered accepted if no revision request is received within 7 days of delivery."
+          ]
+        },
+        {
+          "heading": "5. Client Responsibilities",
+          "body": [
+            "You are responsible for providing accurate information, brand assets, account access, and timely feedback needed to complete the work. Delays in providing required materials may extend project timelines.",
+            "You warrant that all materials you provide do not infringe any third-party rights, including copyrights and trademarks."
+          ]
+        },
+        {
+          "heading": "6. Intellectual Property",
+          "body": [
+            "Upon full payment, you receive commercial usage rights to the final deliverables, including designs, content, and websites, for business, promotional, advertising, and marketing purposes.",
+            "Gizen Creative retains the right to display completed work in our portfolio and marketing materials, unless you request otherwise in writing."
+          ]
+        },
+        {
+          "heading": "7. Cancellations and Refunds",
+          "body": [
+            "Monthly plans may be cancelled at any time and remain active until the end of the paid billing period. Payments for work already performed are non-refundable.",
+            "For one-time projects, cancellations before work begins are eligible for a refund minus any administrative costs. Once work has started, refunds are prorated based on work completed."
+          ]
+        },
+        {
+          "heading": "8. Limitation of Liability",
+          "body": [
+            "Gizen Creative provides services on a best-effort basis. We do not guarantee specific business outcomes such as search rankings, follower growth, or revenue. To the maximum extent permitted by law, our total liability is limited to the amount you paid for the service in question."
+          ]
+        },
+        {
+          "heading": "9. Changes to These Terms",
+          "body": [
+            "We may update these Terms of Service from time to time. The latest version will always be published on this page with an updated revision date. Continued use of our services after changes constitutes acceptance of the revised terms."
+          ]
+        },
+        {
+          "heading": "10. Contact",
+          "body": [
+            "If you have questions about these terms, contact us via WhatsApp or the contact section on our website."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "meta": {
+        "title": "Privacy Policy | Gizen Creative",
+        "description": "How Gizen Creative collects, uses, and protects your personal data when you use our website and services."
+      },
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "updated": "Last updated: September 5, 2026",
+      "sections": [
+        {
+          "heading": "1. Information We Collect",
+          "body": [
+            "We collect information you provide directly, such as your name, email address, phone number, business name, and project details when you contact us, request a consultation, or purchase a service.",
+            "We also collect technical data automatically, such as IP address, browser type, pages visited, and referral source, to understand how our website is used."
+          ]
+        },
+        {
+          "heading": "2. How We Use Your Information",
+          "body": [
+            "We use your information to deliver and improve our services, respond to inquiries, process payments, send service-related updates, and personalize your experience. We do not sell your personal data to third parties."
+          ]
+        },
+        {
+          "heading": "3. Cookies and Analytics",
+          "body": [
+            "Our website uses cookies and similar technologies to remember your preferences (such as language and theme) and to collect anonymous usage statistics through analytics tools. You can disable cookies in your browser settings, though some features may not work as intended."
+          ]
+        },
+        {
+          "heading": "4. Sharing of Information",
+          "body": [
+            "We only share your data with trusted third parties when necessary to deliver our services — for example payment processors, hosting providers, and analytics platforms. These parties are bound to protect your data and use it only for the agreed purpose.",
+            "We may disclose information when required by law or to protect our legal rights."
+          ]
+        },
+        {
+          "heading": "5. Data Security",
+          "body": [
+            "We apply reasonable technical and organizational measures to protect your personal data from unauthorized access, alteration, or loss. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security."
+          ]
+        },
+        {
+          "heading": "6. Data Retention",
+          "body": [
+            "We retain personal data only as long as needed for the purposes described in this policy, to comply with legal obligations, or to resolve disputes. Data that is no longer needed is deleted or anonymized."
+          ]
+        },
+        {
+          "heading": "7. Your Rights",
+          "body": [
+            "You may request access to, correction of, or deletion of your personal data at any time. You may also withdraw consent for marketing communications. To exercise these rights, contact us through the channels listed below."
+          ]
+        },
+        {
+          "heading": "8. Third-Party Services",
+          "body": [
+            "Our website may contain links to third-party services such as WhatsApp, Instagram, and LinkedIn. This policy does not cover those services, and we encourage you to review their respective privacy policies."
+          ]
+        },
+        {
+          "heading": "9. Changes to This Policy",
+          "body": [
+            "We may update this Privacy Policy from time to time. The latest version will always be published on this page with an updated revision date."
+          ]
+        },
+        {
+          "heading": "10. Contact",
+          "body": [
+            "If you have questions about this Privacy Policy or how we handle your data, contact us via WhatsApp or the contact section on our website."
+          ]
+        }
+      ]
+    }
+  },
+  "admin": {
+    "login": {
+      "eyebrow": "Admin Area",
+      "title": "Sign in to Dashboard",
+      "description": "Sign in with your admin account to manage Gizen Creative content.",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "error": "Email or password is incorrect."
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "settings": "Settings",
+      "backToSite": "Back to Site",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "collapseSidebar": "Collapse sidebar",
+      "expandSidebar": "Expand sidebar",
+      "signOut": "Sign Out",
+      "accountMenu": "Account menu"
+    },
+    "dashboard": {
+      "eyebrow": "Dashboard",
+      "title": "Welcome back",
+      "description": "Manage your Gizen Creative site content from here.",
+      "signOut": "Sign Out",
+      "storageCardTitle": "Storage",
+      "storageCardDescription": "Usage of the active media storage provider.",
+      "storageCardManage": "Manage storage settings",
+      "storageBadge": "{provider} active",
+      "usedLabel": "Used",
+      "totalLabel": "Total",
+      "statsBucket": "Bucket",
+      "statsCredentials": "Credentials",
+      "statsConfigured": "Configured",
+      "statsNotConfigured": "Not configured",
+      "storageProvider": {
+        "local": "Local Disk",
+        "cloudinary": "Cloudinary",
+        "s3": "Amazon S3",
+        "r2": "Cloudflare R2"
+      }
+    },
+    "settings": {
+      "eyebrow": "Settings",
+      "title": "Site Settings",
+      "description": "Configure general, SEO, and email settings for your site.",
+      "nav": {
+        "general": "General",
+        "seo": "SEO",
+        "analytics": "Analytics",
+        "smtp": "SMTP",
+        "storage": "Storage"
+      },
+      "general": {
+        "title": "General",
+        "description": "Basic site information and contact details.",
+        "siteNameLabel": "Site Name",
+        "siteTaglineLabel": "Tagline",
+        "contactEmailLabel": "Contact Email",
+        "contactPhoneLabel": "Contact Phone",
+        "addressLabel": "Address",
+        "save": "Save Changes",
+        "logoTitle": "Site Logo",
+        "logoDescription": "Upload the logo displayed across the site.",
+        "logoHint": "PNG, JPG, SVG, or WebP. Max 2MB.",
+        "logoUpload": "Upload Logo",
+        "logoReplace": "Replace Logo",
+        "logoRemove": "Remove Logo"
+      },
+      "seo": {
+        "title": "SEO",
+        "description": "Default metadata used across the site.",
+        "metaTitleLabel": "Meta Title",
+        "metaDescriptionLabel": "Meta Description",
+        "metaKeywordsLabel": "Meta Keywords",
+        "ogImageLabel": "Open Graph Image URL",
+        "pagesTitle": "Page SEO",
+        "pagesDescription": "Override the meta title and description for each marketing page. Empty fields fall back to the page defaults.",
+        "pagesColumnPage": "Page",
+        "pagesColumnTitle": "Meta Title",
+        "pagesColumnDescription": "Meta Description",
+        "pagesColumnActions": "Actions",
+        "pagesDefaultPlaceholder": "Default",
+        "pagesSave": "Save",
+        "pagesHint": "Clear both fields and save to restore a page's default metadata.",
+        "save": "Save Changes"
+      },
+      "analytics": {
+        "title": "Analytics & Verification",
+        "description": "Google Analytics, Tag Manager, and Search Console verification IDs.",
+        "gaMeasurementIdLabel": "GA4 Measurement ID",
+        "gtmIdLabel": "Google Tag Manager ID",
+        "googleSiteVerificationLabel": "Google Site Verification",
+        "analyticsFallbackHint": "Leave a field empty to use the value from environment variables (.env).",
+        "gaCredsTitle": "Google Analytics Credentials",
+        "gaCredsDescription": "Upload the auth-creds.json service account file to connect Google Analytics data.",
+        "gaCredsUpdatedAt": "Uploaded {date}",
+        "gaCredsUpload": "Upload Credentials",
+        "gaCredsReplace": "Replace Credentials",
+        "gaCredsRemove": "Remove Credentials",
+        "save": "Save Changes"
+      },
+      "smtp": {
+        "title": "SMTP",
+        "description": "Outgoing email server configuration.",
+        "hostLabel": "SMTP Host",
+        "portLabel": "Port",
+        "userLabel": "Username",
+        "passwordLabel": "Password",
+        "fromLabel": "From Address",
+        "secureLabel": "Use TLS/SSL",
+        "save": "Save Changes",
+        "testConnection": "Test Connection"
+      },
+      "storage": {
+        "title": "Storage",
+        "description": "Configure where uploaded media files are stored.",
+        "providerLabel": "Storage Provider",
+        "providerHint": "Local stores files on the server disk. Choose a cloud provider for scalable storage.",
+        "providers": {
+          "local": "Local (server disk)",
+          "cloudinary": "Cloudinary",
+          "s3": "Amazon S3",
+          "r2": "Cloudflare R2"
+        },
+        "cloudinary": {
+          "cloudNameLabel": "Cloud Name",
+          "apiKeyLabel": "API Key",
+          "apiSecretLabel": "API Secret",
+          "folderLabel": "Folder"
+        },
+        "s3": {
+          "regionLabel": "Region",
+          "bucketLabel": "Bucket",
+          "accessKeyIdLabel": "Access Key ID",
+          "secretAccessKeyLabel": "Secret Access Key",
+          "endpointLabel": "Endpoint (optional)",
+          "publicUrlLabel": "Public Base URL (optional)"
+        },
+        "r2": {
+          "accountIdLabel": "Account ID",
+          "bucketLabel": "Bucket",
+          "accessKeyIdLabel": "Access Key ID",
+          "secretAccessKeyLabel": "Secret Access Key",
+          "publicUrlLabel": "Public Base URL"
+        },
+        "save": "Save Changes"
+      }
+    }
+  }
+}
