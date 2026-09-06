@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { siteSetting } from "@/lib/db/schema";
-import { SITE_LOGO_KEY } from "@/lib/settings";
+import { GENERAL_SETTING_KEYS, SITE_LOGO_KEY } from "@/lib/settings";
 
 const MAX_LOGO_SIZE = 2 * 1024 * 1024;
 
@@ -91,6 +91,26 @@ export async function removeSiteLogo() {
     await unlink(path.join(UPLOADS_DIR, path.basename(oldPath))).catch(
       () => {},
     );
+  }
+
+  revalidateTag("site-settings", "max");
+}
+
+export async function saveGeneralSettings(formData: FormData) {
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) {
+    redirect("/admin/login");
+  }
+
+  for (const key of GENERAL_SETTING_KEYS) {
+    const value = String(formData.get(key) ?? "").trim();
+    await db
+      .insert(siteSetting)
+      .values({ key, value, updatedAt: new Date() })
+      .onConflictDoUpdate({
+        target: siteSetting.key,
+        set: { value, updatedAt: new Date() },
+      });
   }
 
   revalidateTag("site-settings", "max");

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { auth } from "@/lib/auth";
+import { getGaDashboardStats } from "@/lib/ga";
 import {
   getStorageProvider,
   getStorageSettings,
@@ -12,6 +13,7 @@ import {
   type StorageProvider,
 } from "@/lib/settings";
 import { AdminPageHeader } from "../_components/admin-page-header";
+import { AnalyticsCard } from "./_components/analytics-card";
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -33,14 +35,17 @@ export default async function AdminDashboardPage() {
   const t = await getTranslations("admin.dashboard");
   const settings = await getStorageSettings();
   const provider = getStorageProvider(settings);
-  const usage = await getStorageUsage(provider, settings, {
-    used: t("usedLabel"),
-    total: t("totalLabel"),
-    bucket: t("statsBucket"),
-    credentials: t("statsCredentials"),
-    configured: t("statsConfigured"),
-    notConfigured: t("statsNotConfigured"),
-  });
+  const [usage, gaStats] = await Promise.all([
+    getStorageUsage(provider, settings, {
+      used: t("usedLabel"),
+      total: t("totalLabel"),
+      bucket: t("statsBucket"),
+      credentials: t("statsCredentials"),
+      configured: t("statsConfigured"),
+      notConfigured: t("statsNotConfigured"),
+    }),
+    getGaDashboardStats(),
+  ]);
 
   return (
     <section className="mx-auto max-w-6xl">
@@ -95,6 +100,7 @@ export default async function AdminDashboardPage() {
             {t("storageCardManage")}
           </Link>
         </div>
+        <AnalyticsCard stats={gaStats} />
       </div>
     </section>
   );

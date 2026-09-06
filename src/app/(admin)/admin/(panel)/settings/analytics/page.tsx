@@ -47,6 +47,19 @@ export default async function AnalyticsSettingsPage() {
             />
           </div>
           <div className="space-y-1.5">
+            <label htmlFor="gaPropertyId" className={labelClass}>
+              {t("gaPropertyIdLabel")}
+            </label>
+            <input
+              id="gaPropertyId"
+              name="gaPropertyId"
+              type="text"
+              defaultValue={overrides.gaPropertyId ?? ""}
+              placeholder={ANALYTICS_ENV_FALLBACKS.gaPropertyId ?? "123456789"}
+              className={inputClass}
+            />
+          </div>
+          <div className="space-y-1.5">
             <label htmlFor="gtmId" className={labelClass}>
               {t("gtmIdLabel")}
             </label>

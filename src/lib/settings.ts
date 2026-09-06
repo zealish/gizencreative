@@ -5,6 +5,7 @@ import { siteSetting } from "@/lib/db/schema";
 
 export const ANALYTICS_KEYS = [
   "gaMeasurementId",
+  "gaPropertyId",
   "gtmId",
   "googleSiteVerification",
 ] as const;
@@ -25,6 +26,7 @@ export type AnalyticsKey = (typeof ANALYTICS_KEYS)[number];
 export const ANALYTICS_ENV_FALLBACKS: Record<AnalyticsKey, string | undefined> =
   {
     gaMeasurementId: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+    gaPropertyId: process.env.GA_PROPERTY_ID,
     gtmId: process.env.NEXT_PUBLIC_GTM_ID,
     googleSiteVerification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   };
@@ -42,6 +44,32 @@ export const getSeoOverrides = unstable_cache(
     }
   },
   ["seo-settings"],
+  { tags: ["site-settings"] },
+);
+
+export const GENERAL_SETTING_KEYS = [
+  "siteName",
+  "siteTagline",
+  "contactEmail",
+  "contactPhone",
+  "address",
+] as const;
+
+export type GeneralSettingKey = (typeof GENERAL_SETTING_KEYS)[number];
+
+export const getGeneralSettings = unstable_cache(
+  async (): Promise<Partial<Record<GeneralSettingKey, string>>> => {
+    try {
+      const rows = await db
+        .select()
+        .from(siteSetting)
+        .where(inArray(siteSetting.key, [...GENERAL_SETTING_KEYS]));
+      return Object.fromEntries(rows.map((row) => [row.key, row.value]));
+    } catch {
+      return {};
+    }
+  },
+  ["general-settings"],
   { tags: ["site-settings"] },
 );
 
@@ -76,6 +104,33 @@ export const getGaServiceAccountInfo = unstable_cache(
     }
   },
   ["ga-service-account"],
+  { tags: ["site-settings"] },
+);
+
+export type GaServiceAccountCredentials = {
+  clientEmail: string;
+  privateKey: string;
+};
+
+export const getGaServiceAccountCredentials = unstable_cache(
+  async (): Promise<GaServiceAccountCredentials | null> => {
+    try {
+      const [row] = await db
+        .select()
+        .from(siteSetting)
+        .where(eq(siteSetting.key, GA_SERVICE_ACCOUNT_KEY));
+      if (!row?.value) return null;
+      const creds = JSON.parse(row.value) as {
+        client_email?: string;
+        private_key?: string;
+      };
+      if (!creds.client_email || !creds.private_key) return null;
+      return { clientEmail: creds.client_email, privateKey: creds.private_key };
+    } catch {
+      return null;
+    }
+  },
+  ["ga-service-account-creds"],
   { tags: ["site-settings"] },
 );
 
@@ -143,6 +198,8 @@ export async function getAnalyticsSettings(): Promise<
   return {
     gaMeasurementId:
       overrides.gaMeasurementId || ANALYTICS_ENV_FALLBACKS.gaMeasurementId,
+    gaPropertyId:
+      overrides.gaPropertyId || ANALYTICS_ENV_FALLBACKS.gaPropertyId,
     gtmId: overrides.gtmId || ANALYTICS_ENV_FALLBACKS.gtmId,
     googleSiteVerification:
       overrides.googleSiteVerification ||

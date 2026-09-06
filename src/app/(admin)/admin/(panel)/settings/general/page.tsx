@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { getSiteLogo } from "@/lib/settings";
-import { removeSiteLogo, uploadSiteLogo } from "./actions";
+import { getGeneralSettings, getSiteLogo } from "@/lib/settings";
+import { removeSiteLogo, saveGeneralSettings, uploadSiteLogo } from "./actions";
 
 export const metadata: Metadata = {
   title: "General Settings",
@@ -16,6 +16,7 @@ const labelClass = "text-xs font-semibold uppercase tracking-wider text-muted";
 export default async function GeneralSettingsPage() {
   const t = await getTranslations("admin.settings.general");
   const logo = await getSiteLogo();
+  const settings = await getGeneralSettings();
 
   return (
     <div className="space-y-5">
@@ -23,48 +24,50 @@ export default async function GeneralSettingsPage() {
         <h2 className="text-xl font-bold tracking-tight">{t("logoTitle")}</h2>
         <p className="mt-2 text-sm text-muted">{t("logoDescription")}</p>
         {logo ? (
-          <div className="mt-6 space-y-4">
-            <div className="inline-flex rounded-xl border border-black/10 bg-background p-4 dark:border-white/15 dark:bg-white/5">
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            <div className="inline-flex rounded-xl border border-black/10 bg-background p-3 dark:border-white/15 dark:bg-white/5">
               <Image
                 src={logo}
                 alt="Site logo"
                 width={160}
-                height={64}
-                className="h-16 w-auto object-contain"
+                height={48}
+                className="h-12 w-auto object-contain"
                 unoptimized
               />
             </div>
             <form action={removeSiteLogo}>
               <button
                 type="submit"
-                className="rounded-full border border-black/15 px-6 py-2.5 text-xs font-bold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent dark:border-white/20"
+                className="rounded-full border border-black/15 px-5 py-2 text-xs font-bold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent dark:border-white/20"
               >
                 {t("logoRemove")}
               </button>
             </form>
           </div>
         ) : null}
-        <form action={uploadSiteLogo} className="mt-6 space-y-4">
-          <input
-            type="file"
-            name="logo"
-            accept="image/png,image/jpeg,image/svg+xml,image/webp"
-            required
-            className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-3 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-foreground file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-background dark:border-white/20 dark:bg-white/5"
-          />
+        <form action={uploadSiteLogo} className="mt-4 space-y-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <input
+              type="file"
+              name="logo"
+              accept="image/png,image/jpeg,image/svg+xml,image/webp"
+              required
+              className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-2.5 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-foreground file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-background dark:border-white/20 dark:bg-white/5"
+            />
+            <button
+              type="submit"
+              className="shrink-0 rounded-full bg-foreground px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
+            >
+              {logo ? t("logoReplace") : t("logoUpload")}
+            </button>
+          </div>
           <p className="text-xs text-muted">{t("logoHint")}</p>
-          <button
-            type="submit"
-            className="rounded-full bg-foreground px-7 py-3 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85"
-          >
-            {logo ? t("logoReplace") : t("logoUpload")}
-          </button>
         </form>
       </div>
       <div className="card-elegant rounded-3xl p-6 sm:p-8">
         <h2 className="text-xl font-bold tracking-tight">{t("title")}</h2>
         <p className="mt-2 text-sm text-muted">{t("description")}</p>
-        <form className="mt-6 space-y-5">
+        <form action={saveGeneralSettings} className="mt-6 space-y-5">
           <div className="space-y-1.5">
             <label htmlFor="siteName" className={labelClass}>
               {t("siteNameLabel")}
@@ -73,6 +76,7 @@ export default async function GeneralSettingsPage() {
               id="siteName"
               name="siteName"
               type="text"
+              defaultValue={settings.siteName ?? ""}
               placeholder="Gizen Creative"
               className={inputClass}
             />
@@ -85,6 +89,7 @@ export default async function GeneralSettingsPage() {
               id="siteTagline"
               name="siteTagline"
               type="text"
+              defaultValue={settings.siteTagline ?? ""}
               className={inputClass}
             />
           </div>
@@ -96,6 +101,7 @@ export default async function GeneralSettingsPage() {
               id="contactEmail"
               name="contactEmail"
               type="email"
+              defaultValue={settings.contactEmail ?? ""}
               placeholder="hello@gizencreative.com"
               className={inputClass}
             />
@@ -108,6 +114,7 @@ export default async function GeneralSettingsPage() {
               id="contactPhone"
               name="contactPhone"
               type="tel"
+              defaultValue={settings.contactPhone ?? ""}
               className={inputClass}
             />
           </div>
@@ -119,12 +126,12 @@ export default async function GeneralSettingsPage() {
               id="address"
               name="address"
               rows={3}
+              defaultValue={settings.address ?? ""}
               className={inputClass}
             />
           </div>
           <button
             type="submit"
-            disabled
             className="rounded-full bg-foreground px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-background shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
           >
             {t("save")}
