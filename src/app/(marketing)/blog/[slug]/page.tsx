@@ -20,15 +20,9 @@ import { ShareButtons } from "./_components/share-buttons";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-export async function generateStaticParams() {
-  try {
-    const posts = await getPublishedPosts();
-    return posts.map((post) => ({ slug: post.slug }));
-  } catch {
-    // DB unavailable at build time (e.g., Docker build); render on demand.
-    return [];
-  }
-}
+// Locale is resolved from cookies/headers per request, so this route
+// cannot be statically generated.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

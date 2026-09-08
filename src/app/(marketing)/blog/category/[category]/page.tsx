@@ -11,15 +11,9 @@ import { BlogPostList } from "../../_components/blog-post-list";
 
 type PageProps = { params: Promise<{ category: string }> };
 
-export async function generateStaticParams() {
-  try {
-    const categories = await getBlogCategories();
-    return categories.map((category) => ({ category: category.slug }));
-  } catch {
-    // DB unavailable at build time (e.g., Docker build); render on demand.
-    return [];
-  }
-}
+// Locale is resolved from cookies/headers per request, so this route
+// cannot be statically generated.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
