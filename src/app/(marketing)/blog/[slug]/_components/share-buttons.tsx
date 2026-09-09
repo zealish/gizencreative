@@ -68,7 +68,7 @@ export function ShareButtons({ title, path }: { title: string; path: string }) {
             href={network.buildUrl(getUrl(), title)}
             target="_blank"
             rel="noopener noreferrer"
-            className="grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white text-muted transition-colors hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
+            className="marketing-action grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white text-muted transition-colors hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
           >
             <span className="sr-only">
               {t("shareOn", { network: network.name })}
@@ -88,7 +88,7 @@ export function ShareButtons({ title, path }: { title: string; path: string }) {
           type="button"
           onClick={copyLink}
           aria-label={t("copyLink")}
-          className="grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white text-muted transition-colors hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
+          className="marketing-action grid h-10 w-10 place-items-center rounded-full border border-black/10 bg-white text-muted transition-colors hover:border-black/30 hover:text-foreground dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
         >
           <svg
             aria-hidden="true"

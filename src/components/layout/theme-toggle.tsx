@@ -10,7 +10,7 @@ export function ThemeToggle({
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
+    setIsDark(localStorage.getItem("theme") === "dark");
   }, []);
 
   const toggle = () => {
@@ -25,7 +25,7 @@ export function ThemeToggle({
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Aktifkan mode terang" : "Aktifkan mode gelap"}
-      className={`size-9 cursor-pointer items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground ${className}`}
+      className={`marketing-action size-9 cursor-pointer items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground ${className}`}
     >
       {isDark ? (
         <svg

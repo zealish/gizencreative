@@ -52,6 +52,8 @@ export const GENERAL_SETTING_KEYS = [
   "siteTagline",
   "contactEmail",
   "contactPhone",
+  "instagramUrl",
+  "linkedinUrl",
   "address",
 ] as const;
 
@@ -208,7 +210,6 @@ export async function getAnalyticsSettings(): Promise<
 }
 
 export const SITE_LOGO_KEY = "siteLogo";
-
 
 export const getSiteLogo = unstable_cache(
   async (): Promise<string | null> => {

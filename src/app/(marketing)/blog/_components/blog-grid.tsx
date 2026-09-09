@@ -48,10 +48,7 @@ export function BlogGrid({
   const categoryCounts = useMemo(() => {
     const counts = new Map<string, number>();
     for (const post of posts) {
-      counts.set(
-        post.category.slug,
-        (counts.get(post.category.slug) ?? 0) + 1,
-      );
+      counts.set(post.category.slug, (counts.get(post.category.slug) ?? 0) + 1);
     }
     return counts;
   }, [posts]);
@@ -85,7 +82,7 @@ export function BlogGrid({
   }, [posts, locale]);
 
   const sidebarItemClass = (active: boolean) =>
-    `flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+    `marketing-action flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors ${
       active
         ? "bg-primary text-white"
         : "text-muted hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10"
@@ -142,25 +139,24 @@ export function BlogGrid({
               {t("sidebar.categories")}
             </h3>
             <ul className="mt-3 space-y-1">
-              {[
-                { slug: "all", name: t("filters.all") },
-                ...categories,
-              ].map((option) => (
-                <li key={option.slug}>
-                  <button
-                    type="button"
-                    onClick={() => setFilter(option.slug)}
-                    className={sidebarItemClass(filter === option.slug)}
-                  >
-                    <span>{option.name}</span>
-                    <span className="text-xs">
-                      {option.slug === "all"
-                        ? posts.length
-                        : (categoryCounts.get(option.slug) ?? 0)}
-                    </span>
-                  </button>
-                </li>
-              ))}
+              {[{ slug: "all", name: t("filters.all") }, ...categories].map(
+                (option) => (
+                  <li key={option.slug}>
+                    <button
+                      type="button"
+                      onClick={() => setFilter(option.slug)}
+                      className={sidebarItemClass(filter === option.slug)}
+                    >
+                      <span>{option.name}</span>
+                      <span className="text-xs">
+                        {option.slug === "all"
+                          ? posts.length
+                          : (categoryCounts.get(option.slug) ?? 0)}
+                      </span>
+                    </button>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
           <div className="rounded-2xl border border-black/10 bg-white p-5 dark:border-white/15 dark:bg-white/5">
@@ -175,7 +171,7 @@ export function BlogGrid({
                   onClick={() =>
                     setActiveTag((current) => (current === tag ? null : tag))
                   }
-                  className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                  className={`marketing-action inline-flex items-center justify-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                     activeTag === tag
                       ? "bg-primary text-white"
                       : "border border-black/10 text-muted hover:border-black/30 hover:text-foreground dark:border-white/15 dark:hover:border-white/40"

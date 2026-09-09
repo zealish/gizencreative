@@ -191,6 +191,45 @@ details.faq-item[open] .faq-icon {
   }
 }
 
+.marketing-action,
+[data-marketing-action] {
+  cursor: pointer;
+  transition-property:
+    transform, opacity, color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+.marketing-action > svg,
+[data-marketing-action] > svg {
+  flex-shrink: 0;
+}
+
+.marketing-action:focus-visible,
+[data-marketing-action]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .marketing-action:not(:disabled):not([aria-disabled="true"]):hover,
+  [data-marketing-action]:not(:disabled):not([aria-disabled="true"]):hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-action,
+  .marketing-action > svg,
+  [data-marketing-action],
+  [data-marketing-action] > svg {
+    transform: none;
+    translate: none;
+    rotate: none;
+    scale: none;
+    transition: none;
+  }
+}
+
 html.lenis,
 html.lenis body {
   height: auto;

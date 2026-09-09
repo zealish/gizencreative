@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 type Service = {
@@ -55,36 +56,51 @@ const services: Service[] = [
   },
 ];
 
-function FeaturePopup({ featureKey, label }: { featureKey: string; label: string }) {
-  const visual = {
-    companyProfile: "◈",
-    landingPage: "↗",
-    businessWebsite: "▦",
-    contactForm: "✉",
-    whatsapp: "◌",
-    maps: "⌖",
-    seo: "⌕",
-    strategy: "✦",
-    feed: "▤",
-    story: "◉",
-    reels: "▶",
-    caption: "Aa",
-    scheduling: "◷",
-    report: "↗",
-    audit: "⌕",
-    keyword: "#",
-    content: "✎",
-    onPage: "◎",
-    technical: "⚙",
-  }[featureKey] ?? "✦";
+function FeaturePopup({
+  featureKey,
+  label,
+}: {
+  featureKey: string;
+  label: string;
+}) {
+  const visual =
+    {
+      companyProfile: "◈",
+      landingPage: "↗",
+      businessWebsite: "▦",
+      contactForm: "✉",
+      whatsapp: "◌",
+      maps: "⌖",
+      seo: "⌕",
+      strategy: "✦",
+      feed: "▤",
+      story: "◉",
+      reels: "▶",
+      caption: "Aa",
+      scheduling: "◷",
+      report: "↗",
+      audit: "⌕",
+      keyword: "#",
+      content: "✎",
+      onPage: "◎",
+      technical: "⚙",
+    }[featureKey] ?? "✦";
 
   return (
     <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-3 w-44 -translate-x-1/2 translate-y-2 rounded-2xl border border-accent/20 bg-white p-3 text-center opacity-0 shadow-xl transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 dark:bg-background">
-      <span className="mx-auto grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-lg font-bold text-accent transition-transform duration-300 group-hover:scale-110 group-focus-within:scale-110" aria-hidden="true">
+      <span
+        className="mx-auto grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-lg font-bold text-accent transition-transform duration-300 group-hover:scale-110 group-focus-within:scale-110"
+        aria-hidden="true"
+      >
         {visual}
       </span>
-      <span className="mt-2 block text-xs font-bold text-foreground">{label}</span>
-      <span className="mx-auto mt-2 block h-1 w-8 rounded-full bg-accent" aria-hidden="true" />
+      <span className="mt-2 block text-xs font-bold text-foreground">
+        {label}
+      </span>
+      <span
+        className="mx-auto mt-2 block h-1 w-8 rounded-full bg-accent"
+        aria-hidden="true"
+      />
     </span>
   );
 }
@@ -106,8 +122,16 @@ function ServiceVisual({ service }: { service: Service }) {
         {service.featureKeys.map((key) => {
           const label = t(`items.${service.id}.features.${key}`);
           return (
-            <li key={key} className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-black/5 bg-background px-4 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg dark:border-white/10" tabIndex={0}>
-              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent-soft text-[10px] font-bold text-accent" aria-hidden="true">✓</span>
+            <li
+              key={key}
+              className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-black/5 bg-background px-4 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg dark:border-white/10"
+            >
+              <span
+                className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent-soft text-[10px] font-bold text-accent"
+                aria-hidden="true"
+              >
+                ✓
+              </span>
               {label}
               <FeaturePopup featureKey={key} label={label} />
             </li>
@@ -155,16 +179,26 @@ function ServiceSection({ service }: { service: Service }) {
         </div>
         <div className="mt-8 flex flex-wrap items-center gap-4 sm:gap-5">
           <a
+            data-marketing-action
             href="#kontak"
-            className="rounded-full bg-accent px-6 py-3 text-xs font-bold uppercase tracking-wide text-white dark:text-background shadow-lg shadow-accent/25 transition-opacity hover:opacity-90"
+            className="group flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-xs font-bold uppercase tracking-wide text-white shadow-lg shadow-accent/25 transition-[transform,opacity] duration-200 hover:scale-[1.02] hover:opacity-90 motion-reduce:transition-none"
           >
             {t(`items.${service.id}.cta`)}
+            <MessageCircle
+              className="size-4 transition-transform duration-200 group-hover:rotate-6 motion-reduce:transition-none"
+              aria-hidden="true"
+            />
           </a>
           <a
+            data-marketing-action
             href="#kontak"
-            className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-muted transition-colors hover:text-foreground"
+            className="group flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-muted transition-colors hover:text-foreground"
           >
-            {t("learnMore")} <span aria-hidden="true">→</span>
+            {t("learnMore")}
+            <ArrowRight
+              className="size-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+              aria-hidden="true"
+            />
           </a>
         </div>
       </div>

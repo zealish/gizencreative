@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
 
 export function Bento({ customImage }: { customImage?: string | null }) {
   const t = useTranslations("bento");
@@ -85,10 +85,18 @@ export function Bento({ customImage }: { customImage?: string | null }) {
                       : "border-transparent bg-background dark:bg-white/5"
                   }`}
                 >
-                  <span className="text-xs font-bold text-accent">0{i + 1}</span>
-                  <span className="h-4 w-px bg-black/10 dark:bg-white/15" aria-hidden="true" />
+                  <span className="text-xs font-bold text-accent">
+                    0{i + 1}
+                  </span>
+                  <span
+                    className="h-4 w-px bg-black/10 dark:bg-white/15"
+                    aria-hidden="true"
+                  />
                   <span className="flex-1">{t(`process.${key}`)}</span>
-                  <span className={`h-2 w-2 shrink-0 rounded-full transition-colors duration-500 ${i === activeStep ? "bg-accent" : "bg-accent/25"}`} aria-hidden="true" />
+                  <span
+                    className={`h-2 w-2 shrink-0 rounded-full transition-colors duration-500 ${i === activeStep ? "bg-accent" : "bg-accent/25"}`}
+                    aria-hidden="true"
+                  />
                 </li>
               ))}
             </ol>

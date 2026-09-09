@@ -19,10 +19,7 @@ export function AboutCta({ image }: { image?: string | null }) {
               unoptimized
               className="object-cover"
             />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-black/60"
-            />
+            <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
           </>
         ) : (
           <div
@@ -40,7 +37,7 @@ export function AboutCta({ image }: { image?: string | null }) {
           <WaLink
             source="cta-about"
             href="https://wa.me/6281234567890"
-            className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground dark:text-background transition-opacity hover:opacity-90"
+            className="marketing-action mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground dark:text-background transition-opacity hover:opacity-90"
           >
             {t("button")} <span aria-hidden="true">→</span>
           </WaLink>

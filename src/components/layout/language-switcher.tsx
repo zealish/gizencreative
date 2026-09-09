@@ -47,7 +47,7 @@ export function LanguageSwitcher({
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => setOpen((v) => !v)}
-        className="flex cursor-pointer items-center gap-2 rounded-full border border-black/10 dark:border-white/15 px-3 py-1.5 text-xs text-muted transition-colors hover:text-foreground"
+        className="marketing-action flex cursor-pointer items-center gap-1.5 rounded-full border border-black/10 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-muted transition-colors hover:border-black/20 hover:text-foreground dark:border-white/15 dark:hover:border-white/30"
       >
         <svg
           width="14"
@@ -63,7 +63,7 @@ export function LanguageSwitcher({
           <circle cx="12" cy="12" r="10" />
           <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
-        {current.label}
+        {current.locale.toUpperCase()}
         <svg
           className={`size-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
           viewBox="0 0 12 12"
@@ -94,7 +94,7 @@ export function LanguageSwitcher({
                 type="button"
                 onClick={() => select(language.locale)}
                 aria-current={language.locale === locale}
-                className={`block w-full cursor-pointer rounded-xl px-3 py-2 text-left text-xs transition-colors hover:bg-foreground/5 ${
+                className={`marketing-action block w-full cursor-pointer rounded-xl px-3 py-2 text-left text-xs transition-colors hover:bg-foreground/5 ${
                   language.locale === locale
                     ? "font-semibold text-foreground"
                     : "text-muted"

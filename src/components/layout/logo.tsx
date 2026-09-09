@@ -21,9 +21,7 @@ export function Logo({
             priority
           />
           {siteName ? (
-            <span className="text-lg font-bold tracking-tight">
-              {siteName}
-            </span>
+            <span className="text-lg font-bold tracking-tight">{siteName}</span>
           ) : null}
         </>
       ) : (

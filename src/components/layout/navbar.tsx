@@ -1,11 +1,11 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
-
+import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Logo } from "@/components/layout/logo";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 const serviceItems = [
   { key: "websiteDevelopment", href: "/services/website-development" },
@@ -40,7 +40,7 @@ function ServicesDropdown() {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
+        className={`marketing-action flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
           open
             ? "bg-foreground/10 text-foreground"
             : "text-foreground/70 hover:text-foreground"
@@ -101,7 +101,7 @@ function MobileMenu() {
         aria-expanded={open}
         aria-label={t("services")}
         onClick={() => setOpen((v) => !v)}
-        className="grid h-9 w-9 place-items-center rounded-full text-foreground/80 transition-colors hover:text-foreground"
+        className="marketing-action grid h-9 w-9 place-items-center rounded-full text-foreground/80 transition-colors hover:text-foreground"
       >
         <svg
           aria-hidden="true"
@@ -155,9 +155,10 @@ function MobileMenu() {
           <Link
             href="/#kontak"
             onClick={() => setOpen(false)}
-            className="mt-2 block rounded-xl bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-white"
+            className="marketing-action mt-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-white"
           >
             {t("cta")}
+            <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
           </Link>
         </nav>
       </div>
@@ -185,14 +186,14 @@ export function Navbar({
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 sm:px-0">
       <div
-        className={`relative mx-auto grid h-16 grid-cols-[1fr_auto_1fr] items-center px-4 transition-all duration-300 sm:px-6 ${
+        className={`relative mx-auto flex h-16 items-center justify-between px-4 transition-all duration-300 sm:px-6 md:grid md:grid-cols-[1fr_auto_1fr] ${
           scrolled
-            ? "mt-3 max-w-5xl rounded-2xl bg-white/90 shadow-lg shadow-black/5 backdrop-blur-md dark:bg-background/90 dark:shadow-black/30"
+            ? "mt-3 max-w-6xl rounded-2xl bg-white/90 shadow-lg shadow-black/5 backdrop-blur-md dark:bg-background/90 dark:shadow-black/30"
             : "mt-0 max-w-7xl bg-transparent"
         }`}
       >
         <Logo logoUrl={logoUrl} siteName={siteName} />
-        <nav className="hidden items-center gap-4 md:flex">
+        <nav className="hidden items-center gap-3 md:flex lg:gap-4">
           <ServicesDropdown />
           {navLinks.map((link) => (
             <Link
@@ -204,13 +205,14 @@ export function Navbar({
             </Link>
           ))}
         </nav>
-        <div className="col-start-3 flex items-center justify-end gap-3 sm:gap-5">
-          <ThemeToggle className="flex" />
+        <div className="flex items-center justify-end gap-2 sm:gap-3 md:col-start-3 lg:gap-5">
+          <LanguageSwitcher placement="bottom" />
           <Link
             href="/#kontak"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-opacity hover:opacity-85 md:inline-block"
+            className="marketing-action hidden inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-opacity hover:opacity-85 md:inline-flex"
           >
             {t("cta")}
+            <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
           </Link>
           <MobileMenu />
         </div>

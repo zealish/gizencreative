@@ -1,17 +1,22 @@
 import { useTranslations } from "next-intl";
 import { WaLink } from "@/components/wa-link";
 
-export function WhatsAppButton() {
+export function WhatsAppButton({ phone }: { phone?: string | null }) {
   const t = useTranslations("whatsappButton");
+  const normalizedPhone = phone?.replace(/[^\d]/g, "");
+
+  if (!normalizedPhone) {
+    return null;
+  }
 
   return (
     <WaLink
       source="floating-button"
-      href="https://wa.me/6281234567890"
+      href={`https://wa.me/${normalizedPhone}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("ariaLabel")}
-      className="group fixed bottom-6 right-6 z-50 flex h-14 items-center gap-0 rounded-full bg-[#25D366] px-3.5 text-white shadow-lg transition-transform hover:scale-105"
+      className="marketing-action group fixed bottom-6 right-6 z-50 flex h-14 items-center gap-0 rounded-full bg-[#25D366] px-3.5 text-white shadow-lg transition-transform hover:scale-105"
     >
       <span className="max-w-0 overflow-hidden whitespace-nowrap text-sm font-semibold opacity-0 transition-all duration-300 group-hover:mr-2 group-hover:max-w-40 group-hover:opacity-100">
         {t("label")}

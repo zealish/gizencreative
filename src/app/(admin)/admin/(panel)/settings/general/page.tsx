@@ -119,6 +119,32 @@ export default async function GeneralSettingsPage() {
             />
           </div>
           <div className="space-y-1.5">
+            <label htmlFor="instagramUrl" className={labelClass}>
+              {t("instagramUrlLabel")}
+            </label>
+            <input
+              id="instagramUrl"
+              name="instagramUrl"
+              type="url"
+              defaultValue={settings.instagramUrl ?? ""}
+              placeholder="https://instagram.com/gizencreative"
+              className={inputClass}
+            />
+          </div>
+          <div className="space-y-1.5">
+            <label htmlFor="linkedinUrl" className={labelClass}>
+              {t("linkedinUrlLabel")}
+            </label>
+            <input
+              id="linkedinUrl"
+              name="linkedinUrl"
+              type="url"
+              defaultValue={settings.linkedinUrl ?? ""}
+              placeholder="https://linkedin.com/company/gizencreative"
+              className={inputClass}
+            />
+          </div>
+          <div className="space-y-1.5">
             <label htmlFor="address" className={labelClass}>
               {t("addressLabel")}
             </label>

@@ -18,10 +18,7 @@ export function WebDevCta({ image }: { image?: string | null }) {
               unoptimized
               className="object-cover"
             />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-black/60"
-            />
+            <div aria-hidden="true" className="absolute inset-0 bg-black/60" />
           </>
         ) : (
           <div

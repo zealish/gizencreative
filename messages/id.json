@@ -1326,7 +1326,8 @@
       "collapseSidebar": "Ciutkan sidebar",
       "expandSidebar": "Perluas sidebar",
       "signOut": "Keluar",
-      "accountMenu": "Menu akun"
+      "accountMenu": "Menu akun",
+      "portfolio": "Portofolio"
     },
     "dashboard": {
       "eyebrow": "Dashboard",
@@ -1584,6 +1585,8 @@
         "siteTaglineLabel": "Tagline",
         "contactEmailLabel": "Email Kontak",
         "contactPhoneLabel": "Telepon Kontak",
+        "instagramUrlLabel": "URL Instagram",
+        "linkedinUrlLabel": "URL LinkedIn",
         "addressLabel": "Alamat",
         "save": "Simpan Perubahan",
         "logoTitle": "Logo Situs",
@@ -1705,5 +1708,31 @@
         }
       }
     }
+  },
+  "portfolioAdmin": {
+    "title": "Portofolio",
+    "new": "Tambah project",
+    "projectName": "Nama project",
+    "year": "Tahun",
+    "clientCompany": "Perusahaan client",
+    "services": "Service yang dipakai",
+    "eyebrow": "Manajemen Konten",
+    "description": "Kelola project yang ditampilkan di halaman portofolio.",
+    "listTitle": "Semua Project",
+    "projectCount": "{count} project",
+    "searchPlaceholder": "Cari project…",
+    "backToList": "Kembali ke daftar portofolio",
+    "newDescription": "Tambahkan project baru ke portofolio Anda.",
+    "editTitle": "Edit Project",
+    "editDescription": "Perbarui informasi project portofolio Anda.",
+    "edit": "Edit",
+    "coverImage": "Gambar cover",
+    "published": "Publikasikan project",
+    "statusPublished": "Terbit",
+    "statusDraft": "Draft",
+    "createButton": "Buat Project",
+    "columns": { "status": "Status", "actions": "Aksi" },
+    "save": "Simpan",
+    "delete": "Hapus"
   }
 }

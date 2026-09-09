@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const reasons = [
@@ -108,10 +109,15 @@ export function WhyChooseUs() {
       </div>
       <div className="mt-10 text-center">
         <a
+          data-marketing-action
           href="#kontak"
-          className="inline-block rounded-full border border-black/10 bg-white px-6 py-3 text-xs font-bold uppercase tracking-wide transition-colors hover:border-black/30 dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
+          className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3 text-xs font-bold uppercase tracking-wide transition-[transform,border-color] duration-200 hover:scale-[1.02] hover:border-black/30 motion-reduce:transition-none dark:border-white/15 dark:bg-white/5 dark:hover:border-white/40"
         >
           {t("cta")}
+          <ArrowRight
+            className="size-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+            aria-hidden="true"
+          />
         </a>
       </div>
     </section>

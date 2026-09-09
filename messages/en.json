@@ -1326,7 +1326,8 @@
       "collapseSidebar": "Collapse sidebar",
       "expandSidebar": "Expand sidebar",
       "signOut": "Sign Out",
-      "accountMenu": "Account menu"
+      "accountMenu": "Account menu",
+      "portfolio": "Portfolio"
     },
     "dashboard": {
       "eyebrow": "Dashboard",
@@ -1584,6 +1585,8 @@
         "siteTaglineLabel": "Tagline",
         "contactEmailLabel": "Contact Email",
         "contactPhoneLabel": "Contact Phone",
+        "instagramUrlLabel": "Instagram URL",
+        "linkedinUrlLabel": "LinkedIn URL",
         "addressLabel": "Address",
         "save": "Save Changes",
         "logoTitle": "Site Logo",
@@ -1705,5 +1708,31 @@
         }
       }
     }
+  },
+  "portfolioAdmin": {
+    "title": "Portfolio",
+    "new": "New project",
+    "projectName": "Project name",
+    "year": "Year",
+    "clientCompany": "Client company",
+    "services": "Services used",
+    "eyebrow": "Content Management",
+    "description": "Manage the projects displayed on your portfolio page.",
+    "listTitle": "All Projects",
+    "projectCount": "{count} projects",
+    "searchPlaceholder": "Search projects…",
+    "backToList": "Back to portfolio list",
+    "newDescription": "Add a new project to your portfolio.",
+    "editTitle": "Edit Project",
+    "editDescription": "Update your portfolio project details.",
+    "edit": "Edit",
+    "coverImage": "Cover image",
+    "published": "Publish project",
+    "statusPublished": "Published",
+    "statusDraft": "Draft",
+    "createButton": "Create Project",
+    "columns": { "status": "Status", "actions": "Actions" },
+    "save": "Save",
+    "delete": "Delete"
   }
 }

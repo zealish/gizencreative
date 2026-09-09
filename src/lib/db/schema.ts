@@ -111,3 +111,14 @@ export const waClick = pgTable("wa_click", {
     .notNull()
     .defaultNow(),
 });
+export const portfolioProject = pgTable("portfolio_project", {
+  id: text("id").primaryKey(),
+  projectName: text("project_name").notNull(),
+  year: integer("year").notNull(),
+  clientCompany: text("client_company").notNull(),
+  coverImage: text("cover_image"),
+  services: text("services").array().notNull().default([]),
+  published: boolean("published").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});

@@ -1,6 +1,7 @@
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import "./globals.css";
@@ -84,10 +85,12 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     >
       {analytics.gtmId ? <GoogleTagManager gtmId={analytics.gtmId} /> : null}
       <body className="min-h-full flex flex-col">
-        <script
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: theme init before paint
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.theme==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
+            __html: `try{const theme=localStorage.getItem("theme");document.documentElement.classList.toggle("dark",theme==="dark")}catch{}`,
           }}
         />
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />

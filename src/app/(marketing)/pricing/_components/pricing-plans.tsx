@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -93,7 +94,7 @@ export function PricingPlans() {
                 key={opt}
                 type="button"
                 onClick={() => setService(opt)}
-                className={`inline-flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2.5 text-xs font-bold uppercase leading-none tracking-wide transition-colors sm:flex-none sm:px-5 ${
+                className={`marketing-action inline-flex flex-1 items-center justify-center gap-2 sm:flex-none rounded-full px-4 py-2.5 text-xs font-bold uppercase leading-none tracking-wide transition-colors sm:px-5 ${
                   service === opt
                     ? "bg-accent text-white dark:text-background shadow-md shadow-accent/30"
                     : "text-foreground/60 hover:text-foreground"
@@ -161,13 +162,14 @@ export function PricingPlans() {
                 </ul>
                 <a
                   href="/#kontak"
-                  className={`mt-7 rounded-full px-5 py-3 text-center text-xs font-bold uppercase tracking-wide transition-opacity hover:opacity-85 ${
+                  className={`marketing-action inline-flex items-center justify-center gap-2 mt-7 rounded-full px-5 py-3 text-center text-xs font-bold uppercase tracking-wide transition-opacity hover:opacity-85 ${
                     plan.featured
                       ? "bg-accent text-white dark:text-background"
                       : "bg-primary text-white"
                   }`}
                 >
-                  {t("planCta")}
+                  {t("planCta")}{" "}
+                  <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
                 </a>
               </Reveal>
             ))}
@@ -186,9 +188,10 @@ export function PricingPlans() {
             </div>
             <a
               href="/#kontak"
-              className="shrink-0 rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-85"
+              className="marketing-action inline-flex items-center justify-center gap-2 shrink-0 rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-85"
             >
-              {t("bundle.cta")}
+              {t("bundle.cta")}{" "}
+              <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
             </a>
           </Reveal>
         </div>

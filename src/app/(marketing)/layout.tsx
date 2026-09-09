@@ -18,8 +18,8 @@ export default async function MarketingLayout({
     <>
       <Navbar logoUrl={logoUrl} siteName={siteName} />
       <main className="flex-1">{children}</main>
-      <Footer logoUrl={logoUrl} />
-      <WhatsAppButton />
+      <Footer logoUrl={logoUrl} settings={settings} />
+      <WhatsAppButton phone={settings.contactPhone} />
     </>
   );
 }

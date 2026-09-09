@@ -1,96 +1,68 @@
 import { useTranslations } from "next-intl";
+import type { ReactNode } from "react";
 
 import { Reveal } from "@/components/reveal";
 import { WaLink } from "@/components/wa-link";
 
-const channels: { id: string; href: string; icon: React.ReactNode }[] = [
-  {
-    id: "whatsapp",
-    href: "https://wa.me/6281234567890",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-      </svg>
-    ),
-  },
-  {
-    id: "email",
-    href: "mailto:hello@gizencreative.com",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <rect x="2" y="4" width="20" height="16" rx="2" />
-        <path d="m22 7-10 6L2 7" />
-      </svg>
-    ),
-  },
-  {
-    id: "instagram",
-    href: "https://instagram.com/gizencreative",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <rect x="2" y="2" width="20" height="20" rx="5" />
-        <path d="M16 11.37a4 4 0 1 1-7.9 1.17 4 4 0 0 1 7.9-1.17z" />
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-      </svg>
-    ),
-  },
-  {
-    id: "linkedin",
-    href: "https://linkedin.com/company/gizencreative",
-    icon: (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-      >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect x="2" y="9" width="4" height="12" />
-        <circle cx="4" cy="4" r="2" />
-      </svg>
-    ),
-  },
-];
+const channelIcons: Record<string, ReactNode> = {
+  whatsapp: <span aria-hidden="true">◌</span>,
+  email: <span aria-hidden="true">✉</span>,
+  instagram: (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="size-6"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  linkedin: (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="size-6"
+      fill="currentColor"
+    >
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z" />
+    </svg>
+  ),
+};
 
-const infoItems = ["hours", "response", "consult"] as const;
-
-export function ContactChannels() {
+export function ContactChannels({
+  settings,
+}: {
+  settings: Partial<
+    Record<
+      "contactEmail" | "contactPhone" | "instagramUrl" | "linkedinUrl",
+      string
+    >
+  >;
+}) {
   const t = useTranslations("contact");
+  const channels = [
+    {
+      id: "whatsapp",
+      href: settings.contactPhone
+        ? `https://wa.me/${settings.contactPhone.replace(/[^\d]/g, "")}`
+        : "",
+    },
+    {
+      id: "email",
+      href: settings.contactEmail ? `mailto:${settings.contactEmail}` : "",
+    },
+    { id: "instagram", href: settings.instagramUrl ?? "" },
+    { id: "linkedin", href: settings.linkedinUrl ?? "" },
+  ]
+    .map((channel) => ({ ...channel, icon: channelIcons[channel.id] }))
+    .filter((channel) => channel.href);
+  const infoItems = ["hours", "response", "consult"] as const;
 
   return (
     <section className="px-4 pb-14 sm:pb-20">
@@ -103,7 +75,7 @@ export function ContactChannels() {
               target: isExternal ? "_blank" : undefined,
               rel: isExternal ? "noopener noreferrer" : undefined,
               className:
-                "card-elegant flex h-full flex-col rounded-3xl p-6 sm:p-8",
+                "card-elegant marketing-action flex h-full flex-col rounded-3xl p-6 sm:p-8",
             };
             const content = (
               <>

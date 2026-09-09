@@ -1,3 +1,4 @@
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { HeroParticles } from "./hero-particles";
@@ -27,17 +28,26 @@ export function Hero() {
         </p>
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a
+            data-marketing-action
             href="#kontak"
-            className="w-full max-w-xs rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85 sm:w-auto"
+            className="group flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg transition-[transform,opacity] duration-200 hover:scale-[1.02] hover:opacity-85 motion-reduce:transition-none sm:w-auto"
           >
             {t("ctaPrimary")}
+            <MessageCircle
+              className="size-4 transition-transform duration-200 group-hover:rotate-6 motion-reduce:transition-none"
+              aria-hidden="true"
+            />
           </a>
           <a
+            data-marketing-action
             href="/pricing"
-            className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted transition-colors hover:text-foreground"
+            className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted transition-colors hover:text-foreground"
           >
             {t("ctaSecondary")}
-            <span aria-hidden="true">→</span>
+            <ArrowRight
+              className="size-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+              aria-hidden="true"
+            />
           </a>
         </div>
         <div className="mt-10 flex items-center justify-center -space-x-2">

@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
@@ -144,16 +145,23 @@ export function UseCases({
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-widest sm:gap-6">
                   <Link
+                    data-marketing-action
                     href="/contact"
-                    className="rounded-full bg-white/15 px-6 py-3.5 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
+                    className="group flex items-center gap-2 rounded-full bg-white/15 px-6 py-3.5 text-white backdrop-blur-sm transition-[transform,background-color] duration-200 hover:scale-[1.02] hover:bg-white/25 motion-reduce:transition-none"
                   >
                     {t("start")}
+                    <Sparkles className="size-4" aria-hidden="true" />
                   </Link>
                   <Link
+                    data-marketing-action
                     href={uc.href}
-                    className="flex items-center gap-2 text-white/80 transition-colors hover:text-white"
+                    className="group flex items-center gap-2 text-white/80 transition-colors hover:text-white"
                   >
-                    {t("learn")} <span aria-hidden="true">→</span>
+                    {t("learn")}
+                    <ArrowRight
+                      className="size-4 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none"
+                      aria-hidden="true"
+                    />
                   </Link>
                 </div>
               </div>

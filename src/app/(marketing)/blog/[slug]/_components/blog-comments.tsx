@@ -85,7 +85,7 @@ export function BlogComments({
           <button
             type="submit"
             disabled={isPending}
-            className="rounded-full bg-primary px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
+            className="marketing-action inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85 disabled:opacity-50"
           >
             {isPending ? t("submitting") : t("submit")}
           </button>
