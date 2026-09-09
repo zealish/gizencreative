@@ -14,7 +14,7 @@ import {
   localizeBlogPost,
 } from "@/lib/blog";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
-import { BlogCard } from "../_components/blog-card";
+import { getSeoOverrides } from "@/lib/settings";
 import { BlogComments } from "./_components/blog-comments";
 import { ShareButtons } from "./_components/share-buttons";
 
@@ -31,10 +31,10 @@ export async function generateMetadata({
   const record = await getPublishedPostBySlug(slug);
   if (!record) return {};
 
-  const locale = await getLocale();
   const categories = await getBlogCategories();
   const post = localizeBlogPost(record, locale, categories);
-
+  const seo = await getSeoOverrides();
+  const ogImage = seo.ogImage;
   return {
     title: `${post.title} | Gizen Creative`,
     description: post.excerpt,
