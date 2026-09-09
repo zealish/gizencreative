@@ -3,7 +3,7 @@
 import { randomBytes } from "node:crypto";
 import path from "node:path";
 import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
@@ -64,7 +64,7 @@ export async function uploadSiteLogo(formData: FormData) {
     await deleteFile(path.basename(oldPath)).catch(() => {});
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 export async function removeSiteLogo() {
@@ -85,7 +85,7 @@ export async function removeSiteLogo() {
     await deleteFile(path.basename(oldPath)).catch(() => {});
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 export async function saveGeneralSettings(formData: FormData) {
@@ -105,5 +105,5 @@ export async function saveGeneralSettings(formData: FormData) {
       });
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }

@@ -1,7 +1,7 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
@@ -26,7 +26,7 @@ export async function saveAnalyticsSettings(formData: FormData) {
       });
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 const MAX_CREDS_SIZE = 64 * 1024;
@@ -68,7 +68,7 @@ export async function uploadGaCredentials(formData: FormData) {
       set: { value: text, updatedAt: new Date() },
     });
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 export async function removeGaCredentials() {
@@ -80,5 +80,5 @@ export async function removeGaCredentials() {
   await db
     .delete(siteSetting)
     .where(eq(siteSetting.key, GA_SERVICE_ACCOUNT_KEY));
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }

@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { AdminPageHeader } from "../_components/admin-page-header";
+import { SaveToast } from "./_components/save-toast";
 import { SettingsNav } from "./_components/settings-nav";
 
 export default async function SettingsLayout({
@@ -10,7 +11,7 @@ export default async function SettingsLayout({
   const t = await getTranslations("admin.settings");
 
   return (
-    <section className="mx-auto max-w-6xl">
+    <section data-settings-page className="mx-auto max-w-6xl">
       <AdminPageHeader
         eyebrow={t("eyebrow")}
         title={t("title")}
@@ -20,6 +21,7 @@ export default async function SettingsLayout({
         <SettingsNav />
         <div className="min-w-0 flex-1">{children}</div>
       </div>
+      <SaveToast />
     </section>
   );
 }

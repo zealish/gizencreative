@@ -1,7 +1,7 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
@@ -31,7 +31,7 @@ export async function saveSeoSettings(formData: FormData) {
       });
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 export async function savePageSeo(formData: FormData) {
@@ -62,5 +62,5 @@ export async function savePageSeo(formData: FormData) {
       });
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }

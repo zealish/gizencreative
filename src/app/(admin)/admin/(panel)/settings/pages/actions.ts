@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
+import { updateTag } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { z } from "zod";
@@ -37,7 +37,7 @@ export async function saveUseCaseImages(formData: FormData) {
       });
   }
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 export async function saveBentoImage(formData: FormData) {
@@ -62,7 +62,7 @@ export async function saveBentoImage(formData: FormData) {
       set: { value: parsed.data, updatedAt: new Date() },
     });
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
 
 export async function saveCtaDarkImage(formData: FormData) {
@@ -87,5 +87,5 @@ export async function saveCtaDarkImage(formData: FormData) {
       set: { value: parsed.data, updatedAt: new Date() },
     });
 
-  revalidateTag("site-settings", "max");
+  updateTag("site-settings");
 }
