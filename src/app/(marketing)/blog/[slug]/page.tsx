@@ -32,6 +32,7 @@ export async function generateMetadata({
   if (!record) return {};
 
   const categories = await getBlogCategories();
+  const locale = await getLocale();
   const post = localizeBlogPost(record, locale, categories);
   const seo = await getSeoOverrides();
   const ogImage = seo.ogImage;
@@ -45,6 +46,7 @@ export async function generateMetadata({
       description: post.excerpt,
       url: `/blog/${post.slug}`,
       publishedTime: post.date,
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
     },
   };
 }
