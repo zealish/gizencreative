@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
 import { siteConfig } from "@/lib/seo/site-config";
-import { getAnalyticsSettings } from "@/lib/settings";
+import { getAnalyticsSettings, getSeoOverrides } from "@/lib/settings";
 
 const figtree = Figtree({
   variable: "--font-figtree",
@@ -21,12 +21,21 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata");
   const locale = await getLocale();
   const analytics = await getAnalyticsSettings();
-
+  const seo = await getSeoOverrides();
+  const ogImage = seo.ogImage || siteConfig.ogImage;
   return {
     metadataBase: new URL(siteConfig.url),
     title: t("title"),
     description: t("description"),
     applicationName: siteConfig.name,
+    icons: {
+      icon: [
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.ico", sizes: "48x48" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
+    },
     alternates: {
       canonical: "/",
     },
@@ -37,12 +46,14 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t("description"),
       url: "/",
       locale: locale === "id" ? "id_ID" : "en_US",
+      images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
       site: siteConfig.twitterHandle,
       title: t("title"),
       description: t("description"),
+      images: [ogImage],
     },
     robots: {
       index: true,
@@ -76,7 +87,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <script
           // biome-ignore lint/security/noDangerouslySetInnerHtml: theme init before paint
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.theme==="dark"||(!("theme" in localStorage)&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`,
+            __html: `try{if(localStorage.theme==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
           }}
         />
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
