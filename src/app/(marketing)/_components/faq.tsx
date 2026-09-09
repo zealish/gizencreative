@@ -38,9 +38,11 @@ export function Faq() {
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {t(`items.${key}.a`)}
-              </p>
+              <div className="faq-content">
+                <p className="pt-3 text-sm leading-relaxed text-muted">
+                  {t(`items.${key}.a`)}
+                </p>
+              </div>
             </details>
           ))}
         </div>

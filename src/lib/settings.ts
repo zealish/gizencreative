@@ -209,6 +209,7 @@ export async function getAnalyticsSettings(): Promise<
 
 export const SITE_LOGO_KEY = "siteLogo";
 
+
 export const getSiteLogo = unstable_cache(
   async (): Promise<string | null> => {
     const rows = await db

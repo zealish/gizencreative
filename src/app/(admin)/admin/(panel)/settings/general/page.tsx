@@ -20,43 +20,43 @@ export default async function GeneralSettingsPage() {
 
   return (
     <div className="space-y-5">
-      <div className="card-elegant rounded-3xl p-6 sm:p-8">
-        <h2 className="text-xl font-bold tracking-tight">{t("logoTitle")}</h2>
-        <p className="mt-2 text-sm text-muted">{t("logoDescription")}</p>
+      <div className="card-elegant rounded-3xl p-5 sm:p-6">
+        <h2 className="text-lg font-bold tracking-tight">{t("logoTitle")}</h2>
+        <p className="mt-1 text-sm text-muted">{t("logoDescription")}</p>
         {logo ? (
-          <div className="mt-4 flex flex-wrap items-center gap-4">
-            <div className="inline-flex rounded-xl border border-black/10 bg-background p-3 dark:border-white/15 dark:bg-white/5">
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <div className="inline-flex rounded-xl border border-black/10 bg-background p-2 dark:border-white/15 dark:bg-white/5">
               <Image
                 src={logo}
                 alt="Site logo"
                 width={160}
                 height={48}
-                className="h-12 w-auto object-contain"
+                className="h-10 w-auto object-contain"
                 unoptimized
               />
             </div>
             <form action={removeSiteLogo}>
               <button
                 type="submit"
-                className="rounded-full border border-black/15 px-5 py-2 text-xs font-bold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent dark:border-white/20"
+                className="cursor-pointer rounded-full border border-black/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition-colors hover:border-accent hover:text-accent dark:border-white/20"
               >
                 {t("logoRemove")}
               </button>
             </form>
           </div>
         ) : null}
-        <form action={uploadSiteLogo} className="mt-4 space-y-3">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <form action={uploadSiteLogo} className="mt-3 space-y-2">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
             <input
               type="file"
               name="logo"
               accept="image/png,image/jpeg,image/svg+xml,image/webp"
               required
-              className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-4 py-2.5 text-sm text-muted file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-white dark:border-white/20 dark:bg-white/5"
+              className="block w-full cursor-pointer rounded-2xl border border-dashed border-black/15 bg-background px-3 py-2 text-sm text-muted file:mr-3 file:rounded-full file:border-0 file:bg-primary file:px-3 file:py-1.5 file:text-xs file:font-bold file:uppercase file:tracking-wide file:text-white dark:border-white/20 dark:bg-white/5"
             />
             <button
               type="submit"
-              className="shrink-0 rounded-full bg-primary px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85"
+              className="shrink-0 cursor-pointer rounded-full bg-primary px-5 py-2 text-xs font-bold uppercase tracking-wide text-white shadow-lg transition-opacity hover:opacity-85"
             >
               {logo ? t("logoReplace") : t("logoUpload")}
             </button>
@@ -64,10 +64,10 @@ export default async function GeneralSettingsPage() {
           <p className="text-xs text-muted">{t("logoHint")}</p>
         </form>
       </div>
-      <div className="card-elegant rounded-3xl p-6 sm:p-8">
-        <h2 className="text-xl font-bold tracking-tight">{t("title")}</h2>
-        <p className="mt-2 text-sm text-muted">{t("description")}</p>
-        <form action={saveGeneralSettings} className="mt-6 space-y-5">
+      <div className="card-elegant rounded-3xl p-5 sm:p-6">
+        <h2 className="text-lg font-bold tracking-tight">{t("title")}</h2>
+        <p className="mt-1 text-sm text-muted">{t("description")}</p>
+        <form action={saveGeneralSettings} className="mt-5 space-y-4">
           <div className="space-y-1.5">
             <label htmlFor="siteName" className={labelClass}>
               {t("siteNameLabel")}

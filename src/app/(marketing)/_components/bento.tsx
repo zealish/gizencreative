@@ -1,8 +1,20 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function Bento({ customImage }: { customImage?: string | null }) {
   const t = useTranslations("bento");
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveStep((step) => (step + 1) % 3);
+    }, 2200);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   return (
     <section className="px-4 py-14 sm:py-20">
@@ -12,7 +24,7 @@ export function Bento({ customImage }: { customImage?: string | null }) {
         </h2>
         <div className="mt-10 grid gap-5 sm:mt-14 lg:grid-cols-3">
           {/* Big dark card */}
-          <div className="relative flex min-h-64 flex-col justify-end overflow-hidden rounded-3xl bg-primary p-6 text-white shadow-[0_1px_2px_rgba(22,24,26,0.06),0_16px_40px_-12px_rgba(22,24,26,0.25)] dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground dark:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.5)] sm:min-h-72 sm:p-8 lg:col-span-2">
+          <div className="relative flex min-h-64 flex-col justify-end overflow-hidden rounded-3xl bg-foreground p-6 text-background shadow-[0_1px_2px_rgba(22,24,26,0.06),0_16px_40px_-12px_rgba(22,24,26,0.25)] dark:border dark:border-white/10 dark:bg-white/5 dark:text-foreground dark:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.5)] sm:min-h-72 sm:p-8 lg:col-span-2">
             {customImage ? (
               <>
                 <Image
@@ -24,7 +36,7 @@ export function Bento({ customImage }: { customImage?: string | null }) {
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
                 />
               </>
             ) : (
@@ -33,7 +45,7 @@ export function Bento({ customImage }: { customImage?: string | null }) {
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(16,135,221,0.35),transparent_55%)]"
               />
             )}
-            <span className="relative w-fit rounded-full bg-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-sky-300">
+            <span className="relative w-fit rounded-full bg-accent/20 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-accent">
               {t("custom.badge")}
             </span>
             <h3 className="relative mt-4 text-2xl font-bold">
@@ -67,22 +79,16 @@ export function Bento({ customImage }: { customImage?: string | null }) {
               {(["step1", "step2", "step3"] as const).map((key, i) => (
                 <li
                   key={key}
-                  className="flex items-center gap-3 rounded-xl border border-transparent bg-background px-4 py-3 text-sm font-medium first:border-accent/40 first:bg-accent-soft/60 dark:bg-white/5 dark:first:border-accent/40 dark:first:bg-accent-soft/40"
+                  className={`flex items-center gap-3 rounded-xl border px-4 py-3 text-sm font-medium transition-colors duration-500 ${
+                    i === activeStep
+                      ? "border-accent/40 bg-accent-soft/60 dark:bg-accent-soft/40"
+                      : "border-transparent bg-background dark:bg-white/5"
+                  }`}
                 >
-                  <span className="text-xs font-bold text-accent">
-                    0{i + 1}
-                  </span>
-                  <span
-                    className="h-4 w-px bg-black/10 dark:bg-white/15"
-                    aria-hidden="true"
-                  />
+                  <span className="text-xs font-bold text-accent">0{i + 1}</span>
+                  <span className="h-4 w-px bg-black/10 dark:bg-white/15" aria-hidden="true" />
                   <span className="flex-1">{t(`process.${key}`)}</span>
-                  <span
-                    className={`h-2 w-2 shrink-0 rounded-full ${
-                      i === 0 ? "bg-accent" : "bg-accent/25"
-                    }`}
-                    aria-hidden="true"
-                  />
+                  <span className={`h-2 w-2 shrink-0 rounded-full transition-colors duration-500 ${i === activeStep ? "bg-accent" : "bg-accent/25"}`} aria-hidden="true" />
                 </li>
               ))}
             </ol>
@@ -108,7 +114,7 @@ export function Bento({ customImage }: { customImage?: string | null }) {
                   (key) => (
                     <span
                       key={key}
-                      className="rounded-full border border-black/10 px-3 py-1 text-[11px] dark:border-white/15 font-semibold text-muted"
+                      className="rounded-full border border-black/10 px-3 py-1 text-[11px] font-semibold text-muted dark:border-white/15"
                     >
                       {t(`lead.tags.${key}`)}
                     </span>
@@ -128,11 +134,11 @@ export function Bento({ customImage }: { customImage?: string | null }) {
             <p className="mt-2 text-sm text-muted">
               {t("pricing.description")}
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 rounded-2xl bg-white/70 p-4 dark:bg-white/5 sm:gap-5 sm:p-5">
+            <div className="mt-6 flex flex-col items-start gap-4 rounded-2xl bg-background/70 p-4 dark:bg-white/5 sm:flex-row sm:items-center sm:gap-5 sm:p-5">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border-4 border-accent text-sm font-bold text-accent sm:h-16 sm:w-16">
                 {t("pricing.count")}
               </span>
-              <div className="min-w-0 flex-1 space-y-1 text-sm">
+              <div className="min-w-0 flex-1 space-y-2 text-sm">
                 <p className="flex justify-between gap-4 sm:gap-8">
                   <span className="text-muted">
                     {t("pricing.categoryLabel")}

@@ -214,34 +214,94 @@ const blogCategorySchema = z.object({
   nameEn: z.string().trim().min(2).max(100),
 });
 
-export type CreateBlogCategoryResult =
+export type BlogCategoryMutationResult =
   | { ok: true; category: { slug: string; nameId: string; nameEn: string } }
-  | { ok: false; error: "invalid" | "duplicate" };
+  | { ok: false; error: "invalid" | "duplicate" | "not_found" | "in_use" };
+
+export type CreateBlogCategoryResult = BlogCategoryMutationResult;
+export type UpdateBlogCategoryResult = BlogCategoryMutationResult;
+
+function revalidateCategories() {
+  revalidateTag("blog-categories", "max");
+  revalidatePath("/admin/blog");
+  revalidatePath("/blog");
+  revalidatePath("/sitemap.xml");
+}
 
 export async function createBlogCategory(
   input: unknown,
 ): Promise<CreateBlogCategoryResult> {
   await requireSession();
   const parsed = blogCategorySchema.safeParse(input);
-  if (!parsed.success) {
-    return { ok: false, error: "invalid" };
-  }
-
+  if (!parsed.success) return { ok: false, error: "invalid" };
   const existing = await db
     .select({ slug: blogCategory.slug })
     .from(blogCategory)
     .where(eq(blogCategory.slug, parsed.data.slug))
     .limit(1);
-  if (existing.length > 0) {
-    return { ok: false, error: "duplicate" };
-  }
-
+  if (existing.length > 0) return { ok: false, error: "duplicate" };
   await db.insert(blogCategory).values(parsed.data);
-
-  revalidateTag("blog-categories", "max");
-  revalidatePath("/admin/blog");
-  revalidatePath("/blog");
-  revalidatePath("/sitemap.xml");
-
+  revalidateCategories();
   return { ok: true, category: parsed.data };
+}
+
+export async function updateBlogCategory(
+  input: unknown,
+): Promise<UpdateBlogCategoryResult> {
+  await requireSession();
+  const originalSlug =
+    typeof input === "object" &&
+    input !== null &&
+    "originalSlug" in input &&
+    typeof input.originalSlug === "string"
+      ? input.originalSlug
+      : "";
+  const parsed = blogCategorySchema.safeParse(input);
+  if (!parsed.success || !originalSlug) return { ok: false, error: "invalid" };
+  const existing = await db
+    .select({ slug: blogCategory.slug })
+    .from(blogCategory)
+    .where(eq(blogCategory.slug, parsed.data.slug))
+    .limit(1);
+  if (existing.length > 0 && parsed.data.slug !== originalSlug)
+    return { ok: false, error: "duplicate" };
+  const result = await db
+    .update(blogCategory)
+    .set(parsed.data)
+    .where(eq(blogCategory.slug, originalSlug))
+    .returning({ slug: blogCategory.slug });
+  if (result.length === 0) return { ok: false, error: "not_found" };
+  if (parsed.data.slug !== originalSlug)
+    await db
+      .update(blogPost)
+      .set({ category: parsed.data.slug })
+      .where(eq(blogPost.category, originalSlug));
+  revalidateCategories();
+  return { ok: true, category: parsed.data };
+}
+
+export async function deleteBlogCategory(
+  slug: unknown,
+): Promise<
+  { ok: true } | { ok: false; error: "invalid" | "not_found" | "in_use" }
+> {
+  await requireSession();
+  if (
+    typeof slug !== "string" ||
+    !blogCategorySchema.shape.slug.safeParse(slug).success
+  )
+    return { ok: false, error: "invalid" };
+  const used = await db
+    .select({ id: blogPost.id })
+    .from(blogPost)
+    .where(eq(blogPost.category, slug))
+    .limit(1);
+  if (used.length > 0) return { ok: false, error: "in_use" };
+  const result = await db
+    .delete(blogCategory)
+    .where(eq(blogCategory.slug, slug))
+    .returning({ slug: blogCategory.slug });
+  if (result.length === 0) return { ok: false, error: "not_found" };
+  revalidateCategories();
+  return { ok: true };
 }

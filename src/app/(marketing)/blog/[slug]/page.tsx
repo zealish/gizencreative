@@ -15,6 +15,7 @@ import {
 } from "@/lib/blog";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
 import { getSeoOverrides } from "@/lib/settings";
+import { BlogCard } from "../_components/blog-card";
 import { BlogComments } from "./_components/blog-comments";
 import { ShareButtons } from "./_components/share-buttons";
 

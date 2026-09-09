@@ -9,11 +9,7 @@ import {
 } from "@/lib/settings";
 import { listFiles } from "@/lib/storage";
 import { UseCaseImagePicker } from "./_components/use-case-image-picker";
-import {
-  saveBentoImage,
-  saveCtaDarkImage,
-  saveUseCaseImages,
-} from "./actions";
+import { saveBentoImage, saveCtaDarkImage, saveUseCaseImages } from "./actions";
 
 export const metadata: Metadata = {
   title: "Pages Settings",

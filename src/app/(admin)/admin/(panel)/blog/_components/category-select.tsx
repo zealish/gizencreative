@@ -1,11 +1,21 @@
 "use client";
 
-import { CheckIcon, ChevronDownIcon, PlusIcon, XIcon } from "lucide-react";
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  MoreHorizontalIcon,
+  PlusIcon,
+  XIcon,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { createPortal } from "react-dom";
 
-import { createBlogCategory } from "../actions";
+import {
+  createBlogCategory,
+  deleteBlogCategory,
+  updateBlogCategory,
+} from "../actions";
 
 export type CategoryOption = {
   slug: string;
@@ -57,7 +67,7 @@ function ModalShell({
       />
       <div
         data-lenis-prevent
-        className="relative max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border border-black/10 bg-background p-5 shadow-xl dark:border-white/10 dark:bg-neutral-900"
+        className="relative max-h-[85vh] w-full max-w-5xl overflow-y-auto rounded-2xl border border-black/10 bg-background p-5 shadow-xl dark:border-white/10 dark:bg-neutral-900 sm:p-6"
       >
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-sm font-bold tracking-tight">{title}</h3>
@@ -92,6 +102,11 @@ export function CategorySelect({
   const [query, setQuery] = useState("");
   const [createOpen, setCreateOpen] = useState(false);
   const [listOpen, setListOpen] = useState(false);
+  const [editing, setEditing] = useState<CategoryOption | null>(null);
+  const [listError, setListError] = useState<string | null>(null);
+  const [listQuery, setListQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const pageSize = 5;
   const containerRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -116,6 +131,7 @@ export function CategorySelect({
   }, [open]);
 
   const normalizedQuery = query.trim().toLowerCase();
+  const normalizedListQuery = listQuery.trim().toLowerCase();
   const filtered = useMemo(
     () =>
       categories.filter((category) =>
@@ -124,6 +140,20 @@ export function CategorySelect({
           .includes(normalizedQuery),
       ),
     [categories, normalizedQuery],
+  );
+  const filteredList = useMemo(
+    () =>
+      categories.filter((category) =>
+        `${category.nameId} ${category.nameEn} ${category.slug}`
+          .toLowerCase()
+          .includes(normalizedListQuery),
+      ),
+    [categories, normalizedListQuery],
+  );
+  const pageCount = Math.max(1, Math.ceil(filteredList.length / pageSize));
+  const pageCategories = filteredList.slice(
+    (page - 1) * pageSize,
+    page * pageSize,
   );
 
   const selectedCategory = categories.find(
@@ -235,36 +265,116 @@ export function CategorySelect({
       ) : null}
       {listOpen ? (
         <ModalShell title={t("allTitle")} onClose={() => setListOpen(false)}>
-          <ul className="mt-4 space-y-1">
-            {categories.map((category) => (
-              <li
-                key={category.slug}
-                className="flex items-center justify-between gap-3 rounded-xl px-3 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/5"
-              >
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {category.nameId}
-                  </p>
-                  <p className="text-xs text-muted">
-                    {category.nameEn} · /{category.slug}
-                  </p>
-                </div>
+          <input
+            type="search"
+            value={listQuery}
+            onChange={(event) => {
+              setListQuery(event.target.value);
+              setPage(1);
+            }}
+            placeholder={t("searchAllPlaceholder")}
+            className="mt-4 w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:border-accent dark:border-white/15 dark:bg-white/5"
+          />
+          <div className="mt-3 overflow-x-auto rounded-2xl border border-black/10 dark:border-white/10">
+            <table className="w-full min-w-[680px] text-left text-sm">
+              <thead className="border-b border-black/10 bg-black/[0.03] text-xs uppercase tracking-wider text-muted dark:border-white/10 dark:bg-white/[0.03]">
+                <tr>
+                  <th className="px-4 py-3 font-semibold">
+                    {t("nameIdLabel")}
+                  </th>
+                  <th className="px-4 py-3 font-semibold">
+                    {t("nameEnLabel")}
+                  </th>
+                  <th className="px-4 py-3 font-semibold">{t("slugLabel")}</th>
+                  <th className="px-4 py-3 text-right font-semibold">
+                    {t("actionsLabel")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-black/5 dark:divide-white/10">
+                {pageCategories.map((category) => (
+                  <tr
+                    key={category.slug}
+                    className="hover:bg-black/[0.03] dark:hover:bg-white/[0.03]"
+                  >
+                    <td className="px-4 py-3 font-semibold">
+                      {category.nameId}
+                    </td>
+                    <td className="px-4 py-3 text-muted">{category.nameEn}</td>
+                    <td className="px-4 py-3 font-mono text-xs text-muted">
+                      /{category.slug}
+                    </td>
+                    <td className="px-4 py-3">
+                      <CategoryActionMenu
+                        category={category}
+                        selected={selected === category.slug}
+                        onEdit={() => setEditing(category)}
+                        onSelect={() => {
+                          setSelected(category.slug);
+                          setListOpen(false);
+                          setOpen(false);
+                        }}
+                        onError={setListError}
+                        onDeleted={() => {
+                          setCategories((prev) =>
+                            prev.filter((item) => item.slug !== category.slug),
+                          );
+                          if (selected === category.slug) setSelected("");
+                        }}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {filteredList.length === 0 ? (
+            <p className="mt-4 text-sm text-muted">{t("empty")}</p>
+          ) : (
+            <div className="mt-4 flex items-center justify-between gap-3 text-sm">
+              <p className="text-muted">
+                {t("pageSummary", { page, pageCount })}
+              </p>
+              <div className="flex gap-2">
                 <button
                   type="button"
-                  onClick={() => {
-                    setSelected(category.slug);
-                    setListOpen(false);
-                    setOpen(false);
-                  }}
-                  className="rounded-full border border-black/10 px-3 py-1 text-xs font-semibold text-muted transition-colors hover:border-black/30 hover:text-foreground dark:border-white/15 dark:hover:border-white/40"
+                  disabled={page === 1}
+                  onClick={() => setPage((value) => value - 1)}
+                  className="cursor-pointer rounded-full border border-black/10 px-3 py-1.5 font-semibold disabled:opacity-40 dark:border-white/15"
                 >
-                  {category.slug === selected
-                    ? t("selectedLabel")
-                    : t("useLabel")}
+                  {t("previousLabel")}
                 </button>
-              </li>
-            ))}
-          </ul>
+                <button
+                  type="button"
+                  disabled={page === pageCount}
+                  onClick={() => setPage((value) => value + 1)}
+                  className="cursor-pointer rounded-full border border-black/10 px-3 py-1.5 font-semibold disabled:opacity-40 dark:border-white/15"
+                >
+                  {t("nextLabel")}
+                </button>
+              </div>
+            </div>
+          )}
+          {listError ? (
+            <p role="alert" className="mt-3 text-sm text-red-500">
+              {listError}
+            </p>
+          ) : null}
+          {editing ? (
+            <EditCategoryModal
+              category={editing}
+              onClose={() => setEditing(null)}
+              onUpdated={(next) => {
+                setCategories((prev) =>
+                  prev
+                    .map((item) => (item.slug === editing.slug ? next : item))
+                    .sort((a, b) => a.nameId.localeCompare(b.nameId)),
+                );
+                setSelected(next.slug);
+                setEditing(null);
+              }}
+            />
+          ) : null}
         </ModalShell>
       ) : null}
     </div>
@@ -300,7 +410,11 @@ function CreateCategoryModal({
       if (result.ok) {
         onCreated(result.category);
       } else {
-        setError(result.error);
+        setError(
+          result.error === "invalid" || result.error === "duplicate"
+            ? result.error
+            : "invalid",
+        );
       }
     });
   }
@@ -371,5 +485,184 @@ function CreateCategoryModal({
         </button>
       </div>
     </ModalShell>
+  );
+}
+
+function DeleteCategoryButton({
+  slug,
+  onError,
+  onDeleted,
+}: {
+  slug: string;
+  onError: (message: string) => void;
+  onDeleted: () => void;
+}) {
+  const t = useTranslations("admin.blog.form.categorySelect");
+  const [isPending, startTransition] = useTransition();
+  function handleDelete() {
+    if (!window.confirm(t("deleteConfirm"))) return;
+    startTransition(async () => {
+      const result = await deleteBlogCategory(slug);
+      if (result.ok) onDeleted();
+      else
+        onError(t(result.error === "in_use" ? "errorInUse" : "errorInvalid"));
+    });
+  }
+  return (
+    <button
+      type="button"
+      disabled={isPending}
+      onClick={handleDelete}
+      className="w-full cursor-pointer rounded-xl px-3 py-2 text-left text-xs font-semibold text-red-500 hover:bg-red-500/10 disabled:opacity-50"
+    >
+      {t("deleteLabel")}
+    </button>
+  );
+}
+
+function EditCategoryModal({
+  category,
+  onClose,
+  onUpdated,
+}: {
+  category: CategoryOption;
+  onClose: () => void;
+  onUpdated: (category: CategoryOption) => void;
+}) {
+  const t = useTranslations("admin.blog.form.categorySelect");
+  const [nameId, setNameId] = useState(category.nameId);
+  const [nameEn, setNameEn] = useState(category.nameEn);
+  const [slug, setSlug] = useState(category.slug);
+  const [error, setError] = useState<"invalid" | "duplicate" | null>(null);
+  const [isPending, startTransition] = useTransition();
+  function handleSubmit() {
+    startTransition(async () => {
+      const result = await updateBlogCategory({
+        originalSlug: category.slug,
+        slug: slugify(slug),
+        nameId: nameId.trim(),
+        nameEn: nameEn.trim(),
+      });
+      if (result.ok) onUpdated(result.category);
+      else setError(result.error === "duplicate" ? "duplicate" : "invalid");
+    });
+  }
+  return (
+    <ModalShell title={t("editTitle")} onClose={onClose}>
+      <div className="mt-4 space-y-4">
+        <input
+          aria-label={t("nameIdLabel")}
+          value={nameId}
+          onChange={(event) => setNameId(event.target.value)}
+          className={inputClass}
+        />
+        <input
+          aria-label={t("nameEnLabel")}
+          value={nameEn}
+          onChange={(event) => setNameEn(event.target.value)}
+          className={inputClass}
+        />
+        <input
+          aria-label={t("slugLabel")}
+          value={slug}
+          onChange={(event) => setSlug(event.target.value)}
+          className={inputClass}
+        />
+        {error ? (
+          <p role="alert" className="text-sm text-red-500">
+            {t(error === "duplicate" ? "errorDuplicate" : "errorInvalid")}
+          </p>
+        ) : null}
+        <button
+          type="button"
+          disabled={
+            isPending ||
+            nameId.trim().length < 2 ||
+            nameEn.trim().length < 2 ||
+            slugify(slug).length < 2
+          }
+          onClick={handleSubmit}
+          className="w-full rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50"
+        >
+          {isPending ? t("saving") : t("saveButton")}
+        </button>
+      </div>
+    </ModalShell>
+  );
+}
+
+function CategoryActionMenu({
+  category,
+  selected,
+  onEdit,
+  onSelect,
+  onError,
+  onDeleted,
+}: {
+  category: CategoryOption;
+  selected: boolean;
+  onEdit: () => void;
+  onSelect: () => void;
+  onError: (message: string) => void;
+  onDeleted: () => void;
+}) {
+  const t = useTranslations("admin.blog.form.categorySelect");
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    function closeMenu(event: PointerEvent) {
+      if (!menuRef.current?.contains(event.target as Node)) setOpen(false);
+    }
+    document.addEventListener("pointerdown", closeMenu);
+    return () => document.removeEventListener("pointerdown", closeMenu);
+  }, [open]);
+  return (
+    <div ref={menuRef} className="relative flex justify-end">
+      <button
+        type="button"
+        aria-label={t("actionsLabel")}
+        aria-expanded={open}
+        onClick={() => setOpen((value) => !value)}
+        className="cursor-pointer rounded-full p-2 text-muted transition-colors hover:bg-black/5 hover:text-foreground dark:hover:bg-white/10"
+      >
+        <MoreHorizontalIcon size={18} aria-hidden="true" />
+      </button>
+      {open ? (
+        <div className="absolute right-0 top-full z-20 mt-1 w-36 rounded-2xl border border-black/10 bg-background p-1.5 shadow-xl dark:border-white/10 dark:bg-neutral-900">
+          <button
+            type="button"
+            onClick={() => {
+              onSelect();
+              setOpen(false);
+            }}
+            className="w-full cursor-pointer rounded-xl px-3 py-2 text-left text-xs font-semibold hover:bg-black/5 dark:hover:bg-white/10"
+          >
+            {selected ? t("selectedLabel") : t("useLabel")}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              onEdit();
+              setOpen(false);
+            }}
+            className="w-full cursor-pointer rounded-xl px-3 py-2 text-left text-xs font-semibold hover:bg-black/5 dark:hover:bg-white/10"
+          >
+            {t("editLabel")}
+          </button>
+          <DeleteCategoryButton
+            slug={category.slug}
+            onError={(message) => {
+              onError(message);
+              setOpen(false);
+            }}
+            onDeleted={() => {
+              onDeleted();
+              setOpen(false);
+            }}
+          />
+        </div>
+      ) : null}
+    </div>
   );
 }

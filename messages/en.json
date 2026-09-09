@@ -649,6 +649,11 @@
     "filters": {
       "all": "All"
     },
+    "sidebar": {
+      "categories": "Categories",
+      "tags": "Tags",
+      "archives": "Archives"
+    },
     "tags": {
       "design": "Design",
       "ux": "UX",
@@ -1434,6 +1439,18 @@
           "slugHint": "Used in the URL, e.g. /blog/category/branding-design.",
           "errorDuplicate": "That category slug is already in use.",
           "errorInvalid": "Invalid category data.",
+          "errorInUse": "This category is still used by blog posts.",
+          "searchAllPlaceholder": "Search categories...",
+          "pageSummary": "Page {page} of {pageCount}",
+          "previousLabel": "Previous",
+          "nextLabel": "Next",
+          "actionsLabel": "Actions",
+          "deleteConfirm": "Delete this category?",
+          "editLabel": "Edit",
+          "deleteLabel": "Delete",
+          "editTitle": "Edit Category",
+          "saving": "Saving...",
+          "saveButton": "Save",
           "creating": "Creating...",
           "createButton": "Create Category",
           "selectedLabel": "Selected",

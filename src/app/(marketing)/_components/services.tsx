@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 
 type Service = {
@@ -53,11 +55,45 @@ const services: Service[] = [
   },
 ];
 
+function FeaturePopup({ featureKey, label }: { featureKey: string; label: string }) {
+  const visual = {
+    companyProfile: "◈",
+    landingPage: "↗",
+    businessWebsite: "▦",
+    contactForm: "✉",
+    whatsapp: "◌",
+    maps: "⌖",
+    seo: "⌕",
+    strategy: "✦",
+    feed: "▤",
+    story: "◉",
+    reels: "▶",
+    caption: "Aa",
+    scheduling: "◷",
+    report: "↗",
+    audit: "⌕",
+    keyword: "#",
+    content: "✎",
+    onPage: "◎",
+    technical: "⚙",
+  }[featureKey] ?? "✦";
+
+  return (
+    <span className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-3 w-44 -translate-x-1/2 translate-y-2 rounded-2xl border border-accent/20 bg-white p-3 text-center opacity-0 shadow-xl transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 dark:bg-background">
+      <span className="mx-auto grid h-10 w-10 place-items-center rounded-xl bg-accent-soft text-lg font-bold text-accent transition-transform duration-300 group-hover:scale-110 group-focus-within:scale-110" aria-hidden="true">
+        {visual}
+      </span>
+      <span className="mt-2 block text-xs font-bold text-foreground">{label}</span>
+      <span className="mx-auto mt-2 block h-1 w-8 rounded-full bg-accent" aria-hidden="true" />
+    </span>
+  );
+}
+
 function ServiceVisual({ service }: { service: Service }) {
   const t = useTranslations("services");
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-black/5 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-white/5 dark:shadow-black/40">
+    <div className="relative overflow-visible rounded-3xl border border-black/5 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-white/5 dark:shadow-black/40">
       <div className="flex items-center justify-between">
         <span className="rounded-md bg-primary px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
           {t(`items.${service.id}.eyebrow`)}
@@ -67,20 +103,16 @@ function ServiceVisual({ service }: { service: Service }) {
         </span>
       </div>
       <ul className="mt-5 space-y-3">
-        {service.featureKeys.map((key) => (
-          <li
-            key={key}
-            className="flex items-center gap-3 rounded-xl border border-black/5 bg-background px-4 py-3 text-sm font-medium dark:border-white/10"
-          >
-            <span
-              className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent-soft text-[10px] font-bold text-accent"
-              aria-hidden="true"
-            >
-              ✓
-            </span>
-            {t(`items.${service.id}.features.${key}`)}
-          </li>
-        ))}
+        {service.featureKeys.map((key) => {
+          const label = t(`items.${service.id}.features.${key}`);
+          return (
+            <li key={key} className="group relative flex cursor-pointer items-center gap-3 rounded-xl border border-black/5 bg-background px-4 py-3 text-sm font-medium transition-transform duration-300 hover:-translate-y-1 hover:border-accent/30 hover:shadow-lg dark:border-white/10" tabIndex={0}>
+              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent-soft text-[10px] font-bold text-accent" aria-hidden="true">✓</span>
+              {label}
+              <FeaturePopup featureKey={key} label={label} />
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

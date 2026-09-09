@@ -649,6 +649,11 @@
     "filters": {
       "all": "Semua"
     },
+    "sidebar": {
+      "categories": "Kategori",
+      "tags": "Tag",
+      "archives": "Arsip"
+    },
     "tags": {
       "design": "Desain",
       "ux": "UX",
@@ -1434,6 +1439,18 @@
           "slugHint": "Digunakan di URL, mis. /blog/category/branding-desain.",
           "errorDuplicate": "Slug kategori sudah dipakai.",
           "errorInvalid": "Data kategori tidak valid.",
+          "errorInUse": "Kategori masih digunakan oleh artikel.",
+          "searchAllPlaceholder": "Cari kategori...",
+          "pageSummary": "Halaman {page} dari {pageCount}",
+          "previousLabel": "Sebelumnya",
+          "nextLabel": "Berikutnya",
+          "actionsLabel": "Aksi",
+          "deleteConfirm": "Hapus kategori ini?",
+          "editLabel": "Edit",
+          "deleteLabel": "Hapus",
+          "editTitle": "Edit Kategori",
+          "saving": "Menyimpan...",
+          "saveButton": "Simpan",
           "creating": "Membuat...",
           "createButton": "Buat Kategori",
           "selectedLabel": "Terpilih",
