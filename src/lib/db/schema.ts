@@ -122,3 +122,25 @@ export const portfolioProject = pgTable("portfolio_project", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
+
+export const pricingPlan = pgTable("pricing_plan", {
+  id: text("id").primaryKey(),
+  service: text("service").notNull(),
+  seoTier: text("seo_tier"),
+  nameId: text("name_id").notNull(),
+  nameEn: text("name_en").notNull(),
+  descriptionId: text("description_id").notNull(),
+  descriptionEn: text("description_en").notNull(),
+  unitId: text("unit_id").notNull(),
+  unitEn: text("unit_en").notNull(),
+  featuresId: text("features_id").array().notNull().default([]),
+  featuresEn: text("features_en").array().notNull().default([]),
+  price: text("price"),
+  originalPrice: text("original_price"),
+  discountPercent: integer("discount_percent"),
+  featured: boolean("featured").notNull().default(false),
+  sortOrder: integer("sort_order").notNull().default(0),
+  published: boolean("published").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});

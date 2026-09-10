@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
+import { getPublishedPricingPlans, toPricingPlanView } from "@/lib/pricing";
 import { buildPageMetadata } from "@/lib/seo/page-metadata";
 import { getCtaDarkImage } from "@/lib/settings";
 
@@ -18,10 +19,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function PricingPage() {
-  const ctaImage = await getCtaDarkImage();
+  const [ctaImage, records, locale] = await Promise.all([
+    getCtaDarkImage(),
+    getPublishedPricingPlans(),
+    getLocale(),
+  ]);
+  const plans = records.map((record) => toPricingPlanView(record, locale));
   return (
     <>
-      <PricingPlans />
+      <PricingPlans plans={plans} />
       <PricingFaq />
       <PricingCta image={ctaImage} />
     </>

@@ -799,6 +799,10 @@
         "social": "Social Media",
         "seo": "SEO"
       },
+      "seoTiers": {
+        "standard": "Standard",
+        "professional": "Professional"
+      },
       "discountBadge": "Save {percent}%",
       "customPrice": "Custom",
       "planCta": "Get Started",
@@ -1333,7 +1337,8 @@
       "expandSidebar": "Expand sidebar",
       "signOut": "Sign Out",
       "accountMenu": "Account menu",
-      "portfolio": "Portfolio"
+      "portfolio": "Portfolio",
+      "pricing": "Pricing"
     },
     "dashboard": {
       "eyebrow": "Dashboard",
@@ -1737,8 +1742,66 @@
     "statusPublished": "Published",
     "statusDraft": "Draft",
     "createButton": "Create Project",
-    "columns": { "status": "Status", "actions": "Actions" },
+    "columns": {
+      "status": "Status",
+      "actions": "Actions"
+    },
     "save": "Save",
     "delete": "Delete"
+  },
+  "pricingAdmin": {
+    "title": "Pricing",
+    "new": "New plan",
+    "eyebrow": "Content Management",
+    "description": "Manage the plans displayed on your pricing page.",
+    "listTitle": "All Plans",
+    "planCount": "{count} plans",
+    "searchPlaceholder": "Search plans…",
+    "backToList": "Back to pricing list",
+    "newDescription": "Add a new pricing plan.",
+    "editTitle": "Edit Plan",
+    "editDescription": "Update your pricing plan details.",
+    "service": "Service",
+    "seoTier": "SEO tier",
+    "services": {
+      "website": "Website",
+      "social": "Social Media",
+      "seo": "SEO"
+    },
+    "seoTiers": {
+      "standard": "Standard",
+      "professional": "Professional"
+    },
+    "nameId": "Name (ID)",
+    "nameEn": "Name (EN)",
+    "descriptionId": "Description (ID)",
+    "descriptionEn": "Description (EN)",
+    "unitId": "Unit (ID)",
+    "unitEn": "Unit (EN)",
+    "featuresId": "Features (ID)",
+    "featuresEn": "Features (EN)",
+    "price": "Price",
+    "priceHint": "Leave empty for custom pricing.",
+    "originalPrice": "Original price",
+    "discountPercent": "Discount (%)",
+    "sortOrder": "Sort order",
+    "featured": "Mark as featured plan",
+    "published": "Publish plan",
+    "customPrice": "Custom",
+    "statusPublished": "Published",
+    "statusDraft": "Draft",
+    "createButton": "Create Plan",
+    "columns": {
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "featurePlaceholder": "e.g. Responsive Design",
+    "featureAdd": "Add feature",
+    "featureRemove": "Remove feature",
+    "featureMoveUp": "Move up",
+    "featureMoveDown": "Move down"
   }
 }

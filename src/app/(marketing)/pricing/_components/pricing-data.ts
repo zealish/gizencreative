@@ -1,65 +1,9 @@
-export type Service = "website" | "social" | "seo";
-
 // Text lives in messages under the `pricing` namespace; this file only holds
-// prices (IDR, locale-independent), numbers, feature flags, and message keys.
+// comparison-table structure: prices (IDR, locale-independent), numbers,
+// feature flags, and message keys.
 
-export type Plan = {
-  /** Message key under `pricing.plans`, e.g. "website.basic" */
-  key: string;
-  /** Price in IDR; omitted => custom pricing (resolved via `pricing.plans.customPrice`) */
-  price?: string;
-  originalPrice?: string;
-  discountPercent?: number;
-  featured?: boolean;
-};
-
-export const serviceOptions: Service[] = ["website", "social", "seo"];
-
-export const plansByService: Record<Service, Plan[]> = {
-  website: [
-    { key: "website.basic", price: "Rp 2,5jt" },
-    {
-      key: "website.professional",
-      price: "Rp 5jt",
-      originalPrice: "Rp 7,5jt",
-      discountPercent: 33,
-      featured: true,
-    },
-    {
-      key: "website.corporate",
-      price: "Rp 9jt",
-      originalPrice: "Rp 14jt",
-      discountPercent: 35,
-    },
-  ],
-  social: [
-    { key: "social.standard", price: "Rp 1,5jt" },
-    {
-      key: "social.professional",
-      price: "Rp 3jt",
-      originalPrice: "Rp 4,5jt",
-      discountPercent: 33,
-      featured: true,
-    },
-  ],
-  seo: [
-    { key: "seo.starter", price: "Rp 2jt" },
-    {
-      key: "seo.growth",
-      price: "Rp 3,5jt",
-      originalPrice: "Rp 5jt",
-      discountPercent: 30,
-      featured: true,
-    },
-    {
-      key: "seo.business",
-      price: "Rp 6jt",
-      originalPrice: "Rp 8,5jt",
-      discountPercent: 29,
-    },
-    { key: "seo.enterprise" },
-  ],
-};
+export type Service = "website" | "social" | "seo";
+export type SeoTier = "standard" | "professional";
 
 export type CompareValue =
   | boolean
@@ -83,7 +27,7 @@ export type CompareTable = {
   rows: { key: string; values: CompareValue[] }[];
 };
 
-export const compareByService: Record<Service, CompareTable> = {
+export const compareByService: Record<Exclude<Service, "seo">, CompareTable> = {
   website: {
     columns: [
       { key: "basic", price: "Rp 2,5jt" },
@@ -129,39 +73,44 @@ export const compareByService: Record<Service, CompareTable> = {
       { key: "report", values: [true, true] },
     ],
   },
-  seo: {
+};
+
+export const compareSeoByTier: Record<SeoTier, CompareTable> = {
+  standard: {
     columns: [
       { key: "starter", price: "Rp 2jt", monthly: true },
       { key: "growth", price: "Rp 3,5jt", monthly: true },
+    ],
+    rows: [
+      { key: "keywords", values: [{ text: "5" }, { text: "15" }] },
+      { key: "onPageSeo", values: [true, true] },
+      { key: "offPageSeo", values: [false, true] },
+      { key: "articles", values: [{ text: "2" }, { text: "4" }] },
+      { key: "backlinks", values: [false, true] },
+      { key: "audit", values: [false, false] },
+      { key: "specialist", values: [false, false] },
+      { key: "rankingReport", values: [true, true] },
+      { key: "prioritySupport", values: [false, false] },
+    ],
+  },
+  professional: {
+    columns: [
       { key: "business", price: "Rp 6jt", monthly: true },
       { key: "enterprise" },
     ],
     rows: [
       {
         key: "keywords",
-        values: [
-          { text: "5" },
-          { text: "15" },
-          { text: "30" },
-          { textKey: "unlimited" },
-        ],
+        values: [{ text: "30" }, { textKey: "unlimited" }],
       },
-      { key: "onPageSeo", values: [true, true, true, true] },
-      { key: "offPageSeo", values: [false, true, true, true] },
-      {
-        key: "articles",
-        values: [
-          { text: "2" },
-          { text: "4" },
-          { text: "8" },
-          { textKey: "custom" },
-        ],
-      },
-      { key: "backlinks", values: [false, true, true, true] },
-      { key: "audit", values: [false, false, true, true] },
-      { key: "specialist", values: [false, false, false, true] },
-      { key: "rankingReport", values: [true, true, true, true] },
-      { key: "prioritySupport", values: [false, false, false, true] },
+      { key: "onPageSeo", values: [true, true] },
+      { key: "offPageSeo", values: [true, true] },
+      { key: "articles", values: [{ text: "8" }, { textKey: "custom" }] },
+      { key: "backlinks", values: [true, true] },
+      { key: "audit", values: [true, true] },
+      { key: "specialist", values: [false, true] },
+      { key: "rankingReport", values: [true, true] },
+      { key: "prioritySupport", values: [false, true] },
     ],
   },
 };

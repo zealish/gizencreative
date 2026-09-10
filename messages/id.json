@@ -799,6 +799,10 @@
         "social": "Social Media",
         "seo": "SEO"
       },
+      "seoTiers": {
+        "standard": "Standard",
+        "professional": "Professional"
+      },
       "discountBadge": "Diskon {percent}%",
       "customPrice": "Custom",
       "planCta": "Mulai Sekarang",
@@ -1333,7 +1337,8 @@
       "expandSidebar": "Perluas sidebar",
       "signOut": "Keluar",
       "accountMenu": "Menu akun",
-      "portfolio": "Portofolio"
+      "portfolio": "Portofolio",
+      "pricing": "Harga"
     },
     "dashboard": {
       "eyebrow": "Dashboard",
@@ -1737,8 +1742,66 @@
     "statusPublished": "Terbit",
     "statusDraft": "Draft",
     "createButton": "Buat Project",
-    "columns": { "status": "Status", "actions": "Aksi" },
+    "columns": {
+      "status": "Status",
+      "actions": "Aksi"
+    },
     "save": "Simpan",
     "delete": "Hapus"
+  },
+  "pricingAdmin": {
+    "title": "Harga",
+    "new": "Tambah paket",
+    "eyebrow": "Manajemen Konten",
+    "description": "Kelola paket harga yang ditampilkan di halaman harga.",
+    "listTitle": "Semua Paket",
+    "planCount": "{count} paket",
+    "searchPlaceholder": "Cari paket…",
+    "backToList": "Kembali ke daftar harga",
+    "newDescription": "Tambahkan paket harga baru.",
+    "editTitle": "Edit Paket",
+    "editDescription": "Perbarui detail paket harga Anda.",
+    "service": "Layanan",
+    "seoTier": "Tier SEO",
+    "services": {
+      "website": "Website",
+      "social": "Social Media",
+      "seo": "SEO"
+    },
+    "seoTiers": {
+      "standard": "Standard",
+      "professional": "Professional"
+    },
+    "nameId": "Nama (ID)",
+    "nameEn": "Nama (EN)",
+    "descriptionId": "Deskripsi (ID)",
+    "descriptionEn": "Deskripsi (EN)",
+    "unitId": "Satuan (ID)",
+    "unitEn": "Satuan (EN)",
+    "featuresId": "Fitur (ID)",
+    "featuresEn": "Fitur (EN)",
+    "price": "Harga",
+    "priceHint": "Kosongkan untuk harga custom.",
+    "originalPrice": "Harga coret",
+    "discountPercent": "Diskon (%)",
+    "sortOrder": "Urutan",
+    "featured": "Tandai sebagai paket unggulan",
+    "published": "Publikasikan paket",
+    "customPrice": "Custom",
+    "statusPublished": "Terbit",
+    "statusDraft": "Draft",
+    "createButton": "Buat Paket",
+    "columns": {
+      "status": "Status",
+      "actions": "Aksi"
+    },
+    "save": "Simpan",
+    "edit": "Edit",
+    "delete": "Hapus",
+    "featurePlaceholder": "Contoh: Desain Responsive",
+    "featureAdd": "Tambah fitur",
+    "featureRemove": "Hapus fitur",
+    "featureMoveUp": "Pindah ke atas",
+    "featureMoveDown": "Pindah ke bawah"
   }
 }

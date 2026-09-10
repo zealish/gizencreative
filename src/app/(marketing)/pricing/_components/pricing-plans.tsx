@@ -5,15 +5,17 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 import { Reveal } from "@/components/reveal";
-import { ComparePlans } from "./compare-plans";
 import {
-  compareByService,
-  plansByService,
-  type Service,
-  serviceOptions,
-} from "./pricing-data";
+  type PricingPlanView,
+  type PricingSeoTier,
+  type PricingService,
+  pricingSeoTiers,
+  pricingServices,
+} from "@/lib/pricing-shared";
+import { ComparePlans } from "./compare-plans";
+import { compareByService, compareSeoByTier } from "./pricing-data";
 
-const icons: Record<Service, React.ReactNode> = {
+const icons: Record<PricingService, React.ReactNode> = {
   website: (
     <svg
       className="h-3.5 w-3.5"
@@ -65,10 +67,17 @@ const icons: Record<Service, React.ReactNode> = {
   ),
 };
 
-export function PricingPlans() {
+export function PricingPlans({ plans }: { plans: PricingPlanView[] }) {
   const t = useTranslations("pricing.plans");
-  const [service, setService] = useState<Service>("website");
-  const plans = plansByService[service];
+  const [service, setService] = useState<PricingService>("website");
+  const [seoTier, setSeoTier] = useState<PricingSeoTier>("standard");
+  const visiblePlans = plans.filter((plan) =>
+    plan.service === "seo"
+      ? service === "seo" && plan.seoTier === seoTier
+      : plan.service === service,
+  );
+  const compareTable =
+    service === "seo" ? compareSeoByTier[seoTier] : compareByService[service];
 
   return (
     <>
@@ -89,7 +98,7 @@ export function PricingPlans() {
           </p>
 
           <div className="mx-auto mt-8 flex w-full max-w-md flex-wrap justify-center rounded-3xl border border-black/5 bg-white p-1 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-white/5 dark:shadow-none sm:w-fit sm:max-w-none sm:flex-nowrap sm:rounded-full">
-            {serviceOptions.map((opt) => (
+            {pricingServices.map((opt) => (
               <button
                 key={opt}
                 type="button"
@@ -106,18 +115,37 @@ export function PricingPlans() {
             ))}
           </div>
 
+          {service === "seo" && (
+            <div className="mx-auto mt-4 flex w-fit rounded-full border border-black/5 bg-white p-1 shadow-sm dark:border-white/10 dark:bg-white/5 dark:shadow-none">
+              {pricingSeoTiers.map((tier) => (
+                <button
+                  key={tier}
+                  type="button"
+                  onClick={() => setSeoTier(tier)}
+                  className={`marketing-action rounded-full px-4 py-2 text-xs font-bold uppercase leading-none tracking-wide transition-colors sm:px-5 ${
+                    seoTier === tier
+                      ? "bg-primary text-white"
+                      : "text-foreground/60 hover:text-foreground"
+                  }`}
+                >
+                  {t(`seoTiers.${tier}`)}
+                </button>
+              ))}
+            </div>
+          )}
+
           <div
             className={`mx-auto mt-12 grid gap-5 md:grid-cols-2 ${
-              plans.length >= 4
+              visiblePlans.length >= 4
                 ? "lg:grid-cols-4"
-                : plans.length === 3
+                : visiblePlans.length === 3
                   ? "lg:grid-cols-3"
                   : "max-w-3xl"
             }`}
           >
-            {plans.map((plan, index) => (
+            {visiblePlans.map((plan, index) => (
               <Reveal
-                key={plan.key}
+                key={plan.id}
                 delay={index * 100}
                 className={`relative flex flex-col rounded-3xl border p-6 shadow-sm sm:p-7 ${
                   plan.featured
@@ -130,10 +158,8 @@ export function PricingPlans() {
                     {t("discountBadge", { percent: plan.discountPercent })}
                   </span>
                 )}
-                <h2 className="text-xl font-bold">{t(`${plan.key}.name`)}</h2>
-                <p className="mt-1 text-sm text-muted">
-                  {t(`${plan.key}.description`)}
-                </p>
+                <h2 className="text-xl font-bold">{plan.name}</h2>
+                <p className="mt-1 text-sm text-muted">{plan.description}</p>
                 <p className="mt-5">
                   {plan.originalPrice && (
                     <span className="mr-2 text-lg font-semibold text-muted line-through">
@@ -145,10 +171,10 @@ export function PricingPlans() {
                   </span>
                 </p>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-muted">
-                  {t(`${plan.key}.unit`)}
+                  {plan.unit}
                 </p>
                 <ul className="mt-6 flex-1 space-y-2.5">
-                  {t.raw(`${plan.key}.features`).map((feature: string) => (
+                  {plan.features.map((feature) => (
                     <li
                       key={feature}
                       className="flex items-start gap-2 text-sm text-foreground/80"
@@ -198,7 +224,7 @@ export function PricingPlans() {
       </section>
 
       <Reveal>
-        <ComparePlans service={service} table={compareByService[service]} />
+        <ComparePlans service={service} table={compareTable} />
       </Reveal>
     </>
   );
