@@ -4,7 +4,13 @@ import { useTranslations } from "next-intl";
 import { ScrollScale } from "@/components/scroll-scale";
 import { WaLink } from "@/components/wa-link";
 
-export function ContactCta({ image }: { image?: string | null }) {
+export function ContactCta({
+  image,
+  phone,
+}: {
+  image?: string | null;
+  phone?: string | null;
+}) {
   const t = useTranslations("contact.cta");
 
   return (
@@ -36,7 +42,9 @@ export function ContactCta({ image }: { image?: string | null }) {
           </p>
           <WaLink
             source="cta-contact"
-            href="https://wa.me/6281234567890"
+            href={
+              phone ? `https://wa.me/${phone.replace(/[^\d]/g, "")}` : "#kontak"
+            }
             className="marketing-action mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground dark:text-background transition-opacity hover:opacity-90"
           >
             {t("button")} <span aria-hidden="true">→</span>

@@ -46,12 +46,14 @@ export function LanguageSwitcher({
         type="button"
         aria-expanded={open}
         aria-haspopup="listbox"
+        aria-label={current.label}
+        title={current.label}
         onClick={() => setOpen((v) => !v)}
-        className="marketing-action flex cursor-pointer items-center gap-1.5 rounded-full border border-black/10 px-2.5 py-1.5 text-[11px] font-bold uppercase tracking-wide text-muted transition-colors hover:border-black/20 hover:text-foreground dark:border-white/15 dark:hover:border-white/30"
+        className="marketing-action relative flex size-9 cursor-pointer items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground"
       >
         <svg
-          width="14"
-          height="14"
+          width="18"
+          height="18"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -63,19 +65,9 @@ export function LanguageSwitcher({
           <circle cx="12" cy="12" r="10" />
           <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
-        {current.locale.toUpperCase()}
-        <svg
-          className={`size-3 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          viewBox="0 0 12 12"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M2.5 4.5 6 8l3.5-3.5" />
-        </svg>
+        <span className="absolute -bottom-0.5 right-0 rounded-full bg-background px-1 text-[9px] font-bold uppercase leading-tight tracking-tight text-foreground/70">
+          {current.locale}
+        </span>
       </button>
 
       <div

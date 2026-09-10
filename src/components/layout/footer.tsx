@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { Logo } from "@/components/layout/logo";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { WaLink } from "@/components/wa-link";
 
 const footerColumns: { title: string; links: string[] }[] = [
@@ -163,10 +162,7 @@ export function Footer({
         </div>
         <div className="flex flex-col items-center justify-between gap-4 border-t border-black/10 pt-6 text-xs text-muted sm:flex-row dark:border-white/15">
           <p>{t("copyright")}</p>
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-            <ThemeToggle className="flex" />
-          </div>
+          <LanguageSwitcher />
         </div>
       </div>
     </footer>

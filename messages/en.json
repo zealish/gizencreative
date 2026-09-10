@@ -1,4 +1,10 @@
 {
+  "cookieConsent": {
+    "eyebrow": "Your privacy",
+    "title": "We use cookies",
+    "description": "Cookies help us understand website usage and improve your experience.",
+    "accept": "Accept cookies"
+  },
   "whatsappButton": {
     "ariaLabel": "Chat with us on WhatsApp",
     "label": "Contact Us"

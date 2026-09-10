@@ -5,20 +5,19 @@ import {
   getPublishedPosts,
   localizeBlogPost,
 } from "@/lib/blog";
-import { getPageSeo } from "@/lib/settings";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 
 import { BlogGrid } from "./_components/blog-grid";
 import { BlogHero } from "./_components/blog-hero";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("blog.meta");
-  const seo = await getPageSeo("/blog");
 
-  return {
-    title: seo.title || t("title"),
-    description: seo.description || t("description"),
-    alternates: { canonical: "/blog" },
-  };
+  return buildPageMetadata({
+    page: "/blog",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function BlogPage() {

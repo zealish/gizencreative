@@ -205,11 +205,11 @@ export function Navbar({
             </Link>
           ))}
         </nav>
-        <div className="flex items-center justify-end gap-2 sm:gap-3 md:col-start-3 lg:gap-5">
+        <div className="flex items-center justify-end gap-2 md:col-start-3 lg:gap-3">
           <LanguageSwitcher placement="bottom" />
           <Link
             href="/#kontak"
-            className="marketing-action hidden inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-opacity hover:opacity-85 md:inline-flex"
+            className="marketing-action hidden items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-md transition-opacity hover:opacity-85 md:inline-flex"
           >
             {t("cta")}
             <ArrowRight aria-hidden="true" className="size-4 shrink-0" />

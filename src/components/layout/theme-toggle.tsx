@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 
 export function ThemeToggle({
   className = "hidden sm:flex",
+  variant = "inline",
 }: {
   className?: string;
+  variant?: "inline" | "floating";
 }) {
   const [isDark, setIsDark] = useState(false);
 
@@ -20,12 +22,17 @@ export function ThemeToggle({
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
+  const base =
+    variant === "floating"
+      ? "marketing-action fixed bottom-24 right-6 z-50 grid size-14 place-items-center rounded-full bg-white text-foreground/70 shadow-lg ring-1 ring-black/5 transition-transform hover:scale-105 hover:text-foreground dark:bg-neutral-900 dark:ring-white/10"
+      : "marketing-action size-9 cursor-pointer items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground";
+
   return (
     <button
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Aktifkan mode terang" : "Aktifkan mode gelap"}
-      className={`marketing-action size-9 cursor-pointer items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground ${className}`}
+      className={`${base} ${className}`}
     >
       {isDark ? (
         <svg

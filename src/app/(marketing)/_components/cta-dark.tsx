@@ -5,7 +5,13 @@ import { useTranslations } from "next-intl";
 import { ScrollScale } from "@/components/scroll-scale";
 import { WaLink } from "@/components/wa-link";
 
-export function CtaDark({ image }: { image?: string | null }) {
+export function CtaDark({
+  image,
+  phone,
+}: {
+  image?: string | null;
+  phone?: string | null;
+}) {
   const t = useTranslations("ctaDark");
 
   return (
@@ -41,7 +47,11 @@ export function CtaDark({ image }: { image?: string | null }) {
             <WaLink
               data-marketing-action
               source="cta-home"
-              href="https://wa.me/6281234567890"
+              href={
+                phone
+                  ? `https://wa.me/${phone.replace(/[^\d]/g, "")}`
+                  : "#kontak"
+              }
               className="group flex w-full max-w-xs items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground dark:text-background transition-[transform,opacity] duration-200 hover:scale-[1.02] hover:opacity-90 motion-reduce:transition-none sm:w-auto"
             >
               {t("ctaWhatsApp")}

@@ -14,7 +14,7 @@ import {
   localizeBlogPost,
 } from "@/lib/blog";
 import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo/json-ld";
-import { getSeoOverrides } from "@/lib/settings";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 import { BlogCard } from "../_components/blog-card";
 import { BlogComments } from "./_components/blog-comments";
 import { ShareButtons } from "./_components/share-buttons";
@@ -35,21 +35,18 @@ export async function generateMetadata({
   const categories = await getBlogCategories();
   const locale = await getLocale();
   const post = localizeBlogPost(record, locale, categories);
-  const seo = await getSeoOverrides();
-  const ogImage = seo.ogImage;
-  return {
+  return buildPageMetadata({
+    canonical: `/blog/${post.slug}`,
     title: `${post.title} | Gizen Creative`,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
       title: post.title,
       description: post.excerpt,
       url: `/blog/${post.slug}`,
       publishedTime: post.date,
-      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
     },
-  };
+  });
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 import {
   getBentoCustomImage,
   getCtaDarkImage,
-  getPageSeo,
+  getGeneralSettings,
   getUseCaseImages,
 } from "@/lib/settings";
 
@@ -19,20 +20,23 @@ import { WhyChooseUs } from "./_components/why-choose-us";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata");
-  const seo = await getPageSeo("/");
 
-  return {
-    title: seo.title || t("title"),
-    description: seo.description || t("description"),
-  };
+  return buildPageMetadata({
+    page: "/",
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function MarketingPage() {
-  const [useCaseImages, bentoImage, ctaDarkImage] = await Promise.all([
-    getUseCaseImages(),
-    getBentoCustomImage(),
-    getCtaDarkImage(),
-  ]);
+  const [useCaseImages, bentoImage, ctaDarkImage, settings] = await Promise.all(
+    [
+      getUseCaseImages(),
+      getBentoCustomImage(),
+      getCtaDarkImage(),
+      getGeneralSettings(),
+    ],
+  );
 
   return (
     <>
@@ -45,7 +49,7 @@ export default async function MarketingPage() {
         <UseCases images={useCaseImages} />
         <WhyChooseUs />
         <Faq />
-        <CtaDark image={ctaDarkImage} />
+        <CtaDark image={ctaDarkImage} phone={settings.contactPhone} />
       </div>
     </>
   );

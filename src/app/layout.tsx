@@ -5,9 +5,11 @@ import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import "./globals.css";
+import { CookieConsent } from "@/components/cookie-consent";
 import { JsonLd } from "@/components/json-ld";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/json-ld";
+import { parseKeywords } from "@/lib/seo/page-metadata";
 import { siteConfig } from "@/lib/seo/site-config";
 import { getAnalyticsSettings, getSeoOverrides } from "@/lib/settings";
 
@@ -24,10 +26,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const analytics = await getAnalyticsSettings();
   const seo = await getSeoOverrides();
   const ogImage = seo.ogImage || siteConfig.ogImage;
+  const title = seo.metaTitle || t("title");
+  const description = seo.metaDescription || t("description");
   return {
     metadataBase: new URL(siteConfig.url),
-    title: t("title"),
-    description: t("description"),
+    title,
+    description,
+    keywords: parseKeywords(seo.metaKeywords),
     applicationName: siteConfig.name,
     icons: {
       icon: [
@@ -43,8 +48,8 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       siteName: siteConfig.name,
-      title: t("title"),
-      description: t("description"),
+      title,
+      description,
       url: "/",
       locale: locale === "id" ? "id_ID" : "en_US",
       images: [{ url: ogImage }],
@@ -52,8 +57,8 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       site: siteConfig.twitterHandle,
-      title: t("title"),
-      description: t("description"),
+      title,
+      description,
       images: [ogImage],
     },
     robots: {
@@ -84,7 +89,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       className={`${figtree.variable} h-full antialiased`}
     >
       {analytics.gtmId ? <GoogleTagManager gtmId={analytics.gtmId} /> : null}
-      <body className="min-h-full flex flex-col">
+      <head>
         <Script
           id="theme-init"
           strategy="beforeInteractive"
@@ -93,9 +98,14 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             __html: `try{const theme=localStorage.getItem("theme");document.documentElement.classList.toggle("dark",theme==="dark")}catch{}`,
           }}
         />
+      </head>
+      <body className="min-h-full flex flex-col">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <SmoothScroll />
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          {children}
+          <CookieConsent />
+        </NextIntlClientProvider>
       </body>
       {analytics.gaMeasurementId ? (
         <GoogleAnalytics gaId={analytics.gaMeasurementId} />

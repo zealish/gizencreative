@@ -6,6 +6,7 @@ import {
   getPublishedPosts,
   localizeBlogPost,
 } from "@/lib/blog";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 import { BlogPostList } from "../../_components/blog-post-list";
 
 type PageProps = { params: Promise<{ tag: string }> };
@@ -20,11 +21,11 @@ export async function generateMetadata({
   const { tag } = await params;
   const t = await getTranslations("blog");
 
-  return {
+  return buildPageMetadata({
+    canonical: `/blog/tag/${tag}`,
     title: t("tagPage.metaTitle", { tag }),
     description: t("tagPage.metaDescription", { tag }),
-    alternates: { canonical: `/blog/tag/${tag}` },
-  };
+  });
 }
 
 export default async function BlogTagPage({ params }: PageProps) {

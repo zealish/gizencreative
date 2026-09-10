@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo/json-ld";
-import { getCtaDarkImage, getPageSeo } from "@/lib/settings";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
+import { getCtaDarkImage } from "@/lib/settings";
 import { SmmCta } from "./_components/smm-cta";
 import { SmmFeatures } from "./_components/smm-features";
 import { SmmHero } from "./_components/smm-hero";
@@ -13,13 +14,12 @@ const servicePath = "/services/social-media-management";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("socialMediaManagement.meta");
-  const seo = await getPageSeo(servicePath);
 
-  return {
-    title: seo.title || t("title"),
-    description: seo.description || t("description"),
-    alternates: { canonical: servicePath },
-  };
+  return buildPageMetadata({
+    page: servicePath,
+    title: t("title"),
+    description: t("description"),
+  });
 }
 
 export default async function SocialMediaManagementPage() {

@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { getGeneralSettings, getSiteLogo } from "@/lib/settings";
 
@@ -20,6 +21,7 @@ export default async function MarketingLayout({
       <main className="flex-1">{children}</main>
       <Footer logoUrl={logoUrl} settings={settings} />
       <WhatsAppButton phone={settings.contactPhone} />
+      <ThemeToggle variant="floating" className="flex" />
     </>
   );
 }

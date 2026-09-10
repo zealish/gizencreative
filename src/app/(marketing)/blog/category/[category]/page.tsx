@@ -7,6 +7,7 @@ import {
   localizeBlogCategory,
   localizeBlogPost,
 } from "@/lib/blog";
+import { buildPageMetadata } from "@/lib/seo/page-metadata";
 import { BlogPostList } from "../../_components/blog-post-list";
 
 type PageProps = { params: Promise<{ category: string }> };
@@ -27,11 +28,11 @@ export async function generateMetadata({
   const locale = await getLocale();
   const categoryName = localizeBlogCategory(record, locale).name;
 
-  return {
+  return buildPageMetadata({
+    canonical: `/blog/category/${category}`,
     title: t("categoryPage.metaTitle", { category: categoryName }),
     description: t("categoryPage.metaDescription", { category: categoryName }),
-    alternates: { canonical: `/blog/category/${category}` },
-  };
+  });
 }
 
 export default async function BlogCategoryPage({ params }: PageProps) {
